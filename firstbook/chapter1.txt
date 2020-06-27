@@ -1,0 +1,43 @@
+1 Examining the Pieces of Web Programming
+At first, diving into web programming can be somewhat overwhelming.
+You need to know all kinds of things in order to build a web application that not only looks enticing but also works correctly.
+The trick to learning web programming is to pull the individual pieces apart and tackle them one at a time.
+
+This chapter gets you started on your web design journey by examining the different pieces involved in creating a s imple web page.
+Then it kicks things up a notch and walks you through dynamic web pages.
+And finally, the chapter ends by explanining how to store your content for use on the web.
+
+Creating a Simple Web Page
+
+Before you can run a marathon, you need to learn how to walk.
+Likewise, before you can create a fancy website, you need to know the basics of how web pages work.
+Nowadays, sharing documents on the Internet is easy, but it wasn't alwasy that way.
+Back in the early days of the Internet, documents were often created using proprietary word-processing packages and had to be downloaded using the cumbersome file Transfer Protocol (FTP).
+To retrieve a document, you had to know exactly what server contained the document, you had to know where it was stored on the server, and you had to be able to log into the server.
+After all that , you still needed to have the correct word-processing software on your computer to view the document.
+As you can imagine, it wasn't long before a new way of sharing content was required.
+
+To get to where we are today, several different techonologies had to be developed:
+
+1) Method for linking related documents together
+2) A way for the document reader to display formatted text the same way in any type of device
+3) An Internet standard allowing clients to easily retrieve documents from any server
+4) A standard method of stying and positioning content in documents
+
+This section describes the technology that made viewing documents on the Internet work h wasy it does today.
+
+Kicking things off with the World Wide Web
+in 1989, Tim Berners-Lee developed a method of interconnecting documents to make sharing research information on the INternet easier.
+His creation, the World Wide Web, defined a method for linking documents together in a web structure, so that a researcher could follow the path between related documetns ,no matter where they were located in world.
+Clicking text in one document took you to another document automatically, without your having to manually find and download the related document.
+
+The method Berners-Lee developed for linking documetns is called hypertext.
+Hypertext embeds links that are hidden from view in the document, and directs the sfotware benig used to view the document (known as the web browser) to retrieve the referenced document.
+With hypertext, you just click the link, and the software (the web browser) does all the work of finding and retrieving athe related document for you.
+
+Because the document-viewing software does all the hard work, a new type of software had to be deeloped that was moe than just a document viewer.
+That's where web browsers came into existence.
+Web browsers display a document on a computer screen and respond to the reader clicking hypertext links to retrieve other specified documents.
+
+To implement hypertext in documetns, Berners-Lee had to utilize a text-based document -formattting system.
+Fortunately for him, a  lot of work had already been done on that.
