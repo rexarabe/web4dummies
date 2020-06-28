@@ -41,3 +41,273 @@ Web browsers display a document on a computer screen and respond to the reader c
 
 To implement hypertext in documetns, Berners-Lee had to utilize a text-based document -formattting system.
 Fortunately for him, a  lot of work had already been done on that.
+
+Making sense of markup languages
+Markup languages were developed to replace proprietary word-processing packages with a standard way of formatting documents so that they could be read by any tupe of document viewer on any type of device.
+This goal is accomplished by embdedding tags in the text.
+Each tag indicates a formatting feature, such as headings, bold or italic text, or special margins.
+What made markup language different from word-processing packages is that these tags were common text code instead of proprietary codes, making it generic enough that any device could read and process them.
+
+The first popular markup language was the Generalized Markup Language (GML), developed by IBM in the 1960s.
+The International organization for standardization (ISO) toop up the challenge of creating markup languages and produced the Standard Generalized Markup Language(SGML), mainly based on GML, in the 1980's.
+However, because SGML was developed to cover tall types of document formatting on all types of devices, it's extremely complex and it wasn't readily adapted.
+
+Berners-Lee used the ideas developed in SGML to create a simplified markup language that could support his hypertext idea.
+He called it Hypertext Markup Language (HTML).
+HTML uses the same concept of tags that SGML uses, but it defines fewer of them, making it easier to implement in software.
+
+An example of an HTML tag is <h1>.
+You use this tag to define text that's used as a page heading.
+Just surround the text with an opening <h1> tag, and a corresponding closnig </h1> tag, like this:
+
+<h1> This is my heading </h1>
+
+When the browser gets to the <h1> tag, it knows to format the text embedded in the opening and closing tags using a different style of formatting, such as a larger front or a bold typeface.
+
+To define a hypertext link to another document, you use the <a> tag:
+
+<a href="anotherdoc.html"> Click here for more info </a>
+
+When the reader clicks the Click here for more info text, the browser automatically tries to retrieve the document speficied in the <a> tag.
+That document can be on the same server or on another server anywhere on The Internet.
+HTML development has seen quite a few changes since Berners-Lee created it and turned it over the World Wide Web Consortium (W3C) to maintain.
+Table 1-1 shows the Path the language has taken.
+
+HTML Versions
+
+Version    Description
+HTML 1.0   Formally released in 1989 as the first public version of HTML.
+HTML 2.0   Released in 1995 to add interactive elements
+HTML 3.0   Released in 1996 but never widely adopted
+HTML 3.2   Released in 1997, adding support for tables
+HTML 4.01  Released in 1999, widely adopted, and remains an often-used standard
+XHTML 1.01 Released in 2001, standardizing HTML around the XML document format
+XHTML 1.1  Released in 2002, making updates and corrections to XHTML 1.0
+HTML 5.0   Released in 2014, adding multiedia features.
+
+The HTML version 4.01 standard was the backbone of websites for many years, and it's still used by many websites today.
+However, HTML version 5.0 (called HTML5 for short) is the future of web development.
+It provides additional features for embedding multimedia content in web pages without the need for proprietary software plug-ins (such as Adobe flash Player).
+Because multimedia is taking over the world (just ask Youtube), HTML5 has grown in popularity.
+This book focuses on HTML5; all the code included in this book use that strandard.
+
+Retrieving HTML documents
+Besides a document-formating standard, Berners Lee alsol developed a method of easily retrieving the HTML documents in a client-server environment.
+A web server software package runs in the background on a server, listening for connection requests from web clients (the browser).
+The browser sends requests to retrieve HTML documents from the server.
+The request can be send anonymously (without using a login username), or the browser can send a username and password or certificate ot identify the requestor.
+
+These requests and responses are defined in the Hypertext Transfer Protocol (HTTP) standard.
+HTTP defines a set of requests the client can send to the server and a set of responses the server uses to reply back to the client.
+
+This section walks you throuh the basics of how web servers and web clients use HTTP to interact with each other to move web pages across the Internet.
+
+Web clients
+
+The web client sends requests to the web server on a standard network communication channel (known as TCP port 80), which is defined as the standard for HTTP communication.
+HTTP uses standard text requests sent to the server, either requesting information from the server or sending information to the server.
+Table 1-2 shows the basic HTTP client requests available.
+
+HTTP Client Requests
+Request            Description
+CONNECT            Converts the connection into a secure tunnel for sending data.
+DELETE             Deletes the specified resource
+GET                Requests the specified resource
+HEAD               Requests the title of the specified resource
+OPTIONS            Retrieves the HTTP requests that the server supports
+PATCH              Applies a modification to a resource
+POST               Sends specified data to the server for processing
+PUT                Stores specified data at a specified location.
+TRACE              Sends the received request back to the client.
+
+As shows in table 1-2, when you ask to view a web page from your client browser, the browser sends the HTTP GET request to the server, specifying the filename of the web page.
+The server then responds with a response code along with the requested data.
+If the client doesn't specify a filename in the GET request, most servers have a default file with which to respond.
+
+Web servers
+With HTTP, the web server must respond to each client request received.
+If the client sends a request that the server can't process, the server must send some type of error code back to the client indicating that something went wrong.
+
+The first part of the server response is a status code and tesxt that the client uses to determine whether the submitted request was successful.
+The format of the HTTP response uses a three-digit status code, followed by an optional text message that the browser can display.
+The three-digit codes are broken down into five categories:
+
+1xx: informational messages
+2xx: Success
+3xx: Redirection
+4xx: Client error
+5xx: Server error
+
+The three digit status code is crucial to knowing what happened with the response.
+Many status codes are defined in the HTTP standard, providing some basic information on the status of client requests.
+Table 1-3 shows just a few of the standard HTTP response codes that you may run into.
+
+TABLE 1-3     Common HTTP Server Response Status Codes
+Status Code      Text Message            Description
+100              Continue                The client should send additional information.
+101              Switching Protocols     The server is using a different protocol for the request.
+102              Processing              The server is working on the response.
+200              OK                      The server accepted the request and has returned the response.
+201              Created                 The server created a new resource in response to
+202              Accepted                The data sent by the client has been accepted by the server but has not completed processing the data.
+206              Partial Content         The response returned by the server is only part of the full data; more will come in another response.
+300              Multiple Choices        The request matched multiple possible responses from the server.
+301              Moved Permanently       The requested file was moved and is no longer at the requeseted location.
+302              Found                   The requested resource was found at different location.
+303              See Other               The requested resource is available at a different location.
+304              Not Modified            The requested resource was not modified since the last time the client accessed it.
+307              Temporary Redirect      The requested resource was temporarily moved to a different location.
+308              Permanent Redirect      The requested resource was permanently moved to a different location.
+400              Bad Request             The server cannot process the request
+401              Unauthorized            The resource requires authentication that the client did not provide.
+402              Payment Required        The request resource is not freely available.
+403              Forbidden               The resrouce requires authentication, and the client does not have the proper permission.
+404              Not Found               The requested resrouce was not located on the server.
+414              URI Too Long            The Uniform Resrouce Identifier (URI) describing the location of the resource was longer than the server is able to handle.
+415              Unsupported Media Type  The server does not known how to process the requested resource file.
+429              Too Many Requests       The client has sent too many requests within a specific amount of time.
+500              Internal Server Error   An unexpected condition occured on the server while trying to retrieve the requested resrouce.
+501              Not Implemented         The server doesn't recognize the request.
+502              Bad Gateway             The server was acting as a proxy to another server but received an invalid response from the other server.
+503              Service Unavailable     The server is currently unavailable, often due to maintenance.
+505              HTTP Version not        The server doesn't support he HTTP standard used by the client in the request.
+                 Supported
+
+507              Insufficient Storage   The server is unable to store the resource due to lack of storage space.
+
+511              Network                The client is required to authenticate with a network resrouce to receive the response.
+                 Authentication
+                 required
+
+As you can see from Table 1-3, a web server can return many possible responses.
+It's the client's job to parse the response and determine the next action to take.
+
+If the response indicates the request was successful, the server will follow the response code with the data related to the request, such as the contents of an HTML file.
+The client must then read the returned data and decide what to do with it.
+For HTML files, the browser will display the requested file, applying the HTML formatting tags to the data.
+
+
+Don't worry about trying to memorize all the HTTP status codes .
+Most of them you'll never run into in your web-programming career. Before long, you'll start to remember a few of the more common ones, and you can always look up any others you run into.
+
+Styling
+The HTML standard defines how browsers perform basic formatting of text, but it doesn't really provide a way to tell a browser how to display the text.
+The <h1> tag indicates that the text should be a heading, but nothing tells the browser just how to display the heading to make it different from any other text on the page.
+
+This is where styling comes into play.
+Styling allows you to tel lthe browser just what fonts, sizes, and colors to use for text, as well as how to position the text in the display.
+This section explains how styling affects how your web pages appear to your visitors.
+
+Style sheets
+There are several ways to define styling for an HTML document.
+The most basic method is what the browser uses by default.
+When the browser sees an HTML formatting tag, such as the <h1> tag, it has predefined font, size, and color that the developer of the browser felt was useful.
+
+That's fine, but what if you want to make some headings black and others red?
+This is possible with inline styling.
+Inline styling allows you to define special styles that apply to only one specific tag in the document.
+For example, to make one heading red, you'd use the following HTML:
+<h1 style="color: red">Warning, this is bad </h1>
+
+The style term is called an attribute of the <h1> tag.
+There are a few different attribues you can apply directly to tags within HTML; each one modifies how the browser should handle the tag.
+The style attribute allows you to apply any type of stylling to this specific <h1> tag in the document.
+In this example, I chose to change the color of the text.
+
+Now, you're probably thinking that I've just opened another can of worms.
+What if you want to apply the red color to all the <h1> tags in your document?
+That's a lot of extra code to write!
+Don't worry, there's a solution for that.
+
+Instead of inserting styles inline, you can create a style definition that applies to the entire document.
+This method is known as internal styling.
+it defines a set of styles at the top of the HTML document that are applied to the entire document.
+Internal styling look like this:
+
+<style>
+h1 {color : red;}
+</style>
+
+Now the browser will display all the <h1> tags in the document using a red color.
+But wait, there's more!
+
+Style listings can be somewhat lengthy for large web pages, and placing them at the top of a document can become cumbersome.
+Also, if you want to apply the same styles to all the web pages in a website, having to retype or copy all that text can be tiring.
+To solve that problem,  you use an external style sheet.
+
+An external style sheet allows you to define style just as the internal method does,  but in a seperate file, called a style sheet.
+Any web page can reference the same style sheet, and you can apply multiple style sheets to a sinlge web page.
+You reference the external style sheet using the <link> tag, like this:
+<link rel="stylesheet" href="mystyles.css">
+
+When the browser sees this tag, it downloads the external style sheet, and applies the styles you defined in it to the document.
+
+This all sounds great, but things just got a lot more compilcated!
+Now there are three different locations from which you can define styles for your HTML document, on top of what the browser itself does.
+How are you supposed to know which ones take precedence over the others?
+The Cascading Style Sheet (CSS) standard deines a set of rules that determine just how browsers should apply styles to an HTML document.
+As the name implies, styles cascade down from a high level to a low level.
+Styles defined in a higher-level rule override styles defined in a lower-level rule.
+
+The CSS standard defines nine separate levels, which I cover in greater detail in Book 2, Chapter 2, but for now here are the four most common style levels, in order from highest priority to lowest:
+
+Styles defined within the element tags
+Styles defined in an internal style sheet
+Styles defined in an external style sheet
+Style defined by the client's browser defaults.
+
+So, any style attributes you set in an element tag oveeride any styles that you set in an internal style sheet, which overrirdes any styles you set in an external style sheet, which overrrieds any styles the client browser uses by default.
+THis allows you to set an overall style for your web pages using an external style sheet, and then override those settings for individual situations using the standard element tags.
+
+Technical stuff:
+You may be wondering how assistive techonology tools work to change the web page display for individuals who are sight impaired.
+Part of the nine rules tht I cover in Book 2, Chapter 2, incorporate any rules defined in the browser for sight-impaired viewing.
+
+CSS standards
+The CSS standard defines a core set of styles for basic rendering of an HTML document.
+The first version of CSS (Called CSS1) was released in 1996, and it only defined some very rudimentary styles:
+
+Font type, size and color
+Text alignment (such as margins)
+Background colors or images
+Borders
+
+The second version of CSS, called - you guessed it! - CSS2, was realeased in 1998.
+It added only a few more styling features:
+
+More exact positioning of text
+Styles for different output types (such as printers or screens)
+The appearance of browser features such as the cursor and scrollbar
+
+That's still not all that impressive of a list of styles.
+Needless to say, more was needed to help liven up web pages.
+To compensate for that, many browser delopers started creating their own style definitions, apart frmo the CSS standards.
+These style definitions are called extensions.
+The browser extensinos vocered lots of different fancy styling features, such as applying rounded edges to borders and images, making a smoother layout in the web page.
+
+As you might guess, having different extensions to aplply different style features in different browsers just made things more complicated.
+Instead of coding a single style for an element in an HTML document, you need to code the same feature several different ways so the web page would look the same in different browsers.
+This quickly became a nightmare.
+
+When work was started on the CSS3 Standard in 1999, one of the topic was to rein in the myriad browser extensions.
+However, things quickly became complicated because all the different browser developers wanted their own extensions included in the new standard.
+
+To simplify the process, the CSS design committee split the CSS standards into separate modules.
+Each CSS module covers a specific area of styling, such as colors, media support, and backgrounds.
+Each module could be voted on and released under a different timeline.
+The downside to this approach is that now each module has been released as aa recommended standard at a different time, making the CSS3 stand somewhat difficult to trakc and implement.
+
+Quite possibly one of the most anticipated featues of CSS3 is the ability to define fonts.
+Fonts have long been the bane of web programmers.
+When you defines a specific font that font must be installed on your website visitor's computer in order for the browser to use it.
+If the font isn't available, the browser picks a default font to use, which often becomes an ugly mess.
+
+Web fonts allow you to define a font on your server so that every client browser can download the font and render text using it.
+This is a huge accomplishment!
+No longer are you reliant on your website visitors having specific fonts installed in their web browsers.
+
+Yet another popular features of CSS3 is the use of shadows and semitransparent colors in text and other web page elemetns, such as form objects.
+These features by themselves can transform an ugly HTML form into a masterpiece.
+
+The combination of HTML5 and CSS3 has greatly revolutionized the web world, allowing developers to create some pretty amazing websties.
+However, one thing was still missing: the ability to easily change content on the web page.
