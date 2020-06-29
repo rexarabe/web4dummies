@@ -311,3 +311,418 @@ These features by themselves can transform an ugly HTML form into a masterpiece.
 
 The combination of HTML5 and CSS3 has greatly revolutionized the web world, allowing developers to create some pretty amazing websties.
 However, one thing was still missing: the ability to easily change content on the web page.
+
+Creating a Dynamic Web Page
+Static web pages contain information that doesn't change until the web designer or programmer manually changes it.
+In the early days of the Internet, simply on the Internet bandwagon was important for corporations.
+It wasn't so important what companies posted on the web, as long as they had on Internet presence where customers could get basic information about the company and its products.
+Static web pages, consisting solely of HTML and CSS, easily accomplished this function.
+
+But one of the big limitatitons of static web pages is how muc effort it takes to update them.
+Changing a single element on a static web page requires rebuilding and reloading the entire page, or sometimes even a group of wbe pages.
+This process is way too cumbersome for an organization that frequently needs to post, real-time information, such as events, awards, or closings.
+Also, during this process, a developer can accidentally change other items on the page, seriously messing up the information on the web page, or even the entire web page layout!
+
+Dynamic web pages allow you to easily change your content is real time without even touching the coding fo the page.
+That's right: Without manually making any changes to the page itself, the information on the page can change.
+This means you can keep the content on the page fresh so that what a  visitor sees there now may be updated or replace in a day, an hour, or a minute.
+The core layout of the web page can remain the same, but the data presented constantly changes.
+
+To successfully create a dynamic web page, you have to know a method for automatically inserting real-time data into the HTML code that gets sent to the client browser.
+This is where web scripting languages come in.
+
+A web scripting language allows you to insert program code inside your web page that dynamically generates HTML that the client browser reads.
+A processor reads the program code and dynamically generates HTML to display content on the web page, as shown in FIgure 1-1.
+
+
+Web page with
+HTML code
+and embedded
+script code
+--------------
+|HTML        |
+|.......     |
+|.......     |                                                                        Final Web page with
+|.......     |                                                                          only HTML code
+|.......     |                   ___________________                                ________________________
+|Code        |                   |                 |                                |   /----------------\ |
+|.......     |                   |                 |                                |   \My web Page     / |
+|.......     |    -------------->|Embedded script  |-------------------->           |    ----------------  |
+|.......     |                   |     Processor   |                                | _____  ______________|
+|.......     |                   |                 |                                | |....| |() .........||
+|HTML        |                   --------------------                               | |....| |............||
+|.......     |                                                                      | |____| |____________||
+|.......     |                                                                      |______________________|
+|.......     |
+|.......     |
+--------------
+
+Figure 1-1:
+Program code embedded in a web page.
+
+Now, because programming code is embedded in the web page, something somewhere must run the code to produce the dynamic HTML for the new content. As it turns out, there are two places where the embedded program code can run:
+
+>> On the client's compurter, after the web browser downloads the web page.
+This is known as client-side programming.
+
+>> On the web server before the web page is sent. This is knolw as server side programming.
+
+This section takes a look at how each of these type of programming differ in creating dynamic conent for your website.
+
+Client-side programming
+In client-side programming, you embded program code inside the HTML code that the server sends to the client browser with the HTML code.
+The browser must be able to detect eht embedded program code and run it, either inside the browser or as a separate program outside the browser.
+Firgure 1-2 demonstrates this process.
+
+_________________________________________________________
+|   HTML code and embedded                              |
+|   script code                                         |
+|  ________________________________                     |
+|  |                              |                     |
+|  | HTML                         |                     |
+|  | ......................       |                     |
+|  | ......................       |                     |
+|  | ......................       |                     |
+|  | ......................       |                     |
+|  | ......................       |                     |
+|  | ......................       |                     |
+|  | ......................       |                     |
+|  | ......................       |                     |
+|  | ......................       |                     |
+|  | Code                         |                     |
+|  | ......................       |                     |
+|  | ......................       |                     |
+|  | ......................       |                     |
+|  | ......................       |                     |
+|  | HTML                         |                     |
+|  | ......................       |                     |
+|  | ......................       |                     |
+|  | ......................       |                     |
+|  | ......................       |                     |
+|  | ......................       |                     |
+|  |______________________________|         Web Server  |
+|_______________________________________________________|
+                      |
+                      |
+                      |
+                      |
+                      V
+________________________________________________________________________________________________________________________________________________________________________________________________________
+|                                                                                                                                                                                                      |
+|         Web page with                                                                                                                                                                                |
+|         HTML code                                                                                                                      Final Web page with only HTML                                 |
+|         and embedded script code                                                                                                                                                                     |
+|     ____________________________________________________                                                             _________________________________________________________________________       |
+|     |                                                  |                                                             |                                                                       |       |
+|     |   HTML                                           |                                                             |             ____________________________________________              |       |
+|     |   .........................................      |                                                             |             |                                          |              |       |
+|     |   .........................................      |                                                             |             |           My Web Page                    |              |       |
+|     |   .........................................      |                  Web Client                                 |             |__________________________________________|              |       |
+|     |   .........................................      |                                                             |                                                                       |       |
+|     |   .........................................      |                                                             |    ____________  ______________________________________________       |       |
+|     |                                                  |                                                             |    |          |  |                                            |       |       |
+|     |    Code                                          |                                                             |    |          |  |                                            |       |       |
+|     |   *****************************************      |           __________________________________                |    |          |  |                                            |       |       |
+|     |   *****************************************      |           |                                |                |    |          |  |                                            |       |       |
+|     |   *****************************************      |           |     Embedded Script            |                |    |          |  |                                            |       |       |
+|     |   *****************************************      |---------->|         Processor              |--------------->|    |          |  |                                            |       |       |
+|     |   *****************************************      |           |                                |                |    -----------   ----------------------------------------------       |       |
+|     |   *****************************************      |           |                                |                |                                                                       |       |
+|     |                                                  |           |________________________________|                |                                                                       |       |
+|     |   HTML                                           |                                                             |                                                                       |       |
+|     |   .........................................      |                                                             |                                                                       |       |
+|     |   .........................................      |                                                             |                                                                       |       |
+|     |   .........................................      |                                                             |                                                                       |       |
+|     |   .........................................      |                                                             |                                                                       |       |
+|     |   .........................................      |                                                             |                                                                       |       |
+|     |__________________________________________________|                                                             |_______________________________________________________________________|       |
+|______________________________________________________________________________________________________________________________________________________________________________________________________|
+
+Figure 1-2:
+Using client-side code in a web page.
+
+
+JavaScript
+These days, the most popular client-side programming language is JavaScript.
+JavaScript is a scripting language that you embed inside the normal HTML code in your web page.
+It runs within the client browser and can utilize features of the browser that are not normally accessible from standard HTML code.
+JavaScript code is commonly used to produce pop-up messages and dialog boxes that people interact with as they view the page.
+These are elemetns that HTML code can't generate.
+As shown in Figure 1-2, the entire web page with the embedded JavaScript code is downloaded to the client browser.
+The client browser detects the embedded JavaScript code and runs it accordingly.
+It does this while also processing the HTML tag within the document and applying any CSS styles defined.
+That's a lot for the broswer to keep up with!
+The downside of JavaScrpt it that, because it runs in the client browser, you're at the mercy of how the individual web browser interprets the code.
+Although the HTML language started out as a standard, JavaScipt was a little different.
+In the early days of JavaScript, differnt browsers would implement different features of javaScript using different methods.
+It was not uncommon to run across a web page that worked just fine for one type of browser, but didn't work at all in another type of browser - all because of JavaScript processing inconsisntencies.
+
+Eventually, work was done to standardize javaScript.
+The JavaScript was taken up by the Ecma International standards organization, which created the ECMAScript standard, which is what JavaScript is now based off of.
+As the ECMAScript standard evolved, more and more browser developers started seeing the benefits of using a standard client-side programming language and incorproated them in their JavaScript implementations.
+At the time of this writing, the eighth version of the standard, called ECMAScript 2017, has been finalized and implemented in most browsers.
+
+The technical Stuff:
+The name JavaScript was chosent ot capitalize on the popularity of the Java programming Languaeg for use in web applications.
+However, it doens't have any resemblance or relation to the Java Programming language.
+
+jQuery
+JavaScript is popular, but one of its downsides is that it can be somewhat complicated to program.
+With so many different features incorporated by so many different developers, today a JavaScript program can quickly turn into a large endeavor to code.
+
+To help solve this issue, a group of developers banded together to create a set of libraries to make client-side programming with JavaScript easier.
+Thus was born jQuery.
+
+The jQuery software isn't a separete programming language; instead, it's a set of libraries of JavaScript code.
+The libraries are self-contained JavaScript function that you can reference in your own JavaScript programming to perform common functions, such as finding a location in a web page to display text or retrieve  a  value entered into an HTML form field.
+
+Instead of having to write lines and lines of JavaScript code, you can just reference one or two jQuery functions to do the work for you.
+THat's a huge time-saver, as well as a great resource for implementing advanced features that you would never have been able to code yourself using just JavaScript.
+
+Server-side programming
+The other side of web programming is server-side programming.
+Server-side programming languages solve the problem of different client code interpreters by running the code on the server.
+In server-side programming, the web server interprets the embedded programming code before sending the web page to the client's browser.
+The server then takes any HTML that the programming code generates and inserts it directly into the web page before sending it out to the client.
+The server does all the work running the scripting code, so you're guaranteed that every web page will run properly.
+Figure 1-3 illustrates this process.
+
+
+________________________________________________________________________________________________________________________________________________________________________________________________________
+|                                                                                                                                                                                                      |
+|         Web page with                                                                                                                                                                                |
+|         HTML code                                                                                                                      Final Web page with only HTML                                 |
+|         and embedded script code                                                                                                                                                                     |
+|     ____________________________________________________                                                             _________________________________________________________________________       |
+|     |                                                  |                                                             |                                                                       |       |
+|     |   HTML                                           |                                                             |             ____________________________________________              |       |
+|     |   .........................................      |                                                             |             |                                          |              |       |
+|     |   .........................................      |                                                             |             |           My Web Page                    |              |       |
+|     |   .........................................      |                  Web Client                                 |             |__________________________________________|              |       |
+|     |   .........................................      |                                                             |                                                                       |       |
+|     |   .........................................      |                                                             |    ____________  ______________________________________________       |       |
+|     |                                                  |                                                             |    |          |  |                                            |       |       |
+|     |    Code                                          |                                                             |    |          |  |                                            |       |       |
+|     |   *****************************************      |           __________________________________                |    |          |  |                                            |       |       |
+|     |   *****************************************      |           |                                |                |    |          |  |                                            |       |       |
+|     |   *****************************************      |           |     Embedded Script            |                |    |          |  |                                            |       |       |
+|     |   *****************************************      |---------->|         Processor              |--------------->|    |          |  |                                            |       |       |
+|     |   *****************************************      |           |                                |                |    -----------   ----------------------------------------------       |       |
+|     |   *****************************************      |           |                                |                |                                                                       |       |
+|     |                                                  |           |________________________________|                |                                                                       |       |
+|     |   HTML                                           |                                                             |                                                                       |       |
+|     |   .........................................      |                                                             |                                                                       |       |
+|     |   .........................................      |                                                             |                                                                       |       |
+|     |   .........................................      |                                                             |                                                                       |       |
+|     |   .........................................      |                                                             |                                                                       |       |
+|     |   .........................................      |                                                             |                                                                       |       |
+|     |__________________________________________________|                                                             |_______________________________________________________________________|       |
+|______________________________________________________________________________________________________________________________________________________________________________________________________|
+                      |
+                      |
+                      |
+                      |
+                      V
+_________________________________________________________
+|   HTML code and embedded                              |
+|   script code                                         |
+|  ________________________________                     |
+|  |                              |                     |
+|  | HTML                         |                     |
+|  | ......................       |                     |
+|  | ......................       |                     |
+|  | ......................       |                     |
+|  | ......................       |                     |
+|  | ......................       |                     |
+|  | ......................       |                     |
+|  | ......................       |                     |
+|  | ......................       |                     |
+|  | ......................       |                     |
+|  | Code                         |                     |
+|  | ......................       |                     |
+|  | ......................       |                     |
+|  | ......................       |                     |
+|  | ......................       |                     |
+|  | HTML                         |                     |
+|  | ......................       |                     |
+|  | ......................       |                     |
+|  | ......................       |                     |
+|  | ......................       |                     |
+|  | ......................       |                     |
+|  |______________________________|         Web Server  |
+|_______________________________________________________|
+
+
+Figure 1-3:
+Using server-side programming to create a web page.
+
+
+Unlike client-side programming, there are amny popu8lar server-side programming languages that are in use these days, each with its own set of pros and cons.
+This section takes a look at a few of the more popular programming languages.
+
+CGI scripting
+
+One of the first attemps at server-side programming support was the Apache web server's Common Gateway Interface (CGI).
+The CGI provided an interface between the web server and the underlying server oeprating system (OS), which was often Unix-based.
+
+This allow programmers to embed scripting code commonly used in the Unix platform to dynamically generate HTML.
+Two of the most common scripting language used in the Unix world and, thus, commonly used CGI programming are Perl and Python.
+
+Although CGI programming beacame popular in the early days of the web, it wasn't long before it was explited.
+It was all too easy for a novice administrator to apply the wrong permission to CGI script, allowing a resrouceful attacker to gain privileged access to the server.
+Other methods of processing server-side programming code had to be developed.
+
+Java
+One of the earlier attempts at a controlled server-side programing language was Java.
+Although the Java programming language became popular as a language for creating stand-alone appliactions that could run on any computer platform, it can also run as a server-side programming language in web applications.
+When used this way, it's called Java Server Pages (JSP)
+
+The JSP language requires that you have a Java compiler embedded with your web server.
+The web server detects the Java code in the HTML code and then sends the code to the java compiler for processing.
+Any output from the java program is send to the client borwser as part of the HTML document.
+The most common JSP platform is the open-source Apache Tomcat server.
+
+The Microsoft ASP.NET family
+Microsoft's first entry into the server-side programming world - Active Server Page (ASP) - had similar look and feel to JSP.
+ASP prgrams embedded ASP scripting code inside standard HTML code and required an ASP server to be incorporated with the standard Microsoft Internet Information Services (IIS) web server to process the vode.
+
+However, Microsoft developers determined that it wasn't necessary to maintain a separate programming language for server-side web programming, so they combined the server-side programming and Windows desktop programming environments into one techonology.
+With the advent of the .NET family of programming languages, Microsoft released ASP.NET for the web environment, as an update to the old ASP environment.
+
+With ASP.NET, you can embed any type of Microsoft .NET programming code inside your HTML documents to produce dynamic content.
+The .NET family of programming languages includes Visual Basic .NET, C#, J#, and even Delphi.
+NET. This allows you to leverage the same code you use to create Windows desktop applications as you do to create dynamic web pages.
+You can often use the same Windows features, such as buttons, slide bars, and scrollbars, inside you web applications taht you see in Windows applications.
+
+Javascript
+Yes, you read that right.
+The same Javascript language that's popular in the client-side programming world world is now starting to make headway as a server-side programming language.
+The Node.js library allows you to interface JavaScript code inside HTML web pages for procesing on the server.
+
+The benefit to using Node.js is that yo uonly need to learn one language for both client-side and server-side programming.
+Although it's still relatively new to the game, the Node.js language is becoming more popular.
+
+PHP
+What started out as a simple exercise in tweaking CGI scripts turned into a new server-side programming language that took the world by storm.
+Rasmus Lerdorf wrote the Personal Home Page (PHP) programming language as a way to improve how his CGI scripts worked.
+After some encouragement and help, PHP morphed into its own programming language, and a new name, PHP Hypertext Preprocessor (yes, it uses the acronym inside it's name, which is called recursive acronym).
+
+The PHP language developers freely admit that they borrowed many features from other popular languages, such as Perl, Python, C, and even Unix shell scripting.
+However, PHP was developed specifically for server-side programming, and it has many features built in that aren't available in other scripting languages.
+You don't need to wrestle with strange setups or features to get PHP to work in a web environment.
+It has matured into a complete catalog of advanced features that cover everything from database access to drawing graphics on your web page.
+
+Because of the dedication of the PHP developers to create a first-rate server-side programming language, and because it's free open-source software, PHP quickly became the darling of the Internet world.
+Many web-hosting companies include PHP as part of their basic hosting packages.
+If you already have space on a web-hosting server, it's possible that you already have access to PHP!
+
+
+Combining client-side and server side programming
+Client-side and serve-side programming both have pros and cons.
+Instead of trying to choose one method of creating dynamic web pages, you can instead use both at the same time!
+
+You can easily embed both client side and server side programming code into the same web page to run ont the server, as shown in Figure 1-4.
+
+________________________________________________________________________________________________________________________________________________________________________________________________________
+|                                                                                                                                                                                                      |
+|         Web page with                                                                                                                                                                                |
+|         HTML code                                                                                                                     Web page with HTML code and emebedded script code              |
+|         and embedded script code                                                                                                                                                                     |
+|     ____________________________________________________                                                             _________________________________________________________________________       |
+|     |                                                  |                                                             |                                                                       |       |
+|     |   HTML                                           |                                                             |             ____________________________________________              |       |
+|     |   .........................................      |                                                             |             |                                          |              |       |
+|     |   .........................................      |                                                             |             |           My Web Page                    |              |       |
+|     |   .........................................      |                  Web Server                                 |             |__________________________________________|              |       |
+|     |   .........................................      |                                                             |                                                                       |       |
+|     |   .........................................      |                                                             |    ____________  ______________________________________________       |       |
+|     |                                                  |                                                             |    |          |  |       HTML                                 |       |       |
+|     |    JavaScript                                    |                                                             |    |          |  |       Javascript                           |       |       |
+|     |   *****************************************      |           __________________________________                |    |          |  |       HTML                                 |       |       |
+|     |   *****************************************      |           |                                |                |    |          |  |                                            |       |       |
+|     |   *****************************************      |           |     Embedded PHP               |                |    |          |  |                                            |       |       |
+|     |   *****************************************      |---------->|         Processor              |--------------->|    |          |  |                                            |       |       |
+|     |   *****************************************      |           |                                |                |    -----------   ----------------------------------------------       |       |
+|     |   *****************************************      |           |                                |                |                                                                       |       |
+|     |                                                  |           |________________________________|                |                                                                       |       |
+|     |   PHP                                            |                                                             |                                                                       |       |
+|     |   .........................................      |                                                             |                                                                       |       |
+|     |   .........................................      |                                                             |                                                                       |       |
+|     |   .........................................      |                                                             |                                                                       |       |
+|     |   .........................................      |                                                             |                                                                       |       |
+|     |   .........................................      |                                                             |                                                                       |       |
+|     |__________________________________________________|                                                             |_______________________________________________________________________|       |
+|______________________________________________________________________________________________________________________________________________________________________________________________________|
+                      |
+                      |
+                      |
+                      |
+                      |
+                      |
+                      V
+                                                                                   ____________________________________________________________________________________________________________________________________________________________________________________________________
+|                                                                                                                                                                                                      |
+|         Web page with                                                                                                                                                                                |
+|         HTML code                                                                                                                      Final Web page with only HTML                                 |
+|         and embedded script code                                                                                                                                                                     |
+|     ____________________________________________________                                                             _________________________________________________________________________       |
+|     |                                                  |                                                             |                                                                       |       |
+|     |   HTML                                           |                                                             |             ____________________________________________              |       |
+|     |   .........................................      |                                                             |             |                                          |              |       |
+|     |   .........................................      |                                                             |             |           My Web Page                    |              |       |
+|     |   .........................................      |                  Web Client                                 |             |__________________________________________|              |       |
+|     |   .........................................      |                                                             |                                                                       |       |
+|     |   .........................................      |                                                             |    ____________  ______________________________________________       |       |
+|     |                                                  |                                                             |    |          |  |                                            |       |       |
+|     |   Javascript                                     |                                                             |    |          |  |                                            |       |       |
+|     |   *****************************************      |           __________________________________                |    |          |  |                                            |       |       |
+|     |   *****************************************      |           |                                |                |    |          |  |                                            |       |       |
+|     |   *****************************************      |           |     Embedded JavaScript        |                |    |          |  |                                            |       |       |
+|     |   *****************************************      |---------->|         Processor              |--------------->|    |          |  |                                            |       |       |
+|     |   *****************************************      |           |                                |                |    -----------   ----------------------------------------------       |       |
+|     |   *****************************************      |           |                                |                |                                                                       |       |
+|     |                                                  |           |________________________________|                |                                                                       |       |
+|     |   HTML                                           |                                                             |                                                                       |       |
+|     |   .........................................      |                                                             |                                                                       |       |
+|     |   .........................................      |                                                             |                                                                       |       |
+|     |   .........................................      |                                                             |                                                                       |       |
+|     |   .........................................      |                                                             |                                                                       |       |
+|     |   .........................................      |                                                             |                                                                       |       |
+|     |__________________________________________________|                                                             |_______________________________________________________________________|       |
+|______________________________________________________________________________________________________________________________________________________________________________________________________|
+
+One common use for JavaScript and PHP coding is data validation.
+When you provide an HTML form for your website visitors to fill out, you have to be careful that they actually fill in the correct type of data for each field.
+With server-side programming, you can't validate the data until the site visitor completes and submits the form to the server.
+If a website visitor accidentally skips filling out a single field and the entire form needs to be filled out all over again, that can be a frustrating experience.
+
+To solve that problem, you can embed JavaScript code into the form to check as the site visitor enters data into the form.
+if any form fields are empty when the Submit button is clicked, the JavaScript code can block the form submission and point out the eempty field.
+Then, when all the data is completed and the form is successfully submitted, the PHP code on the server can process the data to ensure it's the correct data type and format.
+
+
+Storing Content
+
+The last piece of the dyncmic web application puzzle is the actual content.
+With staic web pages, content is already built inot the web page code.
+To change information on a staitc web page, you have to recode the page.
+UNfortunately, more often than not, when a web page is uupdated, the old version is lost.
+
+With dynamic web applications, the content comes from somewhere outside of the web page.
+But where? The most common place is database.
+Databases are an easy way to store and retrieve data.
+They're quicker than storing data using standard files, and they provide a leevl of security to protect your data.
+By storing content in a database, you can also easily archive and reference old content and replace it with new content as needed.
+
+Much like the server-side programming world, the database world has lots of different database software options.
+Here some of the more popular ones:
+*Oracle: Oracle has set the gold standard for databases. It's found in many high-profile commerical environments. Although Oracle is very fast and supports lots of features, it can also be somewhat expensive.
+
+*Microsoft SQL Server: Microsoft's entry into the database server world, SQL Server is geared toward high-end database environments. It's often found in environments that utilize Microsoft Windows Servers.
+
+*PostgreSQL: THe PostgreSQL database server is an open-source project that attempts to implement many of the advanced features found in commercial databases. In its early days, PostgreSQL has a reputation for being somewhat slow, but it has made vast improvements. Unfortunately, old reputations are hard to shake, and PostgreSQL still struggles with overcoming them.
+
+*MySQL: The MySQL database server is yet another open-source project. Unlike PostgreSQL, it doesnt' attempt to match all the features of commerical packages. Instead, it focuses on speed. MySQL has a reputation for being very fast at simple data inserts and queries - perfects for the fast paced web applicatoin world.
+
+Mainly because of its speed, the MySQL database server has become a popular tool for storing data in dynamic web applications.
+It also helps that, because it's an open-source project, web-hosting companies can install it for free, which makes it perfect combination with the PHP server-side programming language for dynamic web applications.
