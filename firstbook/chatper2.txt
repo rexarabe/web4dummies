@@ -1,0 +1,91 @@
+IN THIS CHAPTER:
+>> Exploring your development options
+>> Picking a development environment
+>> Configuring the servers
+
+Chapter 2:
+Using a Web Server
+
+Before you can start developing dynamic web appliactions, you'll need a web server environment to work in.
+You have lots of different choices available to create your own development environment, but sometimes having more options just makes things more confusing.
+This chapter walks through the different options you have for creating your development environment.
+
+Recognizing What's Required
+Just like that famous furniture that needs assembly, you'll need to assemble some separate components to get your web application development environment up and running.
+There are three main parts that you need to assemble for your web development environment:
+
+>> A web server to process requests from browsers to interact with your appliaction.
+>> A PHP server to run the PHP server-side programming code in your appliction.
+>> A database server to store the data required for your dynamic appliaction.
+
+On the surface, this may seem fairly simple, but to make things more complicated, each of these parts has different options and versions available.
+That can lead to literally hundreds of different combinations to wade through!
+
+This section helps you maintain your sanity by taking a closer look at each of these three requirement.
+
+THE WEB SERVER:
+The web server is what interacts with your website visitors.
+It passes their requests to your web application and passes your application responses back to them.
+The web server acts as a file server - it accepts requests to your web application and passes your application responses back to them.
+The web server acts as a file server - it accepts requests for PHP and HTML files from client browsers and then retrieves those files and sends them back to the client browser.
+As I explain in the preceding chapter, the web server uses the HTTP standard to allow anonymous requests for access to the files on the server and respond to those requests.
+
+There are quite a few different web sserver options around theses days.
+Here are a few of the more popular ones that you'll run into:
+
+>>Apache: The granddad of web servers, Apache was derived from the original web server developed at the University of Illinois.
+It's an open-source software project that haas been and is currenlty the most commonly used web server on the Internet.
+It is very versatile and supports lots of different features, but with versality comes complexity.
+Trying to wade through the configuration file for an Apache web server can be confusing.
+But for most web environments you just need to change a few of the default configuration settings.
+
+>>nginx: The newer kid on the the block, nginx is intented to ease some of the complexity of the Apache web server and provide improved performance.
+It's currently gaining in popularity, but it still has a long way to go to catch up with Apache.
+
+>>lighthttpd: As its name suggests, lightttpd is a lightweight web server that's significantly less versatile and complex than the Apache web server.
+it works gret for small development environments and is becoming popular in embedded systems that need a seb server with a small footprint.
+However, it doesn't holdup well in large-scale production Web server environments and probably isn't a good choice for a web development environment.
+
+>>IIS: ISS is the official Microsoft Web server. It's popular in Microsoft Windows server environments, but there aren't versions for other operating systems.
+IIS focuses on supporting the Microsoft .NET family of server-side programming languages, such as C# .NET and Visual Basic .NET, but it can be interfaced with the PHP server.
+This configuration is not common, though, and you don't see very many PHP servers that utilize the IIS web server.
+
+As you can tell from these descriptions, just about every web server is compared to the Apache web server.
+Apache has become the gold standard in Internet web servers.
+Unless you have a specific reason for not using the Apache web server, you should use it for your development environment, especially if you know that your production web server environment will use it.
+
+THE PHP SERVER
+The PHP programming language began in 1995 as a personal project by Rasmus Lerdorf to help his web pages access data stored in a database.
+He released the first official version 1.0 to the open-source community on June 8, 1995.
+
+Since then, the PHP language has taken on a life of its own, gaining in both features and popularity.
+The development of the PHP language is currently supported by Zend, which produces many PHP tools.
+
+One of the most confusing aspects of the PHP server is that there are currently two different actively supported branches of the PHP language:
+
+>> The version 5.x branch
+>> The version 7.x branch
+
+The first question that often comes to mind is: "What happened to version 6?"
+The short-lived version 6 of PHP has some unresolvable issues and was officially abandoned by the PHP developers, with the new featurtes rooled back into version 5.
+
+Now for the second question; "Why two active version?"
+The version 5.x branch is still maintained mainly because of the great wealth of appilcations that continue to use features supported in versino 5.x, but not in version 7.x.
+It will take some time before all the old 5.x applications will be migrated to version 7.x code.
+UNfortunately, version 7 of PHP breaks quite a few thigns that were popular in the 5.x version.
+However, the PHP developers are no longer performing bug fixes in the 5.x branch, only security patches.
+At the time of this writing, the current version in the 5.x branch is 5.4 and will be maintained until the end of 2018.
+
+At the time of this writing, many popular web server packages support both the 5.x and 7.x version branches and will give you the choice of which one to use for your installatino.
+If you're developing new dynamic web applications, it's best to use the 7.x version branch; at the time of this writing, the latest version is 7.2.
+
+The Php server contains its own built-in web server, but that's only intended for development and not for use as a live prodution web server.
+For large-scale use, you must interface the PHP server with a web server.
+As the web server receives requests for .php files, it must pass them to the PHP server for processing.
+You must set up this feature as part of the web server configuration file.
+This is discussed later in this chapter in the "Customizing the Apach Web Server" section.
+
+Warning:
+You may still run into some web-hosting compnies that use PHP version 4.
+This was a very popular and long-running version, but it's no longer supoprted by PHP with security patches.
+It's best to stay away from any web host that only supports PHP version 4.
