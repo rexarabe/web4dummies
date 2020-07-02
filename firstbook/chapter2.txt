@@ -89,3 +89,96 @@ Warning:
 You may still run into some web-hosting compnies that use PHP version 4.
 This was a very popular and long-running version, but it's no longer supoprted by PHP with security patches.
 It's best to stay away from any web host that only supports PHP version 4.
+
+
+THE DATABASE SERVER
+As I describe in Chapter 1 of this minibook, there are many different types of database servers to handle data for your web applications.
+But far the most popular used in open-source web applications is the MySQL server.
+
+Many websites and web packages use the term MySQL Server, but there are actually a few different versions of it.
+Because Oracle acquired the MySQL project in 2010, it has split the project into four versions:
+>> MySQL Standard Edition: A commerical product that provides the minimal MySQL database features.
+>> MySQL Enterprise Edition: A commercial product that provides extra support, monitoring, and maintenance features.
+>> MySQL Cluster Carrier Grade Edition: A commercial product that in addition to the Enterprise Edition features, supports multi-server clustering.
+>>MySQL  community Edition: The freely downloadable version of MySQL that support the same features as the Standard Edition, but with no formal support.
+
+
+As you can see from the list, the MySQL server has both commercial and open source versions.
+The commercial versions support some advanced features that aren't available in the Open Srouce version, such as hot backups, database activity monitoring and being able to implement a read/write database cluster on multiple servers.
+These advanced features can come in handy  in large-scale database environments, but for most small to medium-size database applications, the MySQL community Edition is just fine.
+That's what's usually included in most web server packages.
+
+Just as with PHP, the MySQL project maintains multiple versions of the MySQL server software. At the time of this writing, the currently suported versions of MySQL are
+
+>> Version 5.5
+>> Verstion 5.6
+>> Version 5.7
+
+the technical stuff:--------------------------------------------------------------------------------------------------------------------------------------------------------------------V
+MYSQL AND MariaDB
+The MySQL serer project has had quite an intersting life.
+It was originally developed in 1994 as an open source project by a Swedish company, MySQL AB.
+It gained in popularity and features, until MYSQL AB was purchased by Sun Microsystems in 2008.
+However, Oracle purchased Sun Microsystems in 2010 and took control over the MySQL project.
+
+When Oracle purchased the rights to MySQL from Sun Microsystems, the main MySQL developper and his team left to start their own seprate open-source branch of MySQL, called MariaDB.
+With the terms of the open-srouce license, this move was completely legal, and the project has gained some respect and following in the open-source community.
+MariaDB is nearly 100 percent compatible with MYSQL and is often used as a direct replacement for the MySQL Community Edition in some environments.
+Any PHP code that you write to interct with the MySQL server will also work with the MariaDB server.
+Don't be alarmed if the development environment you use switches to MariaDB!
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------^
+
+Each version has some minor updates to the MySQL database engine but for most dynamic web applications, the differneces won't play a significant role in your applicatio performance or functions, so it won't matter much which of these three versions your system uses.
+
+Several cloud providers (including Oracle itself) provide the MySQL server as a cloud service.
+Instead of installing and running your own MySQL server you can rent space on their MySQL cloud server.
+The benefit of running MySQL in the cloud is that you're guaranteed perfect up-time for the database, because it's distributed among multiple servers in the cloud.
+The downside, though, is that this can get exxpensive and is only recommended for commercial web applications that require the extra server power provided by the cloud.
+
+
+
+CONSIDERING YOUR SERVER OPTIONS
+Now that you know you'll need a web server, a PHP server, and a MySQL server for your development work, the next step is trying to find an environment that supports all three (and it would helop if they were all integreted).
+You basically have three options for setting up a complete web programming development environment:
+
+>> Purchase space on a commercial server from a web-hosting company.
+>> Install the separate servers on your own workstation or server.
+>> Install an all-in-one package that bundles all three servers for you.
+
+Using a web-hosting company
+By far, the easiest method of setting up PHP programming environment is to rent space on an existing server that has all the necessary compnoents already installed.
+Plenty of companies offer PHP web development packages.
+Some of the more popular ones are
+>> GoDaddy(www.godaddy.com)
+>>HostGator(www.hostgator.com)
+>>1&1(www.1and1.com)
+>>000webhost(www.000webhost.com)
+
+These large web-hosting companies offer multiple levels of support for their services.
+Often, they'll offer several tiers of service based on the number od databases you can create, the amount of data that you can store, and the amount of network bandwidth your web applications are allowed to consume per month.
+That way, you can start out with a basic package for minimal cost and then upgrade to one of the more expensive packages as your Internet application takes off!
+It pays to shop around to check differnt pricing sturctures and support levels at the different web-hosting companies.
+
+Besides these main competitors, you'll find many, many smaller web hosting companies willing to offer MySQL/PHP packages to host your applications.
+There's a good change if you already have a web-hosting company you use to host your static web pages, it'll have some type of MySQL/PHP support.
+If you already have spcae on a web server for your website check with them to see if they an upgrade to MySQL/PHP package.
+
+With the popularity of the new "cloud" environment where everythings runs on shared server space, there are now a few more participants in the PHp server hosting game.
+The Wikipedia web page for cloud service providers lists more than 200 different providers! You'll probably recognize the more popular ones:
+
+>>Amazon Web Services (AWS)
+>>Google Cloud Platform
+>>Oracle Cloud Platform
+>>Microsoft Azure
+
+Each of these cloud services provides some level of support for PHP program development.
+One of the main benefits of utilizing a cloud service is that your application is hosted on multiple servers that share the traffic load and are redundant for backup purposes.
+If a server in the cloud crashes, your application will still work on other servers.
+Of course, be prepared to pay a premium price for those features!
+
+WARNING/ACHTUNG!!!:
+Be careful with some of the smaller web-hosting companies.
+These days, just about anyone can install the PHP and MySQL server software onto a server and sell sapce, so many "mom-and-pop" web-hosting companies now provide this service.
+However, installing the server programs is different from maintaining the server programs.
+Often, you'll find these smaller web-hosting sites use outdated server versions that haven't been upgraded or patched with security updates, making them vulnerable to attacks.
