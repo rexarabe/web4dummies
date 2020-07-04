@@ -268,3 +268,99 @@ Figure 2-2 shows phpMyAdmin running on a CentOS 7 system.
 TIPS:
 By using the distribution software packages for each server, you're guaranteed that the sever will run correctly in your Linux environment.
 An additional benefit is that the distribution software updates will include any security patches or bug fixes released for the servers automatically.
+
+Web server in Windows and Mac
+Installing and running the Apache, MySQL, and PHP serves in a Windows or Mac environment is very tricky, because there are lots of factors involved in how to install and configure them.
+For starters, both Windows and macOS come with a web server built in, sod if you install the Apache web server you'll need to configure it to use an laternative TCP port.
+
+Figure 2-2:
+Viewing the phpMyAdmin main web page on Fedora 27.
+
+Likewise, macOS includes and older version of PHP by default, so if you install an updated version of PHP, things get tricky trying to make sure which version is active.
+
+Because of these complexities, it's not recommended for beginners to install the Apache, MySQL, and PHP packages separately in the Windows and Mac environments.
+There's a much simpler way of getting that to work, which I'll describe in the next section.
+
+Using premade servers
+Trying to get a working Apache, MySQL, and PHP server in Windows (called WAMP) or in the Mac environment (called MAMP) can be a complicated process.
+There's a lot of work downloading each of the individual server packages, configuring them, and getting things to work together.
+
+Fortunately, some resrouceful programmers have done that work for us!
+There are quite a few open-source packages that bunclde the Apache web server, MySQL (or MariaDB) server, and PHP server together to instakll as a single package.
+This is by far the best way to go if you plan on using your Windows or Mac workstation or laptop as your web development environment.
+
+There are quite a few pre-loaded packages available, but these are the most common ones:
+
+>> XAMPP: An all-in-one package that supports PHP and Perl server-side programming and also includes an email and FTP server, along with a sself-signed certificate to use the Apache web server in HTTPS mode.
+it has installation packages available for Windows, MAC, and Linux.
+
+>> Wampserver: A Windows-based all-in-one package that allows you to install multiple versions of the Apache, MySQL, and PHP servers at the same time.
+You can the mix-and-match which versions of which server you have active at any time, allowing you to duplicate almost any web-hosting environment.
+
+>> MAMP: A Mac-based all-in-one package that is easy to install and use.
+It also has a commercial package called MAMP Pro that provides additional features for managing your web environment for professional developers.
+
+Of these, the XAMPP package is by far the most popular.
+It was created by the Apache Friends organization to help promote the use of the Apache web server in web development environments.
+Follow these steps to install XAMPP in a Windows or macOS environment:
+
+1. Open your browser and go to www.apachefriends.org.
+2. Look for the Download section of the web page and click the link for the OS you're using.
+3. After the download finishes, run the downloaded file in your OS environment .
+
+This starts the XAMPP installation wizard.
+
+4. Click the Next button to go to the Select Components window, shown in Figure 2-3.
+The Select Components window allows you to select which components in XAMPP you want installed.
+You won't use everything contained in XAMPP for this book, but feel free to install the entire package and explore on your own!
+
+5. Click the Next button to continue the installation.
+6. Select the installation folder for XAMPP.
+
+The default location for Window is c:\xamppp; for macOS, it's /Applications/XAMPP.
+Those will work just fine for both environments.
+
+7. click the Next button to continue the installation.
+The Apache Friends organization has teamed up with Bitnami, which has prepackaged many popular web applications specifically for use in XAMPP.
+
+Figure 2-3:
+The XAMPP Select Components window in the installation wizard.
+
+8. You can learn more about Bitnami by leaving the Learn More about Bitnami for XAMPP check box checked, or if you'd like to skip this step, remove the ckeck mark from the ckeck box, and then click the Next button to continue.
+9. Click the Next button to begin the software installation.
+10. You can keep the check mark in the check box to start XAMPP, and then click the Finish button to end the wizard.
+
+The XAMPP Control Panel provides easy access to start, stop, and configure each of the serfers contained in the XAMPP package.
+Figure 2-4 shows the main COntrol panel window.
+
+Figure 2-4:
+The main XAMPP Control Panel window.
+
+By default, XAMPP configures the Apache web server to use TCP port 80 for HTTP connections.
+Unfortunately, this port is often in use by web servers built into Windows and mac workstatiosn and servers.
+This will produce an error message wehn you first start the XAMPP Control Panel, as show in FIgure 2-4
+
+You can move the Apache web server to an alternative TCP port.
+Just Follow these steps.
+1. From teh XAMPP Control panel main window, click the Config button for the Apach web server.
+2. Select the menu option to edit the httpd.conf configuration file.
+This opens the Apache web server configuration file in a test editor.
+3. Look for the line:
+listen 80
+
+4. change the 80 in the line to 8080, a common alternative TCP port to use for HTTP communications.
+5. Sasve the updated configuation file in the editor, and then exit the editor window.
+6. Click the Start button for the Apache web server.
+
+The apche web server should indicate that it has started and is using both TCP port 443 (for HTTPS) and 8080 (for HTTP).
+
+7. Click the start button for the MySQL database server.
+The MariaDB database server should indicate that it has started and is using TCP Port 3306 (the defautl TCP port for MYSQL).
+
+After the Apache and MySQL servers starts, you can exit the XAMPP Control Panel.
+If you need to stop the servers, reopen the XAMPP Control Pnael and click the Stop buttons for both servers.
+
+Tip:
+Although you've moved the Apache web server in the configuration file, XAMPP will still check to see if TCP port 80 is available when you start the XAMPP Control Panel and complain that it's not available.
+To stop that, click the COnfig button in the control Panel and then remove the check mark for the Check default POrts on Startup check box.
+
