@@ -182,3 +182,89 @@ Be careful with some of the smaller web-hosting companies.
 These days, just about anyone can install the PHP and MySQL server software onto a server and sell sapce, so many "mom-and-pop" web-hosting companies now provide this service.
 However, installing the server programs is different from maintaining the server programs.
 Often, you'll find these smaller web-hosting sites use outdated server versions that haven't been upgraded or patched with security updates, making them vulnerable to attacks.
+
+Building your own server environment
+
+I wouldn't recommand it for a live production website, but for development work you can build your own web server environment.
+You don't even need to have a large server for a personal web development envrionment -you can build it using your existing Windows or Apple workstation or laptop.
+
+The following sections walk you throuhg the basics you need to know to get this working in either the Linux or Windows/Mac environments.
+
+Web servers in Linux
+Linux desktops and servers are becoming more popular these days, especially for web development.
+You can download the Apache, MySQL, and PHP server source code pacakges and compile them on your Linux system, but unless you need the absolute latest version of things, that's not the recommended way to do it.
+
+These days, most Linux distributions include packages for easily installing all the components you need for a complete web development environment.
+For Debian-based Linux distributions (such as Ubuntu and Linux Mint), you use the apt get command-line tool to install software packages.
+For Red Had-based Linux distributions (sucha as Red Hat, CentOS, and Fedora) you use the dnf command-line tool.
+
+For Debian-based systems, such as Ubuntu, follow these steps to do that:
+1. From a command prompt, install the Apache Web server using the following command:
+2. Install the MySQL server pacakge using the following command:
+sudo apt-get install mysql-server
+
+Warning//Achtung!!!
+During MySQL server installation, you'll be prompted for a password to use for the root user account.
+The root user account in MySQL has full privileges to all tables and objects.
+Make sure you remember what password you enter here!
+
+3. Install the PHP packages to install the PHP server and required extensions, the Apache modifications to run PHP, and the graphical phpmyAdmin tool:
+sudo apt-get install php libapache2-mode-php
+sudo apt-get install php-mcrypt php-mysql
+sudo apt-get install phpmyadmin
+
+The first line installs the main PHP server, along with the Apache module to interface with the PHP server.
+The second line installs two PHP extensions that are erquired to interface with the MySQL server.
+The third line installs the web-based phpMysAdmin PHP program, which provides a web interface to the MySQL Server.
+
+4. Open s browser and test things out by going to the following URL:
+http://localhost/phpadmin
+
+You should be greeted by the phpMyAdmin adminstrattion window.
+
+5. Log in using the MySQL root user account and the password you supplied when you installed MySQL (you remember it, right?).
+Figure 2-1 shows the main phpMyAdmin web page, which shows what versions of the Apache, PHP, and MySQL servers are running.
+
+Figure 2-1:
+The main phpMyAdmin web page showing everything that is running.
+
+For Red Hat-based systems, such as Fedora and CentOS, follow these steps to load Lamp:
+1. From a command prompt, insatll the Apache web server using the following commands:
+sudo dnf install httpd
+sudo systemctl enable httpd
+sudo systemctl start httpd
+
+The httpd package includes the Apache2 web server.
+The executable file for Apache is named httpd (thus, the name of the package).
+The package doesn't start the Apache wev server by default, so the second two lines use the systemctl utility to enable the service so it starts automatically at boot time and then starts it.
+
+2. Install the MySQL server package using the following commands:
+sudo dnf install mariadb-server
+sudo systemctl enable mariadb
+sudo systemctl start mariadb
+
+Notice that the Red Hat distribution (and thus CentOS and Fedora) has gone with the MariaDB replacement package for MySQL.
+When you install MariaDB, the pacakge sets the root user accound password to an empty string.
+This is not recommended if your server is on any type of network.
+Fortunately, there's a quick utility that you can run to change the root user account's password:
+mysql_secure_installation
+When you run this script, it'll prompt you to answer a few questions, such as the new password for the root user acount, whether to restrict the root user account to only logging in from the local host, whether to remove to anonymous users feature, and whether to remove the test database.
+
+3. Instal the PHP pacakegs using the following commands:
+sudo dnf install php php-mbstring php-mysql
+sudo dnf install phpmyadmin
+sudo systemctl restart httpd
+
+The PHP server doesn't run as its own service - the Apache web server spawns it when needed.
+Because of that, you do need to use the systemctl utility to restart the Apache web server so it rereads the configureation file with the new PHP settings.
+
+4. Open a browser and test things out by going to the following URL:
+http://localhost/phpmyadmin
+You should see the phpMyAdmin login page.
+
+5. Log in using the root user account in MySQL along with the password you defined when you installed MySQL.
+Figure 2-2 shows phpMyAdmin running on a CentOS 7 system.
+
+TIPS:
+By using the distribution software packages for each server, you're guaranteed that the sever will run correctly in your Linux environment.
+An additional benefit is that the distribution software updates will include any security patches or bug fixes released for the servers automatically.
