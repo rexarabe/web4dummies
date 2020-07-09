@@ -364,3 +364,107 @@ Tip:
 Although you've moved the Apache web server in the configuration file, XAMPP will still check to see if TCP port 80 is available when you start the XAMPP Control Panel and complain that it's not available.
 To stop that, click the COnfig button in the control Panel and then remove the check mark for the Check default POrts on Startup check box.
 
+Tweaking the Servers
+
+When you get the Apache, MySQL, and PHP servers installed in your development environment, you may need to do a little bit of tweaking to get them working just the way you want.
+Each of the servers uses a text configuration file to define just how the server behaves.
+The following sections walk you through how to find the configuration files and some of the settings that you may need to tweak for your development environment.
+
+Customizing the Apache Server
+By default, the Apache Web server uses the httpd.conf condfiguration file to store its settings.
+For Linux and Mac systems, the file is usually stored in the /etc folder structure, often under either /etc/httpd or /etc/apache2.
+
+Tip:
+The XAMPP package installs the Apache configuration file in the c:\xampp\apache\conf folder in Windows or /Applications/XAMPP/apache/conf in macOS.
+
+The httpd.conf configuration file contains individual lines called directives.
+Each directive defines one configuration option, along with the value that you set.
+
+The Apache web server is very versatile, with lots of different options and features.
+The downside to that is it can make the configuration seem complex at first, but the configuration file is organized such that you should be able to find what you're looking for relatively easily.
+In the following sections, I cover a few things that you'll want to pay attention to.
+
+WARNING///ACHTUNG!!!
+Many systems break the Apache web server configurations into multiple files to help make the features more modular.
+Look for the Include directive lines in the main httpd.conf configuration file to see what other files contain Apache web server configuration settings.
+
+Defining the web folder location:
+
+The main job of the Apache web server is to serve files to remote clients.
+However, you don't want just anyone retrieving just any file on your system!
+To limit what file the Apache server serves, you must restrict it to a specific folder area in the system.
+
+You set the folder where the Apache web server serves files using the Document-Root directive:
+
+DocumentRoot c:/xampp/htdocs
+
+The htdocs folder is the normal default used for the Apache web server in Windows and macOS environments (for macOS, it's located in /Applications/XAMPP/htdocs).
+For Linux environments, it has become somewhat common to use /var/www/html as the DocumentRoot folder.
+
+Warning//Achtung
+If you  choose to move the DocumentRoot folder to another folder location on the server, make sure the user account that runs the Apache web server has access to at least read files from the folder.
+
+Setting the default TCP port
+The Apache web server listens for incomming connections from client browsers using two different default TCP network ports:
+
+TCP port 80 for HTTP requests
+TCP port 443 for HTTPS requests.
+
+HTTPS requests use encryption to secure the communication between the browser and the server.
+This method is quickly becoming a standard for all web servers on the Internet.
+
+You set the ports the Apache web server accetps incoming requests on using the Listen directive:
+
+Listen 80
+Listen 443
+
+USING ENCRYPTION
+To establish a secure HTTPS connection, your Apache web server must have a valid encryption certificate  signed by a certificate authority.
+The certificate authority recognizes your website as valid and vouches for your authenticity.
+This enables your website visitors to trust that you are who you say you are and that your web server is what it says it is.
+
+Unfortunately, signed certificates must be purchased and can be somewhat expensive.
+For development work, you can use a self-signed certificate.
+The self-signed certificate is what it says: You sign your own certificate.
+This doesn't instill any trust in your website visitors, so don't use a self-signed certificate on a production website - only use it for development.
+The XAMPP web server installs a self-signed certificate just for this purpose!
+
+Interacting with the PHP server
+
+The Apache web server must know how to pass files that contains PHP code to the PHP server for processing.
+This is a two-step process.
+
+First, you have to tell the Apache web server to load the PHP server module so that it can establish the link between the Apache and PHP servers.
+You do that that using the LoadModule directive:
+
+LoadModule php7_module "c:/xampp/php/apache2_4.dll"
+
+After Apache loads the PHP module, you have to tell it what type of files to send to the PHP server.
+You do this using the AddHandler directive:
+
+AddHandler application/x-httpd-php .php
+
+This directive tells the Apache web server to forward all files with the .php file extensions to the PHP module, which then forwards the files to the PHP server for processing.
+
+Warning/achtung!!
+
+It may be tempting to just forward all .html files to the PHP server, because the PHP server will pass any HTML code directly to the client browser.
+However, this will add extra processing time to load your static web pages, causing a performance issue with your HTML pages.
+
+Tracking errors
+When working in a development environment, it's always helpful to be able to track any errors that occur in your applications.
+The Apache web server supports eight different levels of error messages, shown in  Table 2-1.
+
+Table 2-1      Apache Web Server Error Levels
+
+Error Level           Description
+
+emerg                 A fatal error will halt the Apache web server.
+alert                 A servere error will have an adverse impact on your application and should be resolved immediately.
+crit                  A critical condition caused the operation to fail, such as a failure to access the network.
+error                 An error occured in the session, such as an invalid HTTP header.
+warn                  A minor issue occured in the session but didn't prevent it from continuing
+notice                Something out of the normal occured.
+debug                 A low-level detailed message occurs for each step the server takes in processing a request.
+
+You define the level of error tracking using the Loglevel directive and the location of error log using the ErrorLog directive:
