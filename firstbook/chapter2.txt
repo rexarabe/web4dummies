@@ -468,3 +468,123 @@ notice                Something out of the normal occured.
 debug                 A low-level detailed message occurs for each step the server takes in processing a request.
 
 You define the level of error tracking using the Loglevel directive and the location of error log using the ErrorLog directive:
+
+LogLevel warn
+ErrorLog logs/error.log
+
+The debug log level can be useful for troubleshooting issues but is not recommended for normal activity, because it generates lots of output!
+
+TIP:
+You can customize the appearance of the log messages using the LogFormat directive.
+Apache allows you to determine just what information appears in the log file, which can be handy when trying to troubleshoot specific problems.
+Consult the Apache server documentation for the different options you have available for customizing the logs.
+
+Customizing the MySQL server
+The MySQL server uses two different filenames for its configuration setttings:
+>>my.cnf for Linux and Mac systems
+>>my.ini for Windows systems.
+
+One of the more confusing features about the MySQL server is that there are three ways to specify configuration settings:
+
+>>They can be compiled into the executable server program when built from source code.
+>>They can be specified as command-line options when the server starts.
+>>They can be set in the MySQL configuration file.
+
+You can compile all the settings you need into the MySQL executable server program and run with no configuration file at all (that's the approach the MAMP all-in-one package takes.)
+The downside to that is it's hard to determine just which settings are set to which values.
+
+Most MySQL server installations use a combination of compiling some basic settings into the executable server program and creating a basic configuration file for the rest.
+The setting values set in the configuration file override anything compiled into the executable server program or set on the command line.
+As with the Apache web server, the MySQL database server has lots of options you can change in the configuration file to fine-tune how things work.
+That said, there are only a few items that you'd ever really need to tweak in a normal setup.
+The following sections walk you through some of the settings you should become familiar with.
+
+The core server settings
+The core server settings define the basics of how the MySQL server operates.
+These settings in the XAMPP for Windows setup look like this:
+
+[mysqld]
+port = 3306
+socket = "C:/xampp/mysql/mysql.sock"
+basedir = "C:/xampp/mysql"
+tmpdir = "C:/xampp/mysql/tmp"
+datadir = "C:/xampp/mysql/data"
+log_error = "mysql_error.log"
+
+The port setting defines the TCP port the MySQL server listens for incoming request on.
+The socket setting defines the location of a socket file that local clients can use to communicate with the MySQL server without using the network.
+
+The basedir, tmpdir, and datadir settings define the locations on the server that MySQL will use for storing its storing its working files.
+The datadir setting defines where MySQL stores the actual database files.
+
+Working with the InnoDb storage engine
+The InnoDb storage engine provides advanced database features for the MySQL server.
+It has its own set of configuration settings that control exactly how it operates and how it handles the data contained in tables that use that storage engine.
+
+There are two main configuration settings that you may need to tweak for your specific MySQL server installation:
+
+innodb_data_home_dir = "C:/xampp/mysql/data"
+innodb_data_file_path = ibdata1:10M:autoextend
+
+The innodb_data_home_dir setting defines the location where MySQL places files required to support the InnoDB storage engine.
+This allows you to separate those files from the normal MySQL database file if needed.
+
+The innodb_data_file_path setting defines three pieces of information for the storage engine:
+>> The filename MySQL uses for the main innoDB storage file
+>> The initial size of the storage file
+>> What happens when the storage file fills up
+
+To help speed up the data storage process, the InnoDB storage engine preallocates space on the system hard drive for the database storage file.
+That way, for each data record that's inserted into a table, the storage engine doesn't need to ask the operating system for more disk space to add to the database file - it's already there!
+This greatly speeds up the database perfromance.
+The second parameter defines the initial amount of disk space that the InnoDB storage engine allocates.
+
+The thirst parameter is where things get interesting.
+It defines what the InnoDB storage engine does when the space allocated for the storage file becomes full.
+By default, the InnoDB storage engine does when the space allocated for the storage file becomes full.
+By default, the InnoDB storage engine will block new data inserts to the tables when it runs out of allocated storage space.
+You would have to manually extend the storage file size.
+
+When you specify the autoextend setting, that allows the InnoDB storage engine to automatically allocate more space for the file.
+That's convenient, but it can also be dangerous in some environments.
+The InnoDB storage engine will keep allocating more storage space as needed until the server runs out of disk space!
+
+!Warning!Achtung!
+When you use the InnoDB storage engine for your MySQL applications, it's always a good idea to keep an eye on the storage space folder to make sure it's not taking up all the server disk space.
+
+Customizing the PHP server
+The PHP serer configuration file is named php.ini, but it can be located in several different ares.
+The locations that the PHP server checks are (in order):
+>> The path set in the PHPIniDir directive in the Apache web server configuration file
+>> The path set in a system environment variable named PHPRC
+>>For Widows systems, the path set in the registery key named IniFilePath under the HKEY_LOCAL_MACHINE/Software/PHP registry hive
+>> The folder where the PHP server executable file is stored.
+>> The default web server's folder
+>> The OS system folder, which for Windows is the c:\winnt folder, and for Linux and Mac the /usr/local/lib folder
+
+The XAMPP install process places the php.ini file in the c:\xampp\apache\bin folder.
+
+If you're ever in doubt as to which php.ini configuration file the PHP server is using, run the phpinfo() function in a small PHP program.
+For your convenience, all the popular all-in-one packages provide a link to run the phpinfo() function from their main web pages.
+Figure 2-5 shows the output from the phpinfo() function in XAMPP running on a Windows system.
+
+Figure 2-5:
+The phpinfo() function output.
+
+The phpinfo() function displays the system values for each of the configuration file settings and if any were overridden by a local setting.
+Look for the Loaded Configuration File entry that shows the path to the active php.ini file to see where that file is located for your PHP server.
+
+As you can imagine, there are lots of settings available in the php.ini configuration file.
+Here are some of the php.ini settings (and the default values set in XAMPP) that you may need to tweak on your PHP server:
+
+>>date.timezone = Europe/Berlin: Defines the time zone of the PHP server.
+This must use a time zone value defined at http://php.net/manual/en/timezones.php.
+
+>>display_errors = On: Defines whether PHP error messages appear on the web page.
+This feature is extremely handy for development work but should be disabled for production servers.
+
+>>error_reporting = E_ALL & ~E_DEPRECATED: Sets the level of error reporting from the PHP server.
+PHP uses a complicated bit pattern to set which errors to display or not display.
+It uses labels to indicate the error level and Boolean bitwise operators to combine the levels - the tilde (~) indicates the NOT operator. The error level are:
+
+....
