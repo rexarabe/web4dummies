@@ -1,0 +1,112 @@
+In this Chapter
+>> Idenfiying which tools to avoid
+>> Finding the right tools for the job
+
+Chapter 3
+
+BUILDING A DEVELOPMENT ENVIRONMENT
+
+When you're ready to start coding your web application, you'll need some tools to help you out.
+Just as a carpenter needs a set of tools to do her job, web developers need tools as well.
+And just as a the carpenter can build an entire house using a hammer and hand saw (and possibly a tape measure), but most likely, she has a few more advanced tools to make her job easier.
+Likewise, you can build an entire web application using a standard text editor, but there are plenty of other tools around to make your job easier.
+The trick to becoming comfortable with web programming is to find the right tool, or combination of tools, for the task at hand.
+This chapter walks you through some of the tools that you can use to help make your programming job easier.
+But first, I start by telling you what not to use.
+
+
+Knowing which tools to avoid
+
+Before I get too far into the tool discusion, I need to tell you what tools not to use for serious web-programming jobs.
+These days, plenty of tools are available to help novice web designers create their own web pages without doing any coding at all.
+However, trying to develop dynamic web applications with these tools can create more problems than they're worth.
+Here are some of the tools you should avoid.
+
+Graphical desktop tools
+Graphical desktop tools allow you to create a web page using a purely graphical interface, without having to do any coding.
+The most popular of these tools are the Microsoft Expresion Web package and Adobe Dreamweaver.
+
+Both of theser tool use the what you see is what you get (WYSIWYG) method of creating web pages.
+Instead of an editor for writing code, the tool presents you with a graphical canvas that represents you web page.
+To add features to the web page, you drag and drop elements like text, menus, images, or multimedia clips onto canvas.
+When you've created the web page layout, you click a button and the tool automatically generates all the HTML and CSS code required to build the web page.
+Click another button and the tool automatically uploads the files to your web-hosting server and you have a complete web page.
+
+At first, tools like these may sound like a great idea, but they have some drawbacks:
+
+>>You have little control over the HTML and CSS code the tools automatically generate.
+Because the tools need to generate code for all sorts of environments and applications, the code they generate is somewhat generic and can be bloated and unnecessarily complicated.
+
+>> Because lof the code bloat, it's extremely difficult to add or modify any of the code that the toold generate.
+
+>> When you use a graphical desktop tool to create your website, you're stuck using that tool forever.
+Just like other desktop software packages, graphical desktop tools often change features as new versions come out.
+Old features are dropped and new features are added, sometimes forcing you to change the way you design your website.
+You're stuck in an endless loop of purchasing upgrades and learning new features just to maintain your website.
+
+>> The WYSIWYC principle isn't always accurate.
+The layout create in the canvas may not always represent what appears in web pages for all browsers and devices that people use to view your website.
+
+Web-hosting sites
+Besides the graphical desktop tools there are also web-hosting sites that mimic that type of web page design .
+Web-hosting sites such as Squarespace and weebly are oriented toward novice non-pragmmers who wan t to build their own websites.
+These site allow people with no experience to get a simple static website up and running in practically no time, and sa you can imagine, they're becoming very popular.
+
+These sites have all the same drawbaacks as the desktop graphical tools.
+Plus, many of them don't even let you see the HTML and CSS code that they generate.
+With these template-based sites, you're completely a their mercy.
+You can never migrate your web application to a different host (which is exactly what they want).
+
+WORD PROCESSORS
+Some word-processing software packages, such as Microsoft Word and Apple Pages, offer the ability to convert documents into web pages.
+This feature has the same drawbacks as the fancier WYSIWYG tools: You can't control the code they generate, and the code they do generate is often bloated.
+Stay away from creating web pages using word processors.
+
+
+WARNING/ACHTUNG
+Also stay away from the tempation to write your web application code using a word processor.
+Most word processors embed binary characters into the text, even if you save the document in a text mode.
+This causes all sorts of problems when you try to view the web page in a browser.
+
+
+WORKING WITH THE RIGHT TOOLS
+Now that you know which tools to avoid, you're ready to look at the tools you can use to get the job done right.
+In this section, I fill you in on text editors, program editors, integrated development environments, and browser debuggers.
+
+Text editors
+The hammer-and-saw equivalent for creating web applications is the standard text editor.
+You can build all the program code used in this book using the text editor that's already installed on your computer.
+You don't have to buy any fancy software packages or maintain any upgrades.
+This section explains how to use the standard text editors that are found on most computers, based on the operating system you're running.
+
+If you're running Microsoft Windows
+If you're running Microsoft Windows, you have the trusty Notepad application for creating and viewing standard text files.
+Notepad provides a bare-bones interface for typing text and saving it.
+Figure 3-1 shows an example of writing HTML code in a Notepad window.
+Notepad is nothing fancy - just your code in black and white.
+
+FIGURE 3-1: Using Microsoft Notepad to write HTML code.
+
+Notepad works fine as a programming tool, but you'll want to tweak a few of the settings before you start coding in Notepad, just to make things easier.
+
+DISABLING WORD WRAP
+In Notepad, you can define the width of the document you want to create, and then Notepad automatically starts a new line when you've reached that limit.
+This feature is handy for typing memos, but it causes issues when coding.
+
+Wrapping a line of code from one line to the next is generally not allowed in programming languages.
+All the code for a statement should be on the same line, unless you do some trickery to tell it otherwise.
+
+Another issue with word wrap is that the GoTo optino in the Edit menu becomes disabled when word wrap is turned on.
+Because Notepad doesn't show line numbers, the GOTO feature is all you have to hunt for specific line numbers that error messages point out.
+GoTo is a crucial tool to have in the Notepad editor.
+
+To disable word wrap in Notepad, click the Format entry in the meny bar; then click the Word Wrap entry to ensure there is not check mark next to it.
+
+Avoiding default file extensions
+
+By default, Notepad assumes you're saving a text document and automatically appeds a .txt file extension to the file.
+That doesn't work with programming code, because most pgrams use a specific file extension to identify themselves (such as .html for HTML files or .php for PHP files).
+
+When you use the FIle -> Save as Menu option in Notepad, you'll need to be careful when saving your prgram file that the .txt file extension doesn't get appended to the end of the filename.
+To save a program file using notepad, follow these steps:
+
