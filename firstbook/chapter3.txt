@@ -110,3 +110,51 @@ That doesn't work with programming code, because most pgrams use a specific file
 When you use the FIle -> Save as Menu option in Notepad, you'll need to be careful when saving your prgram file that the .txt file extension doesn't get appended to the end of the filename.
 To save a program file using notepad, follow these steps:
 
+1.Choose File -> Save As from the menu bar at the top of the editor.
+The Save As dialog box, shown in Figure 3-2, appears.
+
+Figure 3-2:
+The Microsoft Notepad Save as dialog box.
+
+2. In the drop-down list at the top of the Save As dialog box, navigate to the folder where you want to save the program file.
+
+3.From the Save As Type text box near the bottom of the Save As dialog box, selet all files (*.*).
+
+This prevents Notepad from appending the .txt file extension to your filename.
+
+4. In the File name field, enter the filename for your program file, including the file extension you want to use.
+
+5. Click Save to save the program file.
+You program files is properly saved in the correct format, with the correct filename, in the correct location.
+
+Seeing File extensions
+In Microsoft Windows you use File Explorere to navigate the storage devices on your system to open files.
+Unfortunately, the default setup in File Explorer is to hide the file extension part of the filename (the part after the period) so that it doesn't confuse novice computer users.
+That can have the opposite effect for the programmers, adding confusion when you're trying to look for a specific file.
+You may use the same filename for multiple files with different extensions.
+Fortunately, you can easily change this default setting in Windows.
+Just follow these steps:
+
+1.In Windows 8 or 10, open Settings. In Windows 7, open the Control Panel.
+2.In Windows 8 or 10, type file Explorer Options in the search bar and press Enter.
+3.Click the icon for the File Explorer Options tool that appears in the search results.
+4. In Windows 7, click the File Explorer Options icon in the Control Panel.
+You may have to go to the Advanced view to see it.
+After you open File Explorer Options, the dialog box should look like Figure 3-3.
+5. Click the View tab.
+6.Remove the check makr from the Hide Extensions for Known File Types check box, as shown in Figure 3-4.
+7 Click ok.
+
+Now you'll be able to see the full filename, including the extension, when you look fo your programs using File Explorer.
+
+
+Settomg the default application
+Now that you can see the full filename of your program files in File Explorer, there's just one more hurdle to cross.
+If you want to open your program files using Notepad by default, you'll need to tell File Explorer to do that.
+Follow these steps:
+1.Navigate to the program file, and right-click the filename.
+2. In the menu that appear, select Open.
+The Open dialog box appears.
+3. Select Notepad from the list of programs, and then select the check box to always open files of this type using the program.
+Now you'be able to double-click your program mfiles in File Explorer to automatially open them in Notepad.
+
