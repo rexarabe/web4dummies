@@ -158,3 +158,171 @@ The Open dialog box appears.
 3. Select Notepad from the list of programs, and then select the check box to always open files of this type using the program.
 Now you'be able to double-click your program mfiles in File Explorer to automatially open them in Notepad.
 
+
+If You're running macOS
+If you're running macOS (or one of the earlier MacOS X versions), the text editor that comes standard is called TextEdit.
+The TextEdit application acutally provides quite a lot of features for a standard text editor - it recognoizes and allows you to edit a few different types of text files, including rich text files (.rtf) and HTML files.
+
+The drawback to TextEdit is that sometimes it can be too smart .
+Trying to save and edit an HTML file in TextEdit can be more complicated than it should be.
+By default, TextEdit will try to display the HTML tags as their graphical equivalents in the editor window, as shown in Figure 3-5.
+
+As you can see in Fugure 3-5, TextEdit actually shows the text as the HTML tags format it insteaad of the actual HTML code.
+This won't work for editing an HTML file, because you need to see the code text instead of what the code generates.
+There's an easy way to fix that - just follow these steaps:
+
+1. Choose TextEdit -> Preferences.
+
+The Preferences dialog box, shown n Figure 3-6, appears.
+
+2. On the New Document tab, in the Format section, select the Plain Text radio button.
+3. In the Options section , remove the check mark from the following check boxes:
+
+    correct Spellin Automatically
+    Smart quotes
+    Smar Dashes
+    Smart Links
+4. Click the Open and Save tab (see Figure 3-7).
+
+5. In the When Opening a file section, check the Display HTML Files as HTML code Instaed of FOrmatted text check box.
+
+6. In the When Saving a file section, remove the ckeck mark from the Add ".txt" file Extension to Plain Text Files check box.
+
+7. Close the Preferences dialog box to save the settings.
+
+Now you're all set to start editing your program code using TextEdit!
+
+
+If you're running Linux
+The Linux environment was made by programmer, for programmers.
+Because of that, even the simple text editors installed by default in Linux distributions provide some basic featues that come in handy when coding.
+
+Which text editor comes with your Linux distributino usually depends on the dektop environment.
+Linux supports many different graphical desktop environments, but the two most common are GNOME and KDE.
+This section walks through the default text editors found in each.
+
+THE GNOME EDITOR
+If you're working in a GNOME desktop environment, the default text editor is gedit, show in figure 3-8.
+
+The gedit editor automatically saves program files as plain text format and doesn't try to add a .txt file extension to filenames.
+There's nothing special you need to do to dive into coding your programs using gedit.
+Plus, it has some advanced features specifically for programming that you would find in program editors (see the "Program editors" section later in this chapter).
+
+The KDE editor.
+The default text editor used in the KDE graphical desktop environment is Kate, shown in FIgure 3-9.
+
+Just like gedit, the Kate editor contains lots of programmer friendly features right out of the box.
+Again, no special configuration is required before you can start editing your program code in Kate.
+
+Program editors
+The next step up from standard text editors is a family of tools called program editors.
+A program editor works just like a text editor, but it has a few additional built-ib features that come in handy for programming.
+Here are some of the features that you'll find in program editors:
+
+>> Line numbering: Providing the line numbers off to the side of the window is a lifesaver when coding.
+When an error message ells you there's a problem on line 1935, not having to count every line to get there helps!
+
+>> Syntax highlighting: With syntax highlighting, the editor uses different colors for different parts of the program.
+Program keywords are displayed using different colors to help make them stand out from data in the code file.
+
+>> Syntax error marking: Text that appears to be used as a keyword but that isn't found in the code statement dictionary isnmarked as an error.
+This feature can be a time-saver by helping you catch simple typos in your program code.
+
+There are lots of commercial program editors, but some of the best program editors are actually free.
+This section discusses some of the better free ones available for HTML, CSS, JavaScript, and PHP coding.
+
+Notepad++
+If you're running Microsoft Windows, the Notepad++ tool is a great place to start.
+As its name suggests, it's like Notepad, but better.
+You can download Notepad++ from www.notepad-plus-plus.org.
+The main editing window is shown in Figure 3-10.
+
+The main interface for Notepad++ looks similar to Notepad, so there's nothing different to get used to.
+By default, it shows line numbers along the left margin, as well as the type of file and the column location of the cursor at the bottom.
+
+Notepad++ recognizes the syntax for many different types of programming languages, including HTML, CSS, JavaScript, and PHP.
+It highlights the keywords and will even match up opening and closing block statements.
+If you miss a closing block, Notepad++ will point that out.
+
+Scintilla and SciTE
+The Scintilla library (www.scintilla.org) is an open-source to provide a programming text editor engine for use in any type of environment.
+Developers can embded the Scintilla editor into any type of application free of charge.
+
+The SciTE packages is a desktop text editor tool that implements the Scintilla libarary.
+The SciTE package is available for Windows, macOS, and Linux platforms.
+You can download it from the Scintilla website for the Windows and Linux platforms, and it's available in the Apple Store for the macOS platform.
+Figure 3-11 shows the basic SciTE editor window in action.
+
+figure 3-11
+
+SciTE provides all the program editing features mentioned earlier.
+It recognizes the syntax of many different programming languages and can help you organize your code by marknig and collaposing code section
+(this comes in handy if you write long if-then statement sections).
+
+jEdit
+The jEdit program (www.jedit.org) is a little bit different from the other packages.
+It's written in Java code, so you can run it in any platform that supports Java.
+
+Warning!
+Because jEdit is a Java application, your desktop platform must have either a Java Runtime Environment (JRE) or Java Development Kit (JDK) package installed in order for it to work.
+You can download and install one from Oracle at www.oracle.com/technetwork/java/javase/downloads.
+Also, because jEdit runs as a Java application, you may find it slower than some of the native desktop packages such as Notepad++ or SciTE.
+
+
+Integrated development environments
+Moving up the ladder of tools, the laser-guided miter tool for program development is the integrared development environment(IDE).
+IDE packages provide everything you could possibly need todevelop any size of web application .
+
+Here are some of the advanced featrues IDE packages provide:
+
+>> Code completion: Start typing a code statement, and the package will provide a pop-up list of statements that match what you're typing.
+It also shows what parameters are required and optional for the statement.
+
+>> Code formatting: The IDE automatically indents code blocks to help make your code more readable.
+
+>> Program execution: You can run your code directly from the editor window without having to jump out to a web broswer.
+
+>> Debugging: You can step through the program code line by line, watch how variables are set, and see whether any error messages are generated.
+
+>> Project and file management: Most IDE packages allow you to group your application files into projects.
+THis allows you to open a project and see just the files associate with that application.
+Some will even upload the project files to your web-hosting site for you similar to what the graphical desktop tools do.
+
+
+Using an IDE tool is not for the faint of heart.
+Because of all the fancy features, learning how to use the IDE interface can be almost as complicated as learning the programming language!
+
+There are both commercial and open-source IDE pacakges available for the PHP environment.
+To give you a general idea of how IDE packages operate, this section walks through two of the more popular ones: Netbeans and Eclipse.
+
+Netbeans
+The Netbeans IDE package was originally developed by Sun Microsystems and released as an open-source IDE for its Java programming languages environment (thus the "beans" part of the name).
+When Oracle acquired Sun, it maintained support for Netbeans, and continued development of it with updated releases.
+
+The Netbeans IDE now contains support for several different programming languages Java by using additional plug-in modules.
+As you can guess, the reason I'm mentioning it here is because there's a plug-in module for PHP.
+
+You can download the Netbeans editor with the PHP moduel already installe,d making it easy to insall.
+Just got to www.netbeans.org/downloads and click the Download button under the PHP category.
+
+When you start Netbeans,l it will prompt you to start a new project, as shown in Figure 3 -13.
+Netbeans contains project templates for HTML asnd JavaScript applications, as well as PHP applications.
+When you start a new PHP project, Netbeans automatically creates an index.php file as the main program file for the project.
+It even builds a rough template for your code.
+As you would expect from an IDE< when you start typing a PHP function name, Netbeans opens a pop-up box that shows all the PHP functions that match what you're typing, as show in figure 3-14.
+
+Not only does it show the code completion list , as you can see in Figure 3-14, but it also shows you the PHP manual definition of the fnuction!
+This is certainly a handy tool to have available if you plan on doing any large scale PHP development.
+
+Eclipse
+The other big name in PHP IDE package s is the Eclipse PHP Development TOOl (usually just called Eclipse PDT).
+Eclipse was also originally designed as a Java application IDE.
+Many open-source proponents didn't trust Sun Microsystems maintaining the only IDE for Java, so they set out to develop their own.
+(The story goes that there was no intentional wordplay on the name Eclipse versus Sun Microsystems. If you can believe that, I may have a bridge to sell you.)
+
+Just like the Netbeans IDE, Eclipse evolved from a Java-only IDE to support many different programming languages via the use of plug-in modules.
+you can download the Eclipse PDT as an all-in-one package at www.eclipse.org/pdt.
+
+Warning!
+Just like the jEdit editor, Eclipse PDT is written as a Java application and requires that you have a JRE or JDK installed on your workstation (see "jEdit", earlier in this chapter).
+
