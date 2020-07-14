@@ -1,0 +1,42 @@
+Part 2:
+HTML% and CSS3.
+
+Contents at a Glance
+
+Chapter 1: The Basics of HTML5
+            Diving into Document Structure
+            Looking at the Basic HTML5 Elements
+            Marking Your Text
+            Working with Characters
+            Making a List(and Checking it Twice)
+            Building Tables
+
+Chapter2: The Basics of CSS3
+          Understanding Styles
+          Styling Text
+          Working with the Box Model
+          Styling Tables
+          Positioning Elements
+
+Chapter 3: HTML5 Forms
+           Understanding HTML5 Forms
+           Using Input Fields
+           Adding a Text Area
+           Using Drop-Down Lists
+           Enhancing HTML5 Forms
+           Using HTML5 Data Validation
+
+Chapter 4: Advanced CSS3
+          Rounding Your Corners
+          Using Border Images
+          Looking at the CSS3 Colors
+          Playing with Color Gradients
+          Adding Shadows
+          Creating Fonts
+          Handling Media Queries
+
+Chapter 5: HTML5 and Multimedia
+           Working with Images
+           Playing Audio
+           Watching Videos
+           Getting Help from Streamers
