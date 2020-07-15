@@ -1,0 +1,76 @@
+In this Chapter
+>> Looking at the HTML5 document structure
+>> Identifying the basic HTML5 elements
+>> Formatting text
+>> Using special characters
+>> Creating lists
+>> Working with tables.
+
+Chapter 1
+---------
+The Basics of HTML5
+
+
+The core of your web application is the HTML5 code you create to present the content to your site visitors.
+You need an understanding of how HTML5 works and how to use it to be best present your information.
+This chapter describes the basics of HTML5 and demonstrates how to use it to create web pages.
+
+Diving into Document Structure
+
+The HTML5 standard defines a specific structure that you must follow when defining your web pages so that they appear the same way in all browsers.
+This structure includes not only the markups that you use to tell browsers how to display your web page content, but also some overhead information you need to provide to the browser.
+This section explains the overall structure of an HTML5 program, and tells you what you need to include to ensure your clients' browsers know how to work with your web pages correctly.
+
+Elements, tags, and attributes
+An HTML5 document consists of one or more elements.
+An element is any object contained within your web page.
+That can be headings, paragraphs of text, form fields, or even multimedia clips.
+Your browser works with each element individually, positioning it in the browser window and styling it as directed.
+
+You define elements in your web page by using tags.
+A tag identifies the type of element so the browser knows just how to handle the content it contains.
+The HTML5 specification defines two types of elements:
+
+>>Two-sided elements: Two-sided elements are the more common type of element.
+A two-sided element contains two parts: an opening tag and a closing tag.
+The syntax for a two-sided element looks like this:
+<element>content</content>
+
+The first element tag is opening tag.
+It contains the element name, surrounded by the less-than symbol (<) and greater-than symbol (>), and defines the start of the element defintion.
+
+The second tag is the closing tag; it defines the end of the element definition.
+It points to the same element name, but the name is preceded by a forward slash(/).
+The browser should handle any content between the two tags as part of the element content.
+For example, the HTML5 h1 element defines a heading like this:
+<h1> This is a heading</h1>
+The element instructs the browser to display the text This is a heading using the font and size appropriate for a heding on the web page.
+It's up to the browser to determine just how to do that.
+
+>>One-side elements: One-sided elements don't contain any content and usually define some type of directive for the browser to take in the web page.
+For example, the line break element instructs the browser to start a new line in the web page:
+<br>
+
+TIP:
+Because there's no content, there's no need for a closing tag.
+The older XHTML standard requires that one-sided tags included a closing forward slash character at the end of the tag, such as <br/>.
+This isn't required by HTML5, but it's supported for backward compatibility.
+It's very common to still see that format used in HTML5 code.
+
+Besides the basic element definition, many elements also allow you to define attributes to apply to the element.
+Attributes provide further instructions to the browser on how to handle the  content contained within the element.
+When you define an attribute for an element, you must also assign it a value.
+You include attribute and their values indie the opening tag of the elemetn, liek this:
+<element attribute="value"> content </element>
+
+You can define more than one attribute1="value1" attribute2="valuew2">
+
+Attributes are commonly used to apply inline styles to elements:
+
+<h1 style="color: red">Warning!!</h1>
+
+The style attribute shown here defines additional styles the browser should apply to the content inside the element.
+In this example, the browser will change the font color of the text to re>Warning!!</h1>
+
+The style attribute shown here defines additional styles the browser should apply to the content inside the element.
+In this example, the browser will change the font color of the text to red.
