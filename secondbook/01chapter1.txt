@@ -73,4 +73,96 @@ The style attribute shown here defines additional styles the browser should appl
 In this example, the browser will change the font color of the text to re>Warning!!</h1>
 
 The style attribute shown here defines additional styles the browser should apply to the content inside the element.
-In this example, the browser will change the font color of the text to red.
+In this example, the browser will change the font color of the text to red
+
+Document type
+Every web page must follow an HTML or XHTML document standard so the browser can parse it correctly.
+THe very first element in the web page code is the markup language standard your document follows.
+This element, called the document type, is crucial, because the browser has to know what standard to follow when parsing the code in your web page.
+
+You define the document type using the <!DOCTYPE> tag.
+It contains one or more attributes that define the markup language standard.
+Prior version of HTML used a very complicated format for the document type definition, pointing the browser to a web page on the Internet that contained the standard definition.
+
+Fortunately, the HTML5 standard reduced that complexity.
+To define an HTML5 document, you just need to include the following line:
+
+<!DOCTYPE html>
+
+When the browser sees this line at the start of your web page code, it knows to parse the elements using the HTML5 standard.
+
+Warning! Actung !~
+If you omit the <!DOCTYPE> tag, the browser will still attempt to parse and process the markup code.
+However, because the browser won't know exactly which standard to follow, it follows a practice known as quirks mode.
+In quirks mode, the browser follows the original version of the HTML standard, so newer elemetns won't be rendered correclty.
+
+Page definition
+To create an HTML5 web page, you just define the different elements that appear on the page.
+THe elements fit together as part of a hierarchy of elements.
+Some elements define the different sections of the web page, and other elements contained within those sections define content.
+
+The html element is at the top of the hierarchy.
+It defines the start of the entire web page.
+All the other elements contained within the web page should appear between the <html> opening and </html> closing tags:
+
+<html>
+<head>
+Head content
+</head>
+<body>
+Body content
+</body>
+</html>
+
+The head element contains information about your web page for the browser.
+Content contained within the ehad element doesn't appear on the web page, but it directs things behind the scenes, such as any files the browser sneeds to load in order to properly display the web page or any programs the browser needs to run when it loads the web page.
+One element that's commonly found in the head element content is the title, which defines the title of your web page:
+
+<head>
+<title>My First Web Page/title>
+</head>
+
+The web page title isn't part of the actual web page, but it usually appears in the browser's title bar at the top of the browser window or in the window tab if the browser supports tabbed browsing.
+The body element contains the elements that appear in the webb page.
+This is where you define the content that you want your site visitors to see.
+The body element should always appear after the best element in the page definition.
+It's also important to close the body element before closing out the html element.
+Follow these steps to create and test your first web page:
+
+1. Open the editor, program editor, or integrated development environment (IDE) package of your choice.
+see Book 1, chapter 3, for ideas on which tool to use.
+
+2. Enter the follow code into the editor window:
+
+<!DOCTYPE html>
+<html>
+<head>
+<title> My first Web page </title>
+</head>
+
+<body>
+This is text inside the web page.
+</body>
+</html>
+
+3. Save the code to the DocumentRoot folder of your web server, naming it mystest.html.
+
+If you're using the XAMPP server in Windows, the folder is c:\xampp\htdocs.
+For macOS, it's /Application/xampp/htdocs.
+
+4.Start the XAMPP servers.
+
+5. Open the browser of your choice, and enter the following URL:
+
+http://localhost:8080/mytest.html.
+
+Note that you may need to change thte 8080 port bumber specified in the URL to match your XAMPP Apache server set up (see Book1, Chapter2).
+Figure 1-1 shows the web page that this code produces.
+
+The head element defines the web page title, which as shown in Figure 1-, appears in the web browser title bar.
+The body element contains a single line of text, which the browser renders inside the browser windows area.
+
+TIP:
+You may notice that other than the special <!DOCTYPE> tag, all the other HTML tags I used are in lowercase.
+HTML 5 ignores the case of element tags, so you can use uppercase, lowercase, or any combination of the two for the element names in the tags.
+The older XHTML standard requires all lowercase tags, so many web developers have gotten into the habit of using lowercase for tags, and more often than not, you'll still see HTML5 code use all lowercase tag names.
