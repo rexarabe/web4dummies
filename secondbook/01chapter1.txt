@@ -166,3 +166,209 @@ TIP:
 You may notice that other than the special <!DOCTYPE> tag, all the other HTML tags I used are in lowercase.
 HTML 5 ignores the case of element tags, so you can use uppercase, lowercase, or any combination of the two for the element names in the tags.
 The older XHTML standard requires all lowercase tags, so many web developers have gotten into the habit of using lowercase for tags, and more often than not, you'll still see HTML5 code use all lowercase tag names.
+
+Page sections
+Web pages these days aren't just long pages of content.
+They contain some type of formatting that lays out the content in different sections, similar to how a newspaper presents articles.
+In a newspaper, usually there are two or more columns of content, with each column containing one or more seperate articles.
+
+In the old days, trying to create this type of layout using HTML was somewhat of a challenge.
+Fortunately, the HTML5 standard defines some basic elements that make it easier to break up our web pages into sections.
+Table 1-1 lists the HTML5 elements that you use to define sections of your web page.
+
+Table 1-1   HTML5 Section Elements
+
+Element          Description
+article          A subsection of text contained within a section
+aside            Content related to the main article, but placed alongside to provide additional information
+div              A grouping of similarly styled content within an article.
+footer           Content that appears at the bottom of the web page.
+header           Content that appears at the top of the web page.
+nav              A navigation area allowing site visitors to easily find other pages or related websites.
+section          A top-level grouping of articles.
+
+REMEMBER:
+Although HTML5 defines the sections, it doesn't define how the browser should place them in the web page.
+That part is left up to CSS styling, which I talk about in Chapter 2 of this minibook.
+
+When you combine the HTML5 section elements with the appropriate CSS3 styling, you can create just about any look and feel for your web pages that you want.
+Although there's no one standard, there are some basic rules that you can follow when positioning sections in the web page.
+Figure 1-2 shows one common layout that I'm you've seen used in many websites.
+-----------------------------------------------------------------------------------
+|  Body                                                                           |
+| |---------------------------------------------------------------------------|   |
+| |          Header                                                           |   |
+| |___________________________________________________________________________|   |
+| ______  ___________________________________________________________   ________  |
+| |nav |  | Section                                                 |   |aside |  |
+| |    |  |                                                         |   |      |  |
+| |    |  |  |--------------------------------------------------|   |   |      |  |
+| |    |  |  | article                                          |   |   |      |  |
+| |    |  |  |__________________________________________________|   |   |      |  |
+| |    |  |                                                         |   |      |  |
+| |    |  |  |--------------------------------------------------|   |   |      |  |
+| |    |  |  | article                                          |   |   |      |  |
+| |    |  |  |__________________________________________________|   |   |      |  |
+| |____|  |_________________________________________________________|   |______|  |
+|                                                                                 |
+|         |---------------------------------------------------------|             |
+|         | Footer                                                  |             |
+|         |_________________________________________________________|             |
+|---------------------------------------------------------------------------------|
+
+Just about every web page has a heading section at the top of the page that identifies it to site visitors.
+After that, a middle section is divided into three separate areas.
+On the left side is often a navigation section, providing links to other pages in the website.
+On the right side is often additional information or, in some cases, advertisements.
+In the middle of the middle section is the meat of the content you're presenting to your site visitors.
+Finally, at the bottom of the web page is a footer, often identifying the copyright information, as well as some basic contact information for the company.
+
+The div elemetn is a holdout from previous versions of HTML.
+If you need to work with older versions of HTML, instead of using the named section elements, you need to use the <div> tag, along with the id attribute to define a specific name for the section:
+
+<div id="header">
+content for heading
+</div>
+
+The CSS styles refer to the id attribute value to define the styles and positioning required for the section.
+You can still use this method in HTML5.
+Designers often use the div element to define subsectinos within articles that need special styling.
+
+
+<!-- Technical Stuff  -->
+A WORD ABOUT WHITE SPACE
+Quite possibly the most confusing feature in HTML is how it uses white space.
+The term white space refers to spaces, tabs, consecutive spaces, and line breaks within the HTML code.
+
+By default, when a browser parses the HTML code, it ignores any white space between elements.
+So, these three formats all produce the same resutls:
+
+<title>
+My First Web Page
+</title>
+
+<title> My First Web Page
+</title>
+
+<title>My First Web Page</title>
+
+It's completely up to you which format to use for your programs, but I recommend choosing a format and sticking to it.
+That'll make reading your code down the road easier, for you or anyone else.
+
+
+COMMENTING YOUR CODE
+Every programming language allows you to embed comments inside the code to help with documenting what's going on.
+HTML is no different.
+HTML allows you to insert text inside the HTML document that will be ignored by the browser as it parses the text.
+
+To start a comment section in HTML, you use the following symbol:
+
+<!--
+
+You can then enter a little or as much text as you neeed to properly document what's going on in your code.
+When the comment text is complete, you have to close the comment section using the following symbol:
+
+-->
+
+You can place anything between the opening and closing comment tags, including HTML code, and the browser will ignore it.
+However, be careful what you say in your comments, because they can be read by anyone who downloads your web page!
+
+Now that you knokw how to define different sections of the web page, the next section discusses how to add content to them.
+
+
+
+
+
+Looking at the basic HTML5 Elements
+After you define one or more sections in your web paeg, you're ready to start defining content. Adding content to a web page is sort of like working on a car assembly line.
+You define each piece of the web page separately, element by element.
+It's up to the browser to assemble the piece to create the finished web page.
+
+This section covers the main elements that you'll use to define content in your web page.
+
+Headings
+Normally, each new section of content in a web page will use some type of heading to make it stand out.
+Research shows that the first thing site visitors usually do when visiting a web page is to scan the main headings on the page.
+If you can't attract their attention with your section headings, you may quickly lose them.
+
+HTML5 uses the h element to define text for a heading.
+It defines six different levels of headings.
+Each heading level has a separate tag:
+
+<h1>A level 1 heading </h1>
+<h2> A level 2 heading </h2>
+<h3> A level 3 heading </h3>
+<h4> A level 4 heading </h4>
+<h5> A level 5 heading </h5>
+<h6> A level 6 heading </h6>
+
+Although there are six levels of headings in the HTML5 standard, most sites don't use more than two or three.
+
+The client browser determines the font, style, and size of the text it uses for eack heading level.
+Figure 1-3 shows how the Chrome web browser interprets the six levels of headings.
+
+The browser displays eack heading level with a decreasing font size.
+By the time you get to the sixth heading level, it's pretty hard to tell the difference between the heading and normal text on the web page!
+
+Text groupings
+There are several HTML5 elements that allow you to group text together into what are called block-level elements.
+The browser treats all of the content defined within the opening and closing tags of a block-level element as a single group.
+This allows you to use CSS to style or position the entire block of content as one piece, instead of having to style or position each element individually.
+
+You can group headings together using a new feature in the HTML5 standard called a heading group, using the hgroup element:
+
+<hgroup>
+<h1>This is the main heading</h1>
+<h2>This is the subheading. </h2>
+</hgroup>
+
+The heading group doesn't change the h1 or h2 elements, but it provides a way for the browser to interpret the two headings as a single element for styling and positioning.
+This allows you to use CSS styles to format them as a single block so they blend together like a main heading and a subheading.
+
+A web page consiting of sentences just strung together is boring to read and won't attract very many site visitors (or may just put them to sleep).
+In print, we group sentences of common thoughts together into paragraphs.
+You do the same thing in your web page content by using the p element:
+
+<p> This is one paragraph of text. The paragraph contains two sentences of content. </p>
+
+Notice that the p element uses an opening tag (<p>) and a closing tag (</p>) to mark the beginning and end of the grouped text.
+The browser treats all the text inside the p elemetn as a single element.
+When you group the content together, you can apply styles and positioning to the entire block.
+
+Be careful with the p element, though.
+The rules of white space that apply to HTML tags also apply to text inside the p element.
+The browser won't honor line breaks, tabs, or multiple spaces.
+So, if you have code like this:
+
+<p>
+This is one        line.
+This is    another line.
+</p>
+
+It will appear in the web page like this:
+
+This is one line. This is another line.
+
+All the extra spaces and the line break are removed from the content.
+Also, notice that the web browser adds a space between the two sentences.
+
+If you want to preserve the formatting of the text in the web page, use the pre element.
+The pre element allows you to group preformatted text.
+The idea behind performatted text is that it appears in the web page exactly as you enter it in the code file:
+
+<pre>
+This is one     line.
+This is another line.
+</pre>
+
+The browser will display the text in the web page exactly as it appears in the HTML5 code.
+
+Yet another method of grouping text is the blockquote element.
+The blockquote element is often used to quote references within a paragraph.
+The browser will indent the text contained within the blockquote separate from the normal paragraph text:
+
+<p>The only poem that I learned as a child was: </p>
+<blockquote>Roses are red, violets are blue. A face like yours, belongs in the zoo.</blockquote>
+<p>But that's probably not considered classic poetry. </p>
+
+This features helps you embed any type of text within content, not just quotes.
