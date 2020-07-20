@@ -372,3 +372,122 @@ The browser will indent the text contained within the blockquote separate from t
 <p>But that's probably not considered classic poetry. </p>
 
 This features helps you embed any type of text within content, not just quotes.
+
+Breaks
+Because HTML doesn't recognize the newline character in text, there's a way to tel the browser to start a new line in the web page when you need it.
+The single-sided br element forces a new line in the output:
+
+<p>
+This is one line.
+<br>
+This is a second line.
+</p>
+
+Now the output in the web page will appear as:
+
+This is one line.
+This is a second line.
+
+Another handy break element is the hr element.
+It displys a horizontal line across the width of the web page section.
+
+<h1>Section 1. </h1>
+<p>This is the content of section 1. </p>
+<hr>
+<h1>Section 2</h2>
+<p>This is the content of section 2. </p>
+
+The horizontal line spans the entire width of the web page block that contains it, as shown in Figure 1-4.
+
+Sometimes that's a bit awkward, but you can control the width of the horizontal line a bit by enclosing it in a section and adding some CSS styling.
+
+
+
+
+Making Your Text
+
+The opposite of block-level elements are text-level elements. Text-level elements allow you to apply styles to a section of content within a block.
+This section shows you the text-level elements you can apply to the content in your web page.
+
+Formatting text
+The text-level elements apply predefined formats to text without the need for CSS styling.
+The most popular of the text-level elemetns are the b and i elements, which apply the bold and italic styles, respectively:
+
+
+<p> I <i> wanted </i> the <b> large</b> drink size. </p>
+
+Text-level elements are also called inlinne, because they appear in the same line as the content.
+You can embed text-level elemetns to apply more than one to the same text:
+
+Remember!:
+When applying two or more text-level elements to text, make sure you close the tags in the opposite order that you open them.
+
+HTML5 supports lots of different text-level elements for using different styles of text directly, without the help of CSS.
+Table 1-2 lists the text-level elements available in HTML5.
+
+
+Table 1-2                       HTML5 Text-Level Elements
+Element                  Description
+abbr                     Displays the text as an abbreviation
+b                        Displays the text as boldface
+cite                     Displays the text as a citation (often displayed as italic)
+code                     Display the text as program code (often displayed with a fixed-width font)
+del                      Display the text as deleted (often displayed with a strikethrough font)
+dfn                      Display the text as a defination term (often displayed as italic)
+em                       Displays the text as emphasized (often displayed as italic)
+i                        Displays the text as italic
+ins                      Displays the text as inserted (often displayed with an underline font)
+kbd                      Displays the text as typed from a keyboard (often as fixed-width font)
+mark                     Displays the text as marked (often using highlighting)
+q                        Displays the text as quotes (often using quotes)
+samp                     Displays the text as sample program code (often displayed with a fixed font)
+small                    Displays the text using a smaller font than normal
+strong                   Displays the text as strongly emphasized (often using boldface)
+sub                      Displays the text as subscripted
+sup                      Displays the text as superscripted
+time                     Displays the text as a date and time value
+var                      Displays the text as a program variable(often using italic)
+
+As you can see in Table 1-2, you have lots of options for formatting text without eeven having to write a single line of CSS code!
+
+Using hypertext
+
+In Book1, Chapter 1, I mention that hyperlinks are the key to web pages.
+Hyperlinks are what tie all the individual web pages in your website together, allowing site visitors to jump from one page to another.
+
+The element that creates a hyperlink is the anchor text-level element.
+At first, that may sound somewhat counterintuitive - you'd think an anchor would keep you in one place instead of sending you someplace else.
+But hink of it the other way around:
+The anchor elemetn is that anchors another web page to your curren tweb page.
+Following the anchor takes you to the other web page!
+
+Formatting a hyperlink
+Because the anchor elemetn is a text-level element, you use it to makr text inside a block.
+That text then becomes the hyperlink.
+You add an anchor element using the <a> tag.
+The anchor element is two-sided, so it has both an opening tag (<a>) and a closing tag (</a>).
+The text inside the opening and closing tags becomes the hyperlink text.
+
+A few different attributes are available for the <a> tag, but the most important one is the href attribute.
+The href attribute specifies where the hyperlink takes your cite visitors:
+
+<a href="https://google.com"> Click here to search. </a>
+
+When a site visitor clicks the hyperlink, the browser automatically takes the visitor to the referenced web page in the same browser window.
+If you prefer, you can also specify the target attribute, which specifies how the browser should open the new web page.
+Here are your options for the target attribute:
+
+>> _blank: Opens the specified page in a new tab or window.
+>> _self: Opens the specified page in the current tab or window.
+This is the default behavior in HTML5, so it's not necessary to add it unless you want to for clarification in your code.
+>> _parent: Opens the specified page in the parent window of a frame embedded within the window.
+Embedded frames aren't popular anymore in HTML5, so this optino is seldom used.
+> _top: Opens the specified page in the main window that contains the frame embedded within other frames.
+This is seldom used.
+
+<a href="http://www.google.com" target="_blank"> Click here to search. </a>
+
+TIP:
+There's no set rule regarding how to handle opening new web pages, but generally it's a good idea to open other pages on your own website in the sme browser tab or window, but open remote web page in a new tab or window.
+That way your site visitors can easily get back to where they left off on your website if needed.
+
