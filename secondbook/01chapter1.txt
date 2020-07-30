@@ -491,3 +491,15 @@ TIP:
 There's no set rule regarding how to handle opening new web pages, but generally it's a good idea to open other pages on your own website in the sme browser tab or window, but open remote web page in a new tab or window.
 That way your site visitors can easily get back to where they left off on your website if needed.
 
+Displaying a hyperlink
+When you specify a hyperlink in the text, the browser tries to make it stand out from the rest of the text, as showm in Figure 1-5.
+
+By default, browsers will display the anchor element text using a different format than the rest of the block text:
+
+>> Unvisited links appear underlined in blue.
+>>Visited link appear underlined in purple.
+>> Active links are when you click an unvisited or visited link your mouse.
+When you click your mouse, the link becomes active and appears underlined in red.
+
+You can change these formats to your own liking using CSS styles, as explain in the next chapter.
+
