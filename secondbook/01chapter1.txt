@@ -503,3 +503,128 @@ When you click your mouse, the link becomes active and appears underlined in red
 
 You can change these formats to your own liking using CSS styles, as explain in the next chapter.
 
+Displaying a hyperlink
+When you specify a hyperlink in the text, the browser tries tries to make it stand out from the rest of the text, as shown in Figure 1-5.
+
+By default, browsers will display the anchor element text using a different format than the rest of the block text:
+>> Unvisited links appear underlined in blue.
+>> Visited links appear underlined in purple.
+>> Active links are when you click an unvisited or visited link with your mouse.
+When you click you mouse, the link becomes active and appears underlined in red.
+
+You can change these formats to your own liking using CSS styles, as I explain in the next chapter.
+
+Specifying a hyperlink
+The href attribute defines the location of the web page that you want the browser to open for your site visitor, but there are a few different formats you can use to specify that location:
+>> A different location on the same document
+>> A separate web page in the same website
+>> A web page in a remote website.
+
+You can use hyperlinks to force the browser to jump to a specific location inside the same web page.
+This is handy for long web pages that require lots of scrolling to get to sections at the bottom of the page.
+To use this method, you must first identify the locations in the web page by applying the id attribute to a block-level element, such as a heading or a paragraph element:
+
+<h1 id="chicago">Chicago News</h1>
+
+To create an anchor element to jump to that section, you use the id attribute value preceded by a number sign or hash mark (#):
+<a href="#chicago">See Chicago News</a>
+
+When the site visitor clicks the links, the browser automatically scrolls to place the section in the viewing area of the window.
+
+When jumping to another web page on the same server, you don't need to include the full http:// address in the href attribute.
+Instead, you can specify a relative address.
+The relative address isn't where your uncle lives; it's shorthand for findnig another file on the same web server.
+If the file is in the same folder on the same server, you can just specify the filename:
+
+<a href="store.html">Shop in our online store. </a>
+
+You can also place files in a subfolder under the location of the current web page.
+To do that, specify the subfolder without a leading slash:
+
+<a href="store/index.php">Shop in our online store. </a>
+
+In both cases, the browser will send an HTTP request to retrieve the file to the same server where it downloads the original page from.
+
+To specify a web page on a remote websire, you'll need to use an absolute address.
+The absolute address specifies the location using the Uniform Resource Locator (URL), whic defines the exact location of a file on the Internet using the following format:
+
+protocol://host/filename
+
+The protocol part specifies the network protocol the browser should use to download the file.
+For web pages, the protocol is either http (for unencrypted connections) or https (for encryopted connections).
+The host part specifies the host name, such as www.google.com for Google.
+The filename part specifies the exact folder path and filename to reach the file on the server.
+If you omit the filename, the remote web server will offer the default web page in the folder (usually, index.html).
+
+TIP:
+You can also local filenames using an absolute path address.
+Just precede the folder name with a forward slash(/).
+The leading forward slash tells the server to look for the specified folder at the DocumentRoot location of the web server, instead of in a subfolder from the curren location.
+
+Working with Characters
+-----------------------
+
+No, I'm not talking about Disneyland.
+I'm talking about the letters, numbers, and symbols that appear on your web pages.
+Humans prefer to see information as letters, words, and sentences, but computers prefer to work with numbers.
+To compensate for that, programmers developed a way to represent all characters as number codes so computers can handle them.
+The computer just needs a method of mapping the number fcodes to characters.
+
+Character sets
+The character-to-number mapping scheme is called a character set.
+A character set assigns a unique number to every character the computer needs to represent.
+In the early days of computing in the United States, the American Standard Code for Information Interchange (ASCII) became the standard character set for mapping the English-language characters and symbols in computers.
+
+As the computing world became global, most programs needed to support more than just the English language. The Latin-1 and ISSO 8859 character sets became popular, because they include characters for European languges.
+But that still didn't cover everything!
+
+Because it's supported worldwide, the HTML5 standard required more than just European-language support.
+The Unicode character set supports characters from all the language of the world; plus, it has room for expansion.
+Because of its huge size, though, a subset of Unicode, called UTF-8, became more popular.
+UTF08 also supports all languages, but with a smaller footprint; it has become the standard for HTML5.
+
+Although the HTML5 standard specifies a default character set, it's a good idea to specify the character set in your web pages so that you're sure the client browser is using the same character set to interpret your content.
+You do that using the meta element.
+Because the meta element provides additional information about your web page, you have to place it inside th head element section of the HTML code.
+
+Th meta element uses the single-sided <meta> tag.
+To specify the character set in HTML5 you use the following format:
+<meta charset="UTF-8">
+If your HTML code requires a different character set, you specify it here.
+
+TIP:
+The <meta> tag allow you to specify other features of your web page to the browser so that it knows how to process the body of the web page, and identify the content of the web page to servers that automatically scan your weeb page for search engines.
+I talk some more about the <meta> tag in Book 4, Chapter 4.
+
+
+Special characters
+The UTF-8 character set supports lots of fancy characters that you won't find on your keyboard, such as the copyright symbol (C), the cent symbol,(c), and the degree symbol. THese are commonly referred to a sepcial charcters.
+
+You can use special characters in your web page content because they're valid UTF-8 characters.
+You just need to use a different way of specifying them.
+Instead of typing these characters using your keyboarrd, you use a code to specify them.
+
+HTML5 uses two types of codes to specify special characters:
+
+>> Numeric character reference:
+The numeric character reference uses the UTF-8 numeric code assigned to the character.
+Place an ampersand(&) and a hash (#) in front of the character number, and a semicolon(;) after the character number.
+For example, to display the copyright symbol, use the following:
+
+&#169;
+
+>>Character entity reference: The character entity reference uses a short name to represent the character.
+Place an ampersand(&) in front of the character short name, and a semicolon (;) after the character short name:
+&copy;
+
+Both methods works equally well, so use whichever method you're most comfortable with.
+The list of special charcters available in UTF-8 is pretty long, so I won't include them here. If you search the webb for UTF-8 characters; you'll find plenty of websites that show the mappings between the UTF-8 numbers and character short names.
+
+
+MAKING A LIST (AND CHECKING IT TWICE)
+----------------------------------------
+
+The world is full of lists - to-do lists, wish lists, grocery lists ... the list just goes on and on.
+It's no surprise that the HTML5 developers created a way to easily present lists in web pages.
+There are theree basic types of lists available for you to use in HTML5: unordered lists, ordered lists, and description lists.
+This section covers how to use each type of list in your web pages.
