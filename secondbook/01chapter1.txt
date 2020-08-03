@@ -628,3 +628,86 @@ The world is full of lists - to-do lists, wish lists, grocery lists ... the list
 It's no surprise that the HTML5 developers created a way to easily present lists in web pages.
 There are theree basic types of lists available for you to use in HTML5: unordered lists, ordered lists, and description lists.
 This section covers how to use each type of list in your web pages.
+
+Unordered lists
+Some lists have no specific order to the items contained in them (like a grocery list).
+In the word-processing world, these are called bulleted lists, as each item in the list is preceded by a generic bullet icon.
+In HTML5, they're referred to as unordered lists.
+
+The HTML5 standard uses the ul element to display an unordered list using bullets.
+The ul element is a two-sided eelement, so you use the <ul> tag to open the list and the </ul> tag to close the list.
+
+You must identify each item in the list using the li element.
+The li element is also a two-sided element, so you use the <li> tag to open each item description and the </li> tag to close it.
+The overall structure for an unordered list looks like this:
+
+<ul>
+<li>item1</li>
+<li>item2</li>
+<li>item3</li>
+</ul>
+
+Because HTML5 doesn't care about white space in code, it's common to indent the list items in the definition as shown here, to help make it easier to read the code.
+However, indenting isn't necessary.
+
+Figure 1-6 shows the default way most browsers display unordered list in the web page.
+
+The bullet marks are fairly generic, similar to what you'd see in most word-processing documents.
+Fortunately, you can spice things up a little using CSS by defining different types of bullets to use.
+
+Ordered lists
+Some lists have a specific order in which the items should appear and be processed.
+In word-processing, these lists are called numbered lists.
+In HTML5, they 're calle d ordered lists.
+
+The HTML5 standard uses the ol element to display an ordered lists.
+The ordered list also uses the li element to mark the individual items contained in the lists:
+
+<ol>
+<li>Walk the dog. </li>
+<li>Eat breakfast. </li>
+<li>REad the paper.</li>
+<li>Get ready for work.</li>
+</ol>
+
+By default, browsers assign each item in the list a number starting at 1, and increasing for each list item, as shown in Figure 1-7.
+
+Figure 1-7
+olist.html
+
+If you want the list to be in reverse order, add the reversed attribute:
+<ol reversed>
+
+If you'd like to start at a different number add the start attribute, and specify the starting number as the value:
+
+<ol start="10">
+
+If you don't want to use numbers, there are a few other options available with the type attribute.
+Table 1-3 shows the different ordered list types available.
+
+Ordered List Types
+Type         Description
+1            Numerical list (the default)
+A            Alphabetical list, using uppercase
+a            Alphabetical list, using lowercase
+I            Roman numerals, using uppercase
+i            Roman numerals, using lowercase
+
+
+As you can probably guess, you can also embed lists witin lists:
+
+<ol type="I">
+<li> First item</li>
+<ol type="A">
+<li>Item1, Subitem 1 </li>
+<li>Item1, Subitem2 </li>
+</ol>
+
+<li>Second item </li>
+<ol type="A">
+    <li>Item2, Subitem1</li>
+    <li>Item2, Subitem2</li>
+</ol>
+
+!Warning!
+When using embedded lists, it's very important to match up the opening and closing tags for each item in the list, as well as the lists themselves. Any mismatches will confuse the browser and will cause unpredictable result.
