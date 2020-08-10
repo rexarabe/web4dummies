@@ -839,3 +839,43 @@ When you display the web page it should look like figure 1-9.
 By default, the table doesn't contain any gridlines, but you can change that using CSS, as you see in the next chapter.
 Also, the table column headings appear just like the data rows. you fix that next.
 
+Defining the table headings
+You can apply formatting to table headings without the use of CSS by using the th elemetn instead of the rd element for the heading cells:
+
+<tr>
+<th>Bowler</th>
+<th>Game1</th>
+<th>Game2</th>
+<th>Game3</th>
+<th>Average</th>
+</tr>
+
+The th element causes the browser to display the heading cells using a bold font.
+
+Often, in tables, you'll run into situations where a data cell must span two or more columns or rows.
+You can emulate that in your HTML5 tables using the rowspan and colspan attributes in the <td> tag.
+
+To span two or more rows in a single data cell, just add the rowspan attribute, and specify the number of rows to span.
+For example, if all the bowlers had the same score in the first game, you could do this:
+
+<tr>
+<td>Rich</td>
+<td rowspan=4>100 </td>
+<td>110</td>
+<td>95</td>
+<td>102</td>
+<tr>
+
+Now the second cell will span the next four rows in the table. Remember, though, when entereing data for the other three rows, you must omit the first cell of data, because the first row will take up that space, as shown in Figure 1-10.
+
+Like wise, if one of the bowlers had the same score in all three games, you could use the colspan attribute to combine all three columns into one cell:
+
+
+<tr>
+<td>Katie</td>
+<td colspan=3>120</td>
+</tr>
+
+Now the second cell in the row will span all three data columns for that row, as shown in figure 1-11.
+
+END OF CHAPTER 1 of BOOK 2
