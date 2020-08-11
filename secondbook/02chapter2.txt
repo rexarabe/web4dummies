@@ -1,0 +1,82 @@
+IN THIS CHAPTER 
+>> Defining styles 
+>> Formatting text
+>> Using the box model 
+>> Sprucing up your tables
+>> Positioning elements where you want them. 
+
+Chapter 2 
+The Basics of CSS3
+
+In the last chapter, I explain how to use HTML5 to display content on your web page. 
+However, when you juar uaw HTML5, things look pretty boring! 
+This chpater shows you how to incorporate style into your web pages to help liven things up (even if you're not an artist)
+
+First, I explain how to use CSS style sheets to style elements contained in the web page. 
+Then I show you how to work with styles to change the color and font of text, make fancier lists, and spruce up your tables within your we page. 
+Finally, I expalin how to work with the CSS positioning features to arrange your content in an appealing manner on the page. 
+
+Understanding Styles 
+When you specify an HTML5 element in your web page, the web browser decides just howt that element should look. 
+Browsers use a default styling to determine the difference between the text in an h1 element and the tet in a blockquote element. 
+
+Fortunately, another standard is available to work with HTML5 that helps you make your web pages uniques. 
+Back in Book 1, Chapter 1, I explain how Cascading Style Sheets (CSS) work to style HTML5 content on the web page. 
+That's the key to making your website stand out from the crowd!
+
+The CSS standard specifies ways to define the color, size and font type of text that appears on web pages. 
+It also provides some styles for adding background colors and images and styling other types of elements on the web page. 
+
+TIP:
+The CSS standard has evolved some over the years. 
+At the time of this writing, it's currently at version 3 - you'll often see it referred to as CSS3, and that's what I call it in this book.
+
+Now you're ready to take a deeper dive into just how to use CSS3 in your web applications. 
+This section walks through how CSS3 works and how you can use it to make your web pages look good. 
+
+Defining the rules of CSS3
+CSS3 uses rules to define how the browser should display content on the web page. 
+Each rule consists of two parts:
+a selector that defines what elements the rule applies to and one or more declarations that define the style to apply. 
+
+The format of the CSS3 rule looks like this:
+selector { declaration1; declaration2; declaration3; ... }
+
+In the rule defination, there are five ways to define the selector: 
+
+>> Element type: The rule applies to all elements of the specified type. 
+>> id attribute: The rule applies to the specific element with the specified id value. 
+>> Pseudo-element: The rule applies to a specific part within an element. 
+>> Pseudo-class: The rule applies to elements in a specific state. 
+
+Each declaration defines a CSS3 style property and its associated value. 
+Each property sets a specific style (such as a color or a font) to the element the rule applies to.
+You must end each declaration with semicolon, and you can list as many declarations as needed in the rule. 
+
+Here's the format of the property and it's value as you list them in the declaration:
+
+property: value
+
+In the following sections, I explain in more detail the five ways to define a selector.
+
+Element type 
+You can apply the same styling to all elements of a specific type in your web page by specifying the element name as the selector: 
+
+h1 { color: red; }
+
+This rule ensures that the browser displays all h1 elements in the web page using a red font color. 
+
+id attribute:
+
+If you need to define a rule that applies to just a single element in the web page, use the id attribute as the selector. 
+To specify an id attribue as the selector, place a pound sign(# ) in front of the id name:
+
+#warning {color: red; }
+
+To use the rule in your HTML5 code, just apply the id attribute value to the element you need to style: 
+<h1 id="warning">This is a bad selection.</h1>
+
+The browser will apply that rule to the specific element that uses the id attributes value. 
+
+The browser will apply that rule to the specific element that uses the id attribute value. 
+
