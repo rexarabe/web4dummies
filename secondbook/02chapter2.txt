@@ -80,3 +80,148 @@ The browser will apply that rule to the specific element that uses the id attrib
 
 The browser will apply that rule to the specific element that uses the id attribute value. 
 
+
+Class attribute 
+If you need to define a rule that that applies to multiple elements, but not necessarily all the elements of that type, use the class attribute as the selector. 
+To specify a class attribute as the selector, place a period in front of the class name: 
+
+.warning {color: red; }
+
+Then just apply that class attribute to whichever elements you need to style using that rule: 
+<h1 class="warning">This is a bad selection. </h1>
+<p class="warning">Please make another selection. </p>
+
+As you can see from this example, you can apply the same class attribute value to different element types, making this a very versatile way of styling sections of your web page!
+
+If you decide you only need to apply a rule to one aprticular element type of the class you can specify the element type in the selector before the clss value: 
+
+p.warning{color: red;}
+
+This rule apply only to p elements with the class attribute value of warning. 
+
+Pseudo-element 
+
+The CSS standard defines a handful of special cases where you can apply styles to a subsection of the element content, and not the entire content of an element. 
+These rules are called pseudo-elements. 
+
+To use a pseudo-element rule, separate the rule from the selector it applies to using a double colon (::):
+
+selector::pseudo-element
+
+CSS3 supports a set of keywords for the pseudo-element names. 
+For example, if you want to get fancy and style the first letter of a paragraph of text differently from the rest of the tex,t you can use the first-letter pseudo-element keyword:
+
+p::first-letter {font-size: 20px}
+
+The fist-letter matches with only the first letter of the p element, as shown in Figure 2-1.
+
+CSS3 defines only a handful of pseudo-elements available, but these few pseudo-elements can come in handy for trying special formatting of your web pages. 
+
+There aren't a lot of pseudo-elements available, but these few pseudo-elements can come in handy for trying special formatting of your web pages. 
+
+CSS3 Pseudo-Elements 
+Pseudo-Elements         Description
+after                   Places an object before the selected element content. 
+before                  Places an object after the selected element content. 
+first-letter            Applies the rule to the first letter of the selected element content. 
+first-line              Applies the rule to the first line of the selected element content.
+selection               Applies the rule to the content area selected by the site visitor.
+
+
+TIP:
+The after and before pseudo-elements may sound a bit strange, because there's no content to style before or after an element. 
+They're most commonly used for placing images after or before the content in the element. 
+
+Pseudo-class
+A pseudo-class applies the defined styles to an element that is in a specific state on the web page. 
+The state refers to how the element behaves, such as buttons that are disabled, check boxes that are checked, or input boxes that have the browser focus.
+
+These rules are commonly applied to hypertext links on the web page to help site visitors distinguish links they've already visited.
+You do that by using a seires of four pseudo-class style rules:
+
+>> link: Applies the rule to a normal, unvisited link
+>> visited: Applies the rule to a link that the site visitor has already visited.
+>> hover: Applies the rule when the site visitor hovers the mouse pointer over the link.
+>> active: Applies the rue when the site visitor clicks the mouse on the link.
+
+You specify pseudo-class rules using a single colon to separate it from the selector in the rule definition:
+a: link {color: orange;}
+a: visited {color: purple;}
+a: hover {color: green;}
+a: active {color: red;}
+
+All these pseudo-class rules apply to all the anchor elements in the web page and apply different colors to the hyperlink text depending on the hyperlink state.
+
+Warning!
+It's extremely important to list the anchor element pseudo-class rules in the order shown here, or they won't work!
+
+TIP:
+If you want to remove the underline that most browsers apply to hypertext links, add the following property to the pseudo-element style rule:
+
+text-decoration:none;
+
+There are lots of pseudo-classes that you can use to apply rules to specific elements in the your web page. 
+Table 2-2 shows the list of avaolable pseudo-classes in CSS3. 
+
+Many of the pseudo-class style rules (suh as first-child and last-child) work with the location of and element within the Document Object Model (DOM).
+Book 3, Chapter 2, discusses the DOM and how to use it to reference elements on the web page. 
+
+THE CSS3 Pseudo-Classes
+Pseudo-Class            Description
+active                  The rule applies to hypetext links while the site visitor cliks them. 
+checked                 The rule applies t input check boxes and radio options that are selected (checked).
+disabled                The rule applies to input elements that are disabled. 
+empty                   The rule applies to elements that have no children.
+enabled                 The rule applies to input elements that are enabled. 
+first-child             The rule applies to the first child element of a parent element. 
+first-of-type           The rule applies to the first child element of the same type as the parent. 
+focus                   The rule applies to elements that have the browser focus. 
+hover                   The rule applies to elements that the mouse pointer is hovering over. 
+in-range                The rule applies to elements whose value is within the specified range. 
+invalid                 The rule applies to elements whose value is invalid.
+lang(language)          The rule applies to elements with the lang attribute specified.
+last-child              The rule applies to the last child element of a parent element. 
+last-of-type            The rule applies to the last child element of the same type as the parent.
+link                    The rule applies to unvisited hypertext lihnk elements. 
+not(selector)           The rule applies to all elements except the specified selector elements. 
+nth-child(n)            The rule applies to the nth child of the parent element. 
+nth-last-child(n)       The rule applies to the nth child of the parent element counting backward from the last element. 
+nth-of-type(n)          The rule applies to the nth child element with the same type as the parent. 
+only-of-type            The rule applies to every element that is the only element of the same type as the parent.
+only-child              The rule applies to every element that is the same only child of a parent. 
+optional                The rule applies to input elements that do not have the required attribute. 
+out-of-range            The rule applies to elements with a value out of the specified range.
+read-only               The rule applies to elements with a readonly attribute specified. 
+read-write              The rule applies to elements without a readonly attribute specified.   
+required                The rule applies to elements with a required attribute specified.
+root                    The rule applies to the documents's root element. 
+target                  The rule applies to the current active element specified. 
+valid                   The rule applies to elements that have a valid value. 
+visited                 The rule applies to hypertext links that the site visitor has already visited. 
+
+Applying style rules 
+In book 1, Chapter 1, I discuss the different ways to apply CSS3 styels to an HTML5 document.
+To refresh your memory, there are three ways three ways to do that: 
+
+>> Inline styles: Place the style properties inside the HTML5 element opening tag, using the style attribute: 
+
+<h1 style="color: red;"> Warning </h1>
+
+>> Internal styles: Use the <style> tag to define a set of styles that apply to the entire document: 
+
+<style>
+h1 {color: red;}
+</style>
+
+>> External styles: Use an external file to contain the styel definitions, and then add the <link> tag in the HTML5 document to reference the external style sheet: 
+<link rel="stylesheet" href="mystyles.css">
+
+Note that with the inline style definitions, you leave off the selector part of the rule. 
+Because the rule applies only to the element that declares it, there's no need for the selector. 
+With both the inline and external styel sheet methods, you define the set of rules separately within the style sheet.
+The great benefit of using the external style sheet method is that you can then apply the same style sheet to all the page of your website!
+
+You can use any of these locatoins to define you style rules, or you can use them all at the same time!  
+If two or more style rules apply to the same elemtn on the web page, the cascading feature of CSS3 kicks in. 
+CSS3 defines a specific process on how the browser applies conflicting rules to an element to ensure everything happens in order. 
+The next section explains how that works. 
