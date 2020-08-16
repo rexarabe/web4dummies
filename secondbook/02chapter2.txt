@@ -224,4 +224,50 @@ The great benefit of using the external style sheet method is that you can then 
 You can use any of these locatoins to define you style rules, or you can use them all at the same time!  
 If two or more style rules apply to the same elemtn on the web page, the cascading feature of CSS3 kicks in. 
 CSS3 defines a specific process on how the browser applies conflicting rules to an element to ensure everything happens in order. 
-The next section explains how that works. 
+The next section explains how that works.
+
+Cascading style rules 
+As the name suggests, if you define multiple style rules for a web page, the rules cascade down from the lower-priority rules, which are applied first, to the higher-priority rules, which are applied later. 
+
+TIP:
+Saying "down" from a lower to a higher priority may seem counterintuitive, but it's common jargon ni CSS circles. 
+Just remember that the higher-priority rules take precedence over the lower-priority rules.
+
+The CSS3 standard defines a strict process for how browsers should apply style rules to each element. 
+In Book 1, Chapter 1, I outline an abbreviated version of the cascading rules. 
+There are actually ten different rule levels that the CSS3 standard defines for applying rules! 
+However, most web designers don't use all ten levels to define rules, so things don't usually get that complicated. 
+
+Table 2-3 shows the official CSS3 cascading rules process. 
+
+Table 2-3          The CSS3 Cascading Rules Process 
+
+Rule Type          Description                                                                               Priority Level
+Importance         Rules contain the ! important property and override all other rule                        1
+Inline             Rules defined using the style attribute in an element opening tag                         2
+Media              Rules defined for a specific media type                                                   3
+User defined       Accessibility features defined in the browser by the site visitor                         4
+Specific selector  A selector referring to an id, class, pseudo-element, or pseudo-class                     5
+Rule order         When multiple rules apply to an element, the last rule declared wins                      6
+Inheritance        Rules inherited from parent elements in the web page                                      7
+Internal           Rules defined in internal style sheets                                                    8
+External           Rules defined in external style sheets                                                    9
+Browser default    The default styles built into the browser, the lowest priority                            10
+
+
+REMEMBER:
+Notice that accessibility features have a special place in the cascading rule order.
+Many Of your website visitors may have some type of viewing disability preventing them from viewing your content as you style it. 
+Most browsers allow users to define their own style features, such as specifying foreground and background contrasting colors or changing the font size to make text more readable. 
+
+Now that you've seen how to define CSS3 rules and where to define them, the next step is to start learning some rules to apply to your web pages.
+The CSS3 standard defines a myriad of styles for you to use. 
+Entire books have been written trying to cover all the different rules and features, such as CSS3 for Dummies by John Paul Mueller (Wiley).
+The remaining sections in this chapter walk you through some of the more commonly used rules that you'll want to keep in mind as you design your dynamic web applications.
+
+
+Styling Text
+No place is styling more important than with the text taht appears on your web page.
+You can transform a dull, boring website with just a few changes to the text styles. 
+This section walks though the options you have available for styling text to help liven up your website. 
+
