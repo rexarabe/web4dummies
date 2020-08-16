@@ -271,3 +271,212 @@ No place is styling more important than with the text taht appears on your web p
 You can transform a dull, boring website with just a few changes to the text styles. 
 This section walks though the options you have available for styling text to help liven up your website. 
 
+Setting the font 
+A font defines how a medium displays the characters in the content. 
+Whether it's etching words into stone, setting text on paper using a printing press, or displaying pixels on a computer monitor, fonts help control how readers interpret the content. 
+
+When you place text on your web page using HTML5, the browser selects a default font style, size, and format based on the elemtn type, and it uses that same setting for all the text in those elements on your web page. 
+That not only makes for a boring web page, but can also confuse your site visitors if all the content blends together. 
+
+This section describes how you can change the font features the browser uses to display text in your web pages. 
+
+Finding a family 
+The CSS3 standard defines the font-family style property to allow you to change the style of font. 
+Here's the format for the font-family property:
+
+font-family: fontlist;
+
+The fontlist value is a comma-separated list of font names. 
+There are two ways to specify a font in the list:
+
+>>Using a specific font name: 
+Specific font names require the browser to use that specific font to display the text, such as Times New Roman, Arial, or Helvetica. 
+Browsers are limited to using only the fonts that are installed on the workstation, so specifying a specific font name can be a gamble. 
+If that font isn't available on the site visitor's workstation, the browser will revert to the default font. 
+It has become common practice to provide several options of font names in the font-family property. 
+The browser will try to use the font presented first in the list, and if that's not available, it'll try the next font listed, and continue down the list. 
+If no font is available, the browser reverts to the default font.
+
+>>Using a generic font group: Generic font groups give the browser a little more leeway in selecting a font to use. 
+Instead of looking for a specific font, the browser can use any font that's included in the font group.
+CSS3 defines the following font groups: 
+*cursive: A font that mimics handwritten text
+*fantasy: An ornamental font used for special text
+*monospace: A font that uses the uses the same spacing for all characters 
+sans-serif: A font without any ornamentation added to characters
+serif: A font that uses ornamentation at the tail of each character.
+
+It's common practice to list specific font names first in the font list and then, as a last resort add a generic font group like this:
+
+font-family: Arial, 'Times New Roman', sans-serif;
+
+With this rule, the browser will try to use the Arial font. 
+If that's not available on the visitor's workstation, it will try to use the Times New Roman font.
+If Times New Roman is also not available, the browser will look for a font from the sans-serif font group.
+
+REMEMBER: 
+Note that for font names that contain spaces, you must enclose the name in single quotes.
+
+TIP: 
+The CSS3 standard defines an exciting new feature called web fonts. 
+Web fonts allow you to define your own font on a server so that browsers can download them along with the web page. 
+I dive into using web fonts in more detail in Chapter 4 of this minibook.
+
+Picking a size
+After selecting a font style to use, the next step is to decide what size the font should be. 
+Browsers have built-in sizes for separating out the different header levels, as well as standard text. 
+However, you can change that by using the font-size property:
+
+font-size: size;
+
+You'd think specifying a font size would be easy, but CSS3 actually allows you to specify the size in one of five different methods:
+
+>> As an absolute unit of measurement
+>> As a relative unit of measurement
+>> As a percentage of the space assigned to the element 
+>> Using a size keyword 
+>> Using a size keyword relative to the space assigned to the element. 
+
+You specify absolute units using a specific size value of measurement. 
+To complicate things even more, CSS allows you to use siz different units of measurements, shown in Table 2-4.
+
+
+CSS Font-Size Absolute Units of Measurement
+
+Unit            Description
+cm              Centimeters
+in              Inches
+mm              Millimeters
+pc              Picas
+pt              Points
+px              Pixels
+
+The first three units of measurement shown in Table 2-4 are easily recognizable, but the last three aren't as common. 
+There are 6 picas in an inch, and 72 points in an inch. 
+The pixel unit originally matched up to pixels on a standard computer monitor,
+But with the advancement of monitor technology, that isn't the case anymore. 
+
+You can specify the size using either a whole number or a decimal value: 
+
+font-size: 0.25in;
+font-size: 48pt;
+
+The relative units of measurement set the size of the font relative to other elements on the web page. 
+Table 2-5 shows the relative size units in CSS3.
+
+CSS Font-Size Relative Units of Measurement
+
+Unit          Description
+ch            Relative to the size of the zero character
+em            Relative to the size of the normal font size of the elements
+ex            Relative to the normal height of the font size currenly used 
+rem           Relative to the height of the root element
+vh            Relative to 1% of the browser window height 
+vw            Relative to 1% of the browser window width 
+vmax          Relative to 1% of the larger of the browser window width or height
+vmin          Relative to 1% of the smaller of the browser window width or height
+%             As a percentage of the normal element size
+
+The em relative unit size is the most popular. 
+It sizes the element relative to the text in the web page. 
+For example, here's a common rule that you'll see: 
+
+h1 {font-size: 2em;}
+
+This tells the browser to size the h1 element twice the size of the text in the web page. 
+By using relative units, you can easily change the size of headings based on the size of the text in the content. 
+If you decide to change the font size of the text in the web page, the headings will automatically change size to stay in the same proportion. 
+
+To make things simpler, CSS also allows you to set the text size using a human-readable keyword. 
+There are both absolute and relative keywords available:
+
+>> Absolute: xx-small, x-small, small, medium, large, x-large, xx-large
+>> Relative: smaller, larger
+
+Using the keywords makes setting font sizes easier, but you're still a little at the mercy of the browser.
+It's up too the browser to deternmine just what is a small, medium, or lareg size font.
+
+Playing with color
+By default, browsers display all text in black on a white background.
+Things don't get any more boring than that! 
+One of the first steps in livening up your website is to change the text color scheme.
+
+There are two CSS3 properties that you need to do that:
+
+>> color: Selects the color the browser uses for the text font
+>> background-color: Selects the color the browser uses for the background.
+
+You have a vast palette of colors to choose from for your color scheme. 
+Usually, it's a good idea to pick a color scheme for your website and try to stick with that for most of the web pages contained in the website.
+Often, a corporation will set the color scheme of it website based on the colors used in the company logo.
+
+Ocassionally, you may need some content to pop out at visitors, so you'll need to deviate some from the scheme.
+
+The original CSS standard privided three ways to define colors used in styles:
+
+>> With color names: Yuo can choose a text value from a standard list of color names. 
+CSS3 defines many different colors by name. If you plan on using a standard color, most likely you can call it just by its name: 
+
+p {color: red; background-color: white;}
+
+>> With RGB hexadecimal values: If you want to fine-tune the colors your web page elements use, you can select the intensity of the red, green, and blue colors based on hexadecimal values from 00 to FF.
+If you're into hexadecimal numbers, define the color as three hexadecimal values preceded by a pound sign: 
+
+p {color: #ffa500;}
+
+The ffa500 value sets the red hue at full intensity, sets the green hue a little lower, and turns the blue hue off, producing the orange color.
+
+>> With the rgb() function: You can select the color using decimal values from 0 to 255 for the red, green, and blue intensities. 
+To specify the same color using the rgb() method, you'd use the following: 
+
+p {color: rgb(255, 165, 0);}
+
+If you're not picky about the shade of red you want, the first method will work just fine. 
+But odds are, you'll want to be more precise in your color selection (for example, matching the shade of red to the red in your company's logo), so you'll want to use one of the other two methods.
+Which of the other two methods you use is a matter of personal preference. 
+
+The updated CSS3 standard provides four new ways of working with colors in your web pages:
+
+>> RGBA: adds an opacity value to the standard RGB settings
+>> HSL: Defines the color as a hue, saturation, and lightness percentage
+>> HSLA: Defines the color as an HSL value, plus adds an opacity value
+>> Opacity: Defines a transparancy value to make the element more opaque.
+
+The main addition to the CSS3 color scheme is the opacity feature.
+The opacity feature provides the ability to make elements transparent, or faded. 
+The opacity value ranges from 0.0 (fully transparent) to 1.0 (no transparency, also called opaque).
+
+Here's an example to demonstrate just how changing colors in  elements works: 
+
+1. Open your favorite text editor, program editor, or integrated development environment (IDE) package.
+
+2. Enter the following code into the editor windows: 
+
+<!DOCTYPE html>
+<html>
+<head> 
+<title> Testing colors in CSS3 </title>
+<style>
+p {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #ff0000;
+    background-color: cyan;
+}
+
+h1 {
+          color: rgb(255, 165, 0) ;
+          background-color: green;
+}
+
+</style>
+</head>
+<body>
+<h1>Testing the color scheme </h1>
+<p>
+The quick brown fox jumps over the lazy dog.
+</p>
+<h1> This is the end of the color test </h1>
+</body>
+</html>
+
+Working with the box Model
