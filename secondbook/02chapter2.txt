@@ -480,3 +480,68 @@ The quick brown fox jumps over the lazy dog.
 </html>
 
 Working with the box Model
+
+CSS3 handles all elements on the web page using the box model, which defines the area inside and around the element and provides a way for you to alter the style of those features. 
+Figure 2-3 shows the box model defined in CSS3.
+
+___________________________________________________________________________________________
+|                             Margin                                                      |
+|  ______________________________________________________________________________________ |
+|  |                          Border                                                    | |
+|  |  _________________________________________________________________________________ | |
+|  |  |                       Padding                                                 | | |
+|  |  |     _____________________________________________________________________     | | |
+|  |  |     |                                                                   |     | | |
+|  |  |     |                 Content                                           |     | | |
+|  |  |     |___________________________________________________________________|     | | |
+|  |  |_______________________________________________________________________________| | |
+|  |____________________________________________________________________________________| |
+|_________________________________________________________________________________________|
+
+The box model defines four different sections in the element. 
+Working from the inside out, they are as follows: 
+
+>> Content: The text or image the element contains.
+>> Padding: The space around the content.
+>> Border: An area, usually visible, that goes around the content and padding
+>> Margin: The space outside of the element border, between elements.
+
+With CSS3, you can alter the padding, margin, and border around an element to help make it stand out in the web page. 
+You do that using the padding, margin, and border style properties. 
+
+Let's correct the colortest.html code to remove the margin around the elements and add some extra padding to see how that changes things:
+
+1) Open the colortest.html file you created in the "Playing with color" section in your favorite text editor, program editor, or IDE package. 
+2) Modigy the p and h1 element styles to set the element margins to 0px and add 10px of padding. 
+
+The style should now look like this: 
+<style>
+p {
+    font-family: Arial, Helvetica, sans-serif; 
+    color: #ff0000;
+    background-color: cyan;
+    margin: 0px;
+    padding: 10px;
+}
+
+h1 {
+    color: rgb(255, 165, 0);
+    background-color: green;
+    margin: 0px;
+    padding: 10px;
+}
+</style>
+
+3) Save the updated colortest.html file.
+4) Start the web server. 
+If you're using XAMPP, launch the XAMPP Control Panel and then click the Start button for the Apache web server. 
+5. Open your browser and go to the URL for the new File: 
+Note: You may need to change the oport in the URL to what your web server uses. 
+6. Stop the web server and close the browser.
+
+Figure 2-4 shows the web page this code produces. 
+
+Notice that the white space is gone and the background space around the text in the headings and paragraph is larger. 
+Feel free to play around with the margin and padding numbers in the HTML5 code and watch how it changes the display results. 
+
+
