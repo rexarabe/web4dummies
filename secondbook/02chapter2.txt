@@ -544,4 +544,108 @@ Figure 2-4 shows the web page this code produces.
 Notice that the white space is gone and the background space around the text in the headings and paragraph is larger. 
 Feel free to play around with the margin and padding numbers in the HTML5 code and watch how it changes the display results. 
 
+Styling Tables 
+The previous chapter explains how to create tables using HTML5. 
+Older versions of HTML defined attributes in the table element to help add some features, such as creating borders around the table cells and sizing the table cells. 
+However, HTML5 removed all those attributes, so it's up to CSS to provide those features. 
 
+Table borders
+When you're presenting data in tables, you may want to create borders around the table and around the individual cells in table. 
+You do that with the CSS border property: 
+
+table {border: 1px solid black;}
+
+The first value in the border property (1px) is the width of the border. 
+The second value (solid) is the type of border; you can specify dashed, dotted, double, or solid for the border type. 
+The third value (black) specifies the color of the border. 
+
+You can add borders around any of the table family of elements - table, th, tr, or td.
+However, if you specify the border property for all of them, you'll see double borders around the individual cells. 
+To prevent that from happening, add the border-collapse property to the rule, and set its value to collapse. 
+
+TIP: 
+If you only want to show horizontal lines between the table rows, you can use the border-bottom property for the tr element. 
+This only creates borders at the bottom of each row. 
+
+Follow these steps to add borders around a table: 
+1. Open the mytable.html file that you created in the preceding chapter in your favorite text editor, program editor, or IDE package. 
+If you haven't yet read Chapter 1 of this minibook, you'll have to turn back and at least work through the section on tables before proceeding twith these steps. 
+I'll wait for you!
+
+2. Add a style element to the head section of the document to define the table styling rule: 
+
+<style>
+table tr td{
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+</style>
+
+Remember: 
+I included the border-collapse property to prevent double borders from appearing. 
+
+3. Save the file. 
+
+4. Start your web server software, open your browser, and go to the following URL:
+https://localhost:8080/mytable.html
+
+5. Close the browser and stop your web server software. 
+
+With the added stylings, you should see a single border line around each table cell and a single border line around the entire table, as shown in Figure 2-5.
+
+Now that you have borders around each cell, it may seem a bit more obvious how cramped the data inside the table looks. 
+You can do some more playing around with sizing and positioning the text inside each cell. 
+I cover that in the next section. 
+
+Table data 
+As you can see in Figure 2-5, by default, the browser cretes the table cells just large enough to contain the largest data value in the cells. 
+That can make for a somewhat cramped table. 
+Fortunately, you can add a little more space around the data in the table cells using some additional CSS properties. 
+
+Padding the cells 
+A padded cell sounds somewhat ominous, but adding the padding property to your table cells can make a huge difference in the appearance of the table data:
+
+table tr td {
+    border: 1px solid black; 
+    border-collapse: collapse;
+    padding: 10px;
+}
+
+When you provide some additional space inside the table cells, you have some more options on where the data appears within the table. 
+
+Aligning text in the cells 
+You can align the data to the left side, center, or right side of the cell with the text-align property: 
+
+table th {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 10px;
+    text-align: center;
+}
+
+This definintion centers the text in the table header (th) elements. 
+If you also want to move the text upward inside the cell, use the vertical-align property.
+
+Coloring tables
+Just using the default balck-and-white tables can quickly put your site visitors to sleep! 
+Add the color and background-color properties to your table to make it stand out. 
+You can apply the colors to the entire table, individual rows, or even individual cells. 
+
+
+To simulate the old mainframe printer report style using alternating row colors in the table, use the nth-child pseudo-class to style every other row in the table as a different color, like this: 
+
+tr: nth-child(even) {
+    background-color: lightgreen;
+}
+
+If you're old enough to remember the mainframe computer report days, this should bring back memories!
+
+Another feature that comes in handy is to use the hover pseudo-class to change the background color of an individual cell as your site visitor hovers the mouse pointer over it:
+
+    td: hover {
+        background-color: yellow;
+    }
+
+Now things are really starting to get fancy! 
+
+Positioning Elements:
