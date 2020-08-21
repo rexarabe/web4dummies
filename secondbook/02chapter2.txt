@@ -649,3 +649,191 @@ Another feature that comes in handy is to use the hover pseudo-class to change t
 Now things are really starting to get fancy! 
 
 Positioning Elements:
+By default, browsers place elements in the window following a set order. 
+As the web page defines each element, the browser places it in the window starting at the upper-left corner of the window, proceeding from left to right, and top to bottom. 
+
+To demonstrate this, let's run q quick test. 
+You'll create a web page that contains five sections: 
+
+>> A header to display at the top of the web page 
+>> A footer to display at the bottom of the web page
+>> A navigation section to display on the left side of the middle section
+>> An aside section to display on the right side of the middle section
+>> A main content section to display in the middle of the middle section.
+
+This a pretty standard web page layout structure, which I'm sure you've seen lots of times as you've browsed the web.
+
+Follow these steps to run the test: 
+1. Open your favorite text editor, program editor, or IDE package, and enter the following code:
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Positiong Test</title>
+	<style type="text/css">
+		
+		header {
+			background-color: red;
+			margin: 0px;
+			padding:10px;
+			height: 25px;
+			width: 600px;
+		}
+		
+		nav {
+			background-color: blue;
+			margin: 0px;
+			padding: 10px;
+			height: 125px;
+			width: 200px;
+		}
+		
+		section {
+			background-color: green;
+			margin: 0px;
+			padding: 10px;
+			height: 125px;
+			width: 200px;
+		}
+
+		aside {
+			background-color: yellow;
+			margin: 0px;
+			padding: 10px;
+			height:  125px;
+			width: 200px;
+		}
+
+		footer {
+			background-color: orange;
+			margin: 0px;
+			padding: 10px;
+			height: : 25px;
+			width: 600px;
+		}
+
+	</style>
+</head>
+<body>
+<header><p>This is the header</p></header>
+<nav><p>Navigation</p></nav>
+<section><p>Section</p></section>
+<aside><p>Aside</p></aside>
+<footer><p>This is the footer</p></footer>
+</body>
+</html>
+
+2. Save the file as positiontest.html in the DocumentRoot folder of your web server. 
+3. Start the web server, open your browser, and go to the following URL: 
+http://localhost:8080/positiontest.html
+
+4. Close the browser and stop the web server
+
+This test creates a web page that contains a header section, a navigation section,  a main content section, an aside section, and a footer section. 
+It uses the height and width style properties to define how large each section should be and sets a different background color for each section so you can tell them apart on the web page.
+However, when you display the web page, you'll probably be a bit disappointed with the results, which are shown in Figure 206.
+
+The browser positioned each of the different sections in the order you defined them, each on top of the other. 
+Ouch! That's not what we wanted at all! 
+See Figure 2-6:
+Displaying the web page with no positioning.
+
+To get the browser to place the different web page sections the way we want, we'll need to use some of the positioning properties available in CSS. 
+The next sections walk you through how to do that. 
+
+Putting elements in a specific place.
+Placing elements in specific locations on the web page requires using the positioning properties available in CSS.
+There are three main positioning properties that are normally used: 
+
+>> position: Sets the position method the browser should use to place the element. 
+>> top: Defines the location for the top of the element
+>> left: Defines the location for the left side of the element. 
+
+The position property defines what method the browser uses to place the element ni the web page. 
+There are four different positioning methods: 
+
+>>absolute: Changes the element's position relative to the nearest positioned element that precedes it. 
+>> fixed: Places the element in a fixed location in the browser window. 
+If the site visitor scrolls the window, the element stays in the same spot. 
+>> relative: Changes the element's position relative to the default position.
+>> static: Places the element in its normal location in the web page following the default placement rules. 
+
+To use the absolute, fixed, and relative positioning methods, you need to define the location in the browser window where the element will be placed.
+
+You do that using the top and left properties.
+
+Let's change the positiontest.html test file to use absolute positioning to place the sections. 
+Just follow these steps:
+
+1.Open the positiontest.html file in your favorite test editor, program editor, or IDE package. 
+2.Modify the style defined so they look like this: 
+
+	<style type="text/css">
+		
+		header {
+			background-color: red;
+			margin: 0px;
+			padding:10px;
+			height: 25px;
+			width: 600px;
+			position: absolute;
+			top: 10px;
+			left: 0px;
+		}
+		
+		nav {
+			background-color: blue;
+			margin: 0px;
+			padding: 10px;
+			height: 125px;
+			width: 200px;
+			position: absolute;
+			top: 46px;
+			left: 0px;
+		}
+		
+		section {
+			background-color: green;
+			margin: 0px;
+			padding: 10px;
+			height: 125px;
+			width: 200px;
+			position: absolute;
+			top: 46px;
+			left: 201px;
+		}
+
+		aside {
+			background-color: yellow;
+			margin: 0px;
+			padding: 10px;
+			height:  125px;
+			width: 200px;
+			position: absolute;
+			top: 46px;
+			left: 402px;
+		}
+
+		footer {
+			background-color: orange;
+			margin: 0px;
+			padding: 10px;
+			height: : 25px;
+			width: 600px;
+			position: absolute;
+			top: 192px;
+			left: 0px;
+		}
+
+	</style>
+
+  3. Save the updated positiontest.html files as positiontest2.html.
+  4. Start your web server, open a browser, and go to the following URL:
+    http://localhost:8080/positiontest.html
+
+5. Close the browser and stop the web server.
+
+The additional code sets the positioning method for the browser to use for each section to absolute, which means it will place the sections at exactly the place in the browser windows you define using the top and left properties. 
+When you display the web page, you should see the result as shown in Figure 207.
+
+Now things are starting to look like a real web page! 
