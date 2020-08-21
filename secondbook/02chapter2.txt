@@ -836,4 +836,109 @@ Just follow these steps:
 The additional code sets the positioning method for the browser to use for each section to absolute, which means it will place the sections at exactly the place in the browser windows you define using the top and left properties. 
 When you display the web page, you should see the result as shown in Figure 207.
 
-Now things are starting to look like a real web page! 
+Now things are starting to look like a real web page!
+
+Floating elements
+Absolute positioning has made a huge difference in how we can lay out elements in our web pages, but it doesn't solve all problems. 
+You've probably already realized that trying to figure out the exact location for each element in a complicated web page would be somewhat difficult. 
+Also, you'll notice as you resize the browser window that the sections stay in a fixed location and size - they don't expand or shrink with the browser window. 
+Fortunately, there's a way you can avoid these problems. 
+
+CSS uses a feature called the float property to aid in positioning elements in the web page using a more dynamic method. 
+The float property allows you to take an element out of the normal positioning flow in the web page and position it within the right or left edge of its parent container element. 
+YOu don't need to calculate the exact position for the element within the parent. 
+
+The format of the float property is pretty simple: 
+
+float: position
+
+the position value can be none, left, or right. 
+
+The float property is most often used to create columns in a web page layout. 
+Instead of using absolute positioning for the columns, you define a parent container element, and then just float the column elements inside the parent. 
+
+Let's give that a try with our positiontest.html example. 
+You'll add a div element to use as the container for the middle three sections (nav, section and aside) in the web page document. 
+Follow these steps: 
+
+1. Open the original positiontest.html file in your favorite text editor, program editor, or IDE package. 
+
+2. Modify the styles defined so they look like this: 
+
+	<style type="text/css">
+		
+		header {
+			background-color: red;
+			margin: 0px;
+			padding:10px;
+			height: 25px;
+			width: 100%;
+		}
+		
+		nav {
+			background-color: blue;
+			margin: 0px;
+			padding: 10px;
+			height: 125px;
+			width: 20%;
+			float: left;
+		}
+		
+		section {
+			background-color: green;
+			margin: 0px;
+			padding: 10px;
+			height: 125px;
+			width: 55%;
+			float: left;
+		}
+
+		aside {
+			background-color: yellow;
+			margin: 0px;
+			padding: 10px;
+			height:  125px;
+			width: 20%;
+			float: right;
+		}
+
+		footer {
+			background-color: orange;
+			margin: 0px;
+			padding: 10px;
+			height: : 25px;
+			width: 100%;
+		}
+
+	</style>
+
+
+
+3 Modify the HTML code to add a div parent elemnt around the nav, section, and aside elements. 
+
+That code should look like this: 
+
+<body>
+<header><p>This is the header</p></header>
+<div id="container">
+<nav><p>Navigation</p></nav>
+<section><p>Section</p></section>
+<aside><p>Aside</p></aside>
+</div>
+<footer><p>This is the footer</p></footer>
+</body>
+
+4. Save the updated positiontest.html file as positiontest3.html.
+5. Start you web server, open your browser, and go to the following URL:
+http://localhost:8080/positiontest3.html
+
+6. Close the browser and stop the web server. 
+
+The float property in the nav, section, and aside elements causes them to float within the parent div element.
+I gave the parent elemtn an id attribute value of container to help me remember its purpose. 
+It's no necessary for it to have an id attribute defined because it isn't styled by itself. 
+
+Each of the inner sections appears side by side, as long as there's enough space for them in the browser window. 
+By using a percentage value for the width, this creates what's called a liquid layout. 
+With a liquid layout, if you resize the browser window, the individual section elements resize as well. 
+If you resize the browser window too small, the browser automatically repositions the elements so that they all appear in the window. 
