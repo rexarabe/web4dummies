@@ -1,0 +1,51 @@
+IN THIS CHAPTER: 
+>> Creating a data form
+>> Examining the form fields 
+>> Looking at additions to HTML5
+>> Validating forms. 
+
+Chapter 3
+HTML5 Forms 
+
+Quite possibly one of the most common ways that PHP programming helps is by processing ddata entered into an HTML5 form. 
+There are plenty of applications that require data entry - from keeping track of your bowling team to filling out online job applications. 
+HTML forms have been around for a long time, and with HTML5 it's sure to stick around for years to come. 
+This chapter shows you how to create forms for your web applications using the HTML5 form features. 
+
+
+Understanding HTML5 Forms 
+
+A dynamic web application requires some type of interaction with the site visitors who use it. 
+That interaction is usually done with a form. 
+Forms allow you to ask your site visitor for information using many of the same input interfaces that are commonly found in Windows and macOS systems, such as text boxes, drop-down lists, and radio buttons. 
+
+Before you can create a form for your web application, you need to do some house-keeping for HTML5. 
+You need to define the form and how the browser should handle the data the site visitor enters into it. 
+This section epxlains just how to do that. 
+
+Defining a form 
+It's probably not too surprising that the HTML element you use to create a form is the form element. 
+The form element has a simple enough format: 
+
+<form attributes>
+        form elements
+</form> 
+
+The <form> tag defines the start of the form area, which contains all the elements that create the form fields. 
+The </form> tag defines the end of the form area. 
+
+The form element has lots of attributes that define just how the browser handles the data in the form.
+Table 3-1 shows all the attributes available. 
+
+TABLE 3-1                The form element Attributes
+
+Attribue                 Description
+accept-charset           Specifies the character used in the form if it's different from the web page. 
+action                   Defines the URL where the browser should send the form data. 
+autocomplete             Specifies whether the browser is allowed to use the autocomplete feature
+enctype                  Specifies the encoding the browser uses to submit the form data. 
+method                   Specifies the transfer method the browser should use to send the data 
+name                     Defines a name assigned to the form 
+novalidate               Specifies that the browser shouldn't validate the data
+target                   Specifies the target window for the action URL.
+
