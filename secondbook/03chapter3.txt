@@ -1,51 +1,175 @@
-IN THIS CHAPTER: 
+IN THIS CHAPTER:
 >> Creating a data form
->> Examining the form fields 
+>> Examining the form fields
 >> Looking at additions to HTML5
->> Validating forms. 
+>> Validating forms.
 
 Chapter 3
-HTML5 Forms 
+HTML5 Forms
 
-Quite possibly one of the most common ways that PHP programming helps is by processing ddata entered into an HTML5 form. 
-There are plenty of applications that require data entry - from keeping track of your bowling team to filling out online job applications. 
-HTML forms have been around for a long time, and with HTML5 it's sure to stick around for years to come. 
-This chapter shows you how to create forms for your web applications using the HTML5 form features. 
+Quite possibly one of the most common ways that PHP programming helps is by processing ddata entered into an HTML5 form.
+There are plenty of applications that require data entry - from keeping track of your bowling team to filling out online job applications.
+HTML forms have been around for a long time, and with HTML5 it's sure to stick around for years to come.
+This chapter shows you how to create forms for your web applications using the HTML5 form features.
 
 
-Understanding HTML5 Forms 
+Understanding HTML5 Forms
 
-A dynamic web application requires some type of interaction with the site visitors who use it. 
-That interaction is usually done with a form. 
-Forms allow you to ask your site visitor for information using many of the same input interfaces that are commonly found in Windows and macOS systems, such as text boxes, drop-down lists, and radio buttons. 
+A dynamic web application requires some type of interaction with the site visitors who use it.
+That interaction is usually done with a form.
+Forms allow you to ask your site visitor for information using many of the same input interfaces that are commonly found in Windows and macOS systems, such as text boxes, drop-down lists, and radio buttons.
 
-Before you can create a form for your web application, you need to do some house-keeping for HTML5. 
-You need to define the form and how the browser should handle the data the site visitor enters into it. 
-This section epxlains just how to do that. 
+Before you can create a form for your web application, you need to do some house-keeping for HTML5.
+You need to define the form and how the browser should handle the data the site visitor enters into it.
+This section epxlains just how to do that.
 
-Defining a form 
-It's probably not too surprising that the HTML element you use to create a form is the form element. 
-The form element has a simple enough format: 
+Defining a form
+It's probably not too surprising that the HTML element you use to create a form is the form element.
+The form element has a simple enough format:
 
 <form attributes>
         form elements
-</form> 
+</form>
 
-The <form> tag defines the start of the form area, which contains all the elements that create the form fields. 
-The </form> tag defines the end of the form area. 
+The <form> tag defines the start of the form area, which contains all the elements that create the form fields.
+The </form> tag defines the end of the form area.
 
 The form element has lots of attributes that define just how the browser handles the data in the form.
-Table 3-1 shows all the attributes available. 
+Table 3-1 shows all the attributes available.
 
 TABLE 3-1                The form element Attributes
 
 Attribue                 Description
-accept-charset           Specifies the character used in the form if it's different from the web page. 
-action                   Defines the URL where the browser should send the form data. 
+accept-charset           Specifies the character used in the form if it's different from the web page.
+action                   Defines the URL where the browser should send the form data.
 autocomplete             Specifies whether the browser is allowed to use the autocomplete feature
-enctype                  Specifies the encoding the browser uses to submit the form data. 
-method                   Specifies the transfer method the browser should use to send the data 
-name                     Defines a name assigned to the form 
+enctype                  Specifies the encoding the browser uses to submit the form data.
+method                   Specifies the transfer method the browser should use to send the data
+name                     Defines a name assigned to the form
 novalidate               Specifies that the browser shouldn't validate the data
 target                   Specifies the target window for the action URL.
 
+Often, when you create a form, you don't need to worry about setting all the attributes shown in Table 3-1; you can use the standard default values.
+Here are the attributes you'll probably work with the most:
+
+------>WARNING<-----------------------------
+
+>> action: You'll need to define the URL of the web page that will accept and process the form data. Usually, this is a page that contains server-side programming, such as PHP code.
+>> enctype: If your form contains binary data (such as an upload file), you'll need to set the encoding type so the server knows there's binary data involved with the form data.
+>> method: You'll need to define how the browser sends the data to the server, using either the HTTP GET method or the HTTP PUT method.
+
+* GET: The HTTP GET method sends the form data as part of the URL to the server. It embeds the form field names and data values together in the URL.
+Often, if you fill out a form on the Internet and click the Submit button, you'll see a URL that looks something like this:
+
+http://myhost.com/index.php?content=store&id=100
+
+This means the form used the GET method to send two form fields back to the server.
+Because the server needs to indentify each value, the GET method associates the form field name with each value:
+
+content=store
+id=100
+
+These values indicate that a form field named content is set to a value of store and a form field name id is set to a value of 100.
+
+This method is a great way to quickly send small pieces of form data to the server, but it isn't recommended for larger forms.
+For forms that send lots of data, you're better off using the HTML PUT method.
+
+*PUT: The PUT method sends the data behind the scenes in the HTTP request packets instead of using the URL.
+The data isn't seen in the address bar of the browser; nistead, it's processed by the client browser and server as part of the HTTP communication behind the scenes.
+
+Just because the data isn't easily seen doesn't mean it' secure.
+The data sent by the PUT method is still sent in plain text in the HTTP request message.
+Any person with a network sniffer can still read that read that data.
+The only secure method of sending data is with an encrypted HTTPS session.
+
+-------------------------------------------------------------------------------------------
+
+
+After you define the form and how it will send the form data, you're ready to start adding some form fields.
+
+Working with form fields
+
+The original version of HTML didn't specify all that many form field elements for us to use.
+The list of form field elements that were available are shown in Table 3-2.
+
+TABLE 3-2        HTML Basic Form Field Elements
+
+Field           Description
+button          A clickable area on the web page that triggers an action
+input           Provides a single interface for one data value
+select          A list of multiple objects in a drop-down list
+submit          Signals to the browser to send the form data to the action URL
+testarea        A larger multiline box for entering larger amounts of text.
+
+HTML5 adds a couple more form field elements to the list:
+>> datalist: Provides a list of predefined options
+>> keygen: Creates a public/private key pair for authentication
+>> output: Creates an area to display results from a process
+
+The following sections walk you through how to use each of these elements in your web forms.
+
+Using Input Fields
+The input element is the most versatile of the form field elements.
+It provides for a few different types of interfaces to input data.
+You define the type of input field element to use by adding the type attribute to the tag:
+
+<input type="type" attributes>
+
+The HTML standard defines a handful of different input field types.
+If you've ever interacted with a Windows or macOS workstation (and who hasn't these days?), you're familiar with all these input types.
+The following sections explain how to use each one.
+
+Text boxes
+
+The text box is the workhorse of the form.
+How many times have you filled out an online form that asked for your name, age, address, and so on?
+All these single-line form fields use the text box input type.
+
+You create a text box input field by setting the type attribute value to text:
+
+<input type="text" name"age" size=3>
+
+The name attribute defines a unique identifier that allows you to retrieve the value entered into the field.
+It's important that you include that attribute.
+The size attribute allows you to set how large the form field appears on the web page.
+The default value is 20, which is a bit much for entering an age, so I've changed it to 3.
+
+TIP:
+You can define a default value that appears in the form field using the value attribute.
+This feature is useful if you're trying to get your site visitor to update information that's already in your database.
+Just display the existing data as the default values for each form field.
+
+TIP:
+The disabled attribute prevents you from entering data into the text field.
+It may sound weird to display a text field that you can't enter data into, but it has a purpose when you learn  how to dynamically change the input fields using JavaScript later on in Book3.
+
+You can associate a label with a text box by usnig the label element.
+The input element should be enclosed in the label opening an closing tags:
+
+<label>
+   Last Name
+   <input type="text" name="lastname">
+</label>
+
+With this format, you can use CSS to style and position both the label and the text box field at the same time.
+
+Another feature is the ability to group input fields together into a fieldset.
+A fieldset creates a border area around the enclosed form fields to help separate them out in the web page.
+The format to use a fieldset is:
+
+<fieldset>
+    <legend>Enter your name</legend>
+    <label>
+       Last name
+       <input type="text" name="lastname">
+    </label>
+    <label>
+      First Name
+      <input type="text" name="firstname">
+    </label>
+</fieldset>
+
+The legend element alows you to define text that appears in the fieldset border area.
+Figure 3-1 shows how this form looks.
+
+The nice thing about the fieldset is that you can assign it an id attribute and then apply specific styles to the entire group in CSS3.
