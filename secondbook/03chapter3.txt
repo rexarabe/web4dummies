@@ -173,3 +173,17 @@ The legend element alows you to define text that appears in the fieldset border 
 Figure 3-1 shows how this form looks.
 
 The nice thing about the fieldset is that you can assign it an id attribute and then apply specific styles to the entire group in CSS3.
+
+Password Entry 
+Many web applications require that site visitors enter sensitive information ni the form, such as Social Security(SSNs).
+The input element provides an easy way to hide that information from prying eyes trying to watch as visitors enter data.
+
+The password input fiedl type instructs the browser to mask the charcters as the site visitor enters them into the text box. 
+Here's the format to create a password field: 
+
+<input type="password" name="ssn">
+
+As your site visitor types data into the password from field, the browser masks the characters by displaying a neutral, nondescript character.
+Just how the characters are masked depends on the browser. 
+Most browsers use bullet circles in the field.
+
