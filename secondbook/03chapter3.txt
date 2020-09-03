@@ -187,3 +187,48 @@ As your site visitor types data into the password from field, the browser masks 
 Just how the characters are masked depends on the browser. 
 Most browsers use bullet circles in the field.
 
+Check boxes 
+Check boxes provide a simple yes-or-no response form field. 
+The checkbox input type creates a simple square box that the site visitor can click. 
+The check box field toggles with each click - from showing a check mark in the box to not showing a check mark in the box.
+
+To define a checkbox input type, use the following format: 
+
+<input type="checkbox" name="fishing">
+
+The name attribute defines the name that's passed along to the action URL when the site visitor submits the form. 
+The value sent is a Boolean true/false value - true if the check box is marked, and false if the check box is not marked.
+
+Because the check box field is just abox, you'll most likely want to associate a label with the check box field so your site visitors know what they're selecting. 
+Often, check boxes are used in groups, so you can use the fieldset element: 
+
+<fieldset> 
+     <legend> Please select which sports you like </legend> 
+     <label>
+        Baseball
+      <input type="checkbox" name="baseball"> <br>
+       </label>
+
+       <label>
+       Basketball
+       <input type="checkbox" name="basketball"> <br> 
+       </label>
+
+       <label>
+       Football
+       <input type="checkbox" name="football"> <br> 
+       </label> 
+
+       <label>
+       Hockey
+       <input type="checkbox" name="Hockey"><br>
+       </label>
+</fieldset> 
+
+You can also set a default state for the check box, but not by using the value attribute.
+Instead, you have to use the checked attribute:
+
+<input type="checkbox" name="football" checked>
+
+The checked attribute doesn't have a value associated with it. If it appears in the input element, the check box appears with a check mark in it.
+
