@@ -232,3 +232,58 @@ Instead, you have to use the checked attribute:
 
 The checked attribute doesn't have a value associated with it. If it appears in the input element, the check box appears with a check mark in it.
 
+
+Radio buttons 
+A similar interface to check boxes are radio buttons. 
+Radio buttons allow you to select only one out of a group of options. 
+You create radio buttons by using the radio input type: 
+
+<input type="radio" name="sports">
+
+To group options together, you have to assign them all the same name attribute.
+Then the browser will allow your site visitors to select only one option from the group. 
+That code would look like this:
+
+<fieldset>
+   <legend>Please select your favorite sport </legend> 
+   <label>
+     Baseball
+     <input type="radio" name="sport"><br> 
+   </label> 
+   
+   <label>
+   Basketball
+   <input type="radio" name="sport"> <br>
+   </label>
+
+   <label>
+   Football
+   <input type="radio" name="sport"><br>
+   </label> 
+
+   <label>
+   Hockey
+   <input type="radio" name="sport"><br>
+   </label>
+</fieldset>
+
+As your site visitor selects eack options, the previously selected option is reset. 
+Only one value is sent back to the server from the form field. 
+
+TIP: 
+If you'd like to set a default value for the radio button group, add the checked attribute to that radio button  element. 
+    
+
+
+Hidden fields 
+Your application may need to pass data behind the scenes as part of the application control.
+Perhaps it's a product ID value related to an item the site visitor is purchasing or an employee ID number in a human resources application.
+Not all data that the form submits needs to be seen by the site visitor. 
+
+To accommodate that, HTML uses the hidden input type: 
+<input type="hidden" name="productid" value="121">
+
+The hidden form field doens't appear in the form itself, so you have to use the value attribute to assign a value to the form field that gets passed to the server. 
+When the site visitor clicks the Submit button to submit the form data, any hidden form fields that are defined are sent along with the normal form data.
+
+ 
