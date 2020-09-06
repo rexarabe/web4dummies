@@ -286,4 +286,95 @@ To accommodate that, HTML uses the hidden input type:
 The hidden form field doens't appear in the form itself, so you have to use the value attribute to assign a value to the form field that gets passed to the server. 
 When the site visitor clicks the Submit button to submit the form data, any hidden form fields that are defined are sent along with the normal form data.
 
- 
+File upload 
+If your application requires that your site visitors upload files, you'll want to explore the file input type.
+The file input type produces an input field with two parts:
+
+>> A text box to display the filename
+>> A Browse button to launch a file manager
+
+In some browsers, you can manually type the filename in the text box, but many of the popular browsers prevent that.
+The Browse button appears next to the text box, allowing site visitors to search for the file to upload. 
+The interface that's used for searching depends on the OS the browser is running. 
+On Windows workstations, clicking the Browse button launches the Finder tool.
+Figure 3-4 shows how the field appears on the web page.
+
+The format of the file input field is: 
+
+<input type="file" name="upload">
+
+That's simple enough! However, you need to take care of one more thing when using the file input field. 
+By default, the form sets the enctype attribute for encoding characters before they're uploaded. 
+Most likely, your upload files will contain binary data, and encoding that data will corrupt it.
+
+To solve that problem you need to set the enctype attribute in the <form> opening tag to use the multipart/form-data value: 
+
+<form method="POST" action="myhost.com/index.php" enctype="multipart/form-data">
+
+This ensures that the binary data contained in the uploaded file is uploaded in binary format, but the data contained in the other form fields are properly encoded for upload. 
+
+Buttons 
+Buttons, button, who's got the button? 
+That's just a silly child's game, but buttons are a crucial part of your web forms. Buttons allow your site visitor to trigger actions on the web page, from launching Javascript programs to uploading the form data to the server.
+
+There are three types of button input types available to use: button, reset, and submit.
+
+Button
+The button field type creates a generic button to trigger an event. 
+When a site visitor clicks the button, nothing happens by default. 
+The trick is to define an action using the onclick attribute: 
+
+<input type="button" name="launch" value="Click Me" onclick="myprogram()">
+
+The value attribute defines what text appears in the button. 
+The browser will automatically size the button to fit the text you specify.
+The onclick attribute defines a JavaScript function that the browser runs when you click the button. 
+
+Reset 
+The reset field type resets any values in the form data fields back to their original values - either to empty if no default alue is defined or to the default value if it's defined: 
+
+<input type="reset" name="reset" value="Reset fields">
+
+Submit 
+The submit input field type is a crucial part of most forms. 
+It signals to the browser that it's time to upload the form field data values to the server:
+
+<input type="submit">
+
+By default, the button appears with Submit as the button label. 
+You can change the button text using the value attribute. 
+It's customary to place the ubmit button at the bottom of a form, but that isn't required. 
+You can place the Submit button anywhere between the opening <form> tag and the closing </form> tag.
+
+Adding a Text Area
+Text boxes are extremely versatile, but there's a limit to what they can do. 
+If you need to enter large amounts of text, the text box scrolls to allow you to enter the text, but you lose sight of the text you previously typed.
+
+The textarea element provides a larger interface for entering text. 
+To create a text area, you use the following opening and closing tags:
+
+<textarea name="story"> </textarea>
+
+That, by itself, though, won't give you what you're looking for. 
+THere are a few attributes that you'll want to use to define the test area. 
+Table 3-3 shows the attributes you can use. 
+
+TABLE 3-3                      The textarea Attributes
+Attribute       Description
+cols            Specifies the width of the text area in the web page.
+disabled        Grays out the text area so nothing can be typed.
+name            Specifies the form field name associated with the field.
+readonly        Locks the text area so nothing can be typed, but default text can be displayed.
+rows            Specifies the height of the text area in the web page.
+
+So, to create a text area that's 20 characters wide by 30 characters high, you'd use the following: 
+<textarea name="story" cols=20 row=30></textarea>
+
+Your site visitors can then type their text in the text area. 
+If they type more than 30 rows of text, the browser will add a scrollbar to the right side of the text area and allow them to continue typing. 
+
+TIP
+You'll notice that in my text area examples, there's nothing between the opening and closing textarea tags. 
+That produces an empty text area. 
+Any text that you place between the opening and closing tags appears as the default text in the text area.
+
