@@ -492,4 +492,88 @@ Let's walk through an example to create a test program so you can see how your b
 
 1.Open your favorite text editor, program editor, or integrated development environment (IDE) package.
 
-2. Enter the following code: 
+2. Enter the following code:
+
+<!DOCTYPE html>
+<html>
+<head> 
+<title>HTML5 Input Types Test</title>
+</head>
+<body>
+<h1>Testing the HTML5 Input Type</h1>
+<fieldset> 
+<legend>HTML5 Input Field</legend>
+<label> 
+Color Selector
+<input type="color" name="colortest">
+</label> <br>
+<label> 
+Date Selector 
+<input type="date" name="datetest">
+</label><br>
+<label>
+DateTime Selector
+<input type="datetime" name="datetimetest">
+</label><br>
+<label> 
+DateTime-Local Selector
+<input type="datetime-local" name="datetimelocalttest">
+</label><br>
+<label>
+Email Selector
+<input type="email" name="emailtest">
+</label><br>
+<label> 
+Month Selector 
+<input type="mouth" name="monthtest">
+</label><br>
+<label>
+Number Selector
+<input type="number" name="numbertest">
+</label><br>
+<label>
+Range Selector
+<input type="range" min=0 max=100 name="rangetest">
+</label><br>
+<label>
+Search Selector
+<input type="search" name="searchtest">
+</label><br>
+<label>
+Telephone Selector
+<input type="tel" name="teltest">
+</label><br>
+<label>
+Time Selector
+<input type="time" name="timetest">
+</label><br>
+<label>
+URL Selector
+<input type="url" name="urltest">
+</label><br>
+<label>
+Week Selector
+<input type="week" name="weektest">
+</label>
+</body>
+</html>
+
+3. Save the file as inputtypestest.html in the DocumentRoot folder for your web server (such as c:\xampp\htdocs for XAMPP in Windows, or / Application/XAMPP/htdocs for XAMPP in macOS).
+
+4. Start your web server. 
+
+5. Open a browser and enter the following URL:
+http://localhost:8080/inputtypestest.html
+
+6. close the browser window and shut down the web server. 
+The inputtypetest.html file is a great way to see how the new HTML5 input types look in different browsers. 
+Figure 3-8 shows how they look in the Google Chrome browser. 
+
+FIGURE 3-8:
+Viewing the input typestest.html output in the Google Chrome browser. 
+
+TIP:
+If you have a mobile device handy, try testing the inputtypestest.html web page on your mobile device. 
+Mobile devices use virtual keyboards that appear on the screen when you click in an input from field. 
+Most mobile devices will customize the keyboard depending on which type of input from field you click in.
+For example, in the tel input type, the mobile device may only display a numeric keypad for entering the phone number; for the email input type, the mobile device may display a keyboard with a .com button. 
