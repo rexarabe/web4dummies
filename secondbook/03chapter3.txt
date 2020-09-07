@@ -378,3 +378,118 @@ You'll notice that in my text area examples, there's nothing between the opening
 That produces an empty text area. 
 Any text that you place between the opening and closing tags appears as the default text in the text area.
 
+Using Drop-Down lists 
+Often, you want to limit the choices your site visitors have for a specific data field.
+To do that, you use a drop-down list. 
+The drop-down list appears in the form as a single line, similiar to a text box, but with a down arrow.
+If you click the down arrow, a box drops down with all the options available in it.
+You can then select one or more options from the drop-down list. 
+
+In the HTML5 world, this feature is called a select element.
+The select element consists of two parts:
+
+>> The select opening and closing tags to define the select element
+>> One or more option elements that define the allowed options 
+
+Here's an example of a simple select element (see Figure 3-5):
+<select name="sports">
+<option value="baseball">Baseball</option>
+<option value="basketball">Basketball</option>
+<option value="football">Football</option>
+<option value="hockey">Hockey</option>
+</select>
+
+With this format, the browser displays a single text box along with a down arrow indicating that there's a drop-down list to select from.
+When you click the arrow, you see the list. 
+
+If you prefer to have more of the options appear on the web page than just one, set the size attribute in the <select> tag: 
+
+<select name="sports" size="4">
+
+This creates a list of options that you can scroll through, as shown in Figure 3-6.
+
+
+Each option element defines one item in the select list. 
+The browsre displays the text between the opening <option> and closing </option> tags, but it sends the value attribute of the item your site visitor selects to the server. 
+This cna come in handy if you want to use abbreviations or codes in your data, but you want to display the full text to the site visitors. 
+
+TIP 
+By default, the select element only allows the site visitor to select one value. 
+You can change that behavior by setting the multiple attribute in the <select> opening tag. 
+
+Ehandcing HTML5 Forms 
+The original HTML standards were pretty bare-bones with the form field options. 
+These days web developers gather all types of information from forms. 
+To help with that, the HTML5 standard defines some fancier form types that you can use. 
+This sectoin walks you throuhg what those are. 
+
+Data lists 
+The datalist element is new to HTML5. 
+It allows you to create an opiton list for drop-down lists that use the autocomplete feature, made popular by Google searching. 
+As you start typing a value in the text box, the list that appears in the drop-down box narrows to only the values that match what you've typed.\
+
+The data list feature requires three parts :
+>> An <input> tag that defines the data list 
+>> A datalist element that defines the list 
+>> One or more <option> tags that define the list values
+
+A complete data list looks like this: 
+<input list="sports">
+<datalist id="sports">
+         <option value="Baseball">
+         <option value="Basketball">
+         <option value="Football>">
+         <option value="Hockey">
+</datalist>
+
+The list attribute in the <input> tag refers to the data list id attribute value for the data list to use. 
+This allows you to define multiple data lists in your form. 
+Figure 3-7 shows how the data list looks in action.
+
+In this example, as I typed the characters, the matching data list values appeared in the drop-down box, limiting my choices. 
+Notice that the match is case insensitive and that the match is made anywhere in the text string of the option values.
+
+Additional input fields 
+One of the more exciting features in the HTML5 standard form additions are the additions to the <input> tag. 
+HTML5 defines 13 additional inpu element types: 
+>> color: Produces a color palette for the site visitor to select a color. Returns the RGB color value associated with the selected color. 
+
+>> date: Produces a graphical month calendar to select a date. Returns the selected year, month, and day values. 
+
+>> datetime: Produces a graphical month calendar to select a date and a text bo to select the time. 
+Returns the selected year, month, date, hour minutes, second, and fraction-of-a-second values, along with the time zone. 
+
+>> datetime-local: Produces the same form field as the datetime input type, but doesn't return a time zone. 
+
+>> email: For inputting a single email address or a comma-separeted list of email addresses. 
+
+>> month: Produces a graphical month calendar. Returns the year and month selected. 
+
+>> number: Produces a spin box for increasing or decreasing a numeric value in a text box. Return the numeric value selected. 
+
+>> range: Produces a slider to select a value from a range. You define the range using the min and max attributes in the tag. 
+Returns the numeric value selected. 
+
+>> search: Produces a text box that some browsers style like a search box(such as with a magnifying glass icon).
+Returns the value entered into the text box. 
+
+>> tel: Produces a standard text box for entereing a telephone number. 
+Some browsers may validate the format of the text entred to ensre it matches a telephone number format. 
+Returns the value entered into the text box. 
+
+>> time: Produces a time selector that shows two numeric values, along with a spin box for increasing or decreasing the values. 
+The numeric values indicate 1 through 12 for the hour and 0 through 59 for the minutes . 
+Returns the values selected in a time format. 
+
+>>url: Prouces a text box for entereing a text URL format entered. 
+Returns the text entered into the text box. 
+
+>> week: Produces a graphical calendar to select a week number for a specified year. Returns the year and the week number selected. 
+
+These produce some pretty amazing input fields in your web pages! 
+The only downside is that different browsers may use different methods to produce these form fields. 
+Let's walk through an example to create a test program so you can see how your browsers handle the new input fields: 
+
+1.Open your favorite text editor, program editor, or integrated development environment (IDE) package.
+
+2. Enter the following code: 
