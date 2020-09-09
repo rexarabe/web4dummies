@@ -577,3 +577,96 @@ If you have a mobile device handy, try testing the inputtypestest.html web page 
 Mobile devices use virtual keyboards that appear on the screen when you click in an input from field. 
 Most mobile devices will customize the keyboard depending on which type of input from field you click in.
 For example, in the tel input type, the mobile device may only display a numeric keypad for entering the phone number; for the email input type, the mobile device may display a keyboard with a .com button. 
+
+Using HTML5 Data Validation
+Accepting data from unknown website visitors is dangerous thing. 
+However, dynamic web applications must have user interaction to work. 
+THe conundrum is how to do both. 
+
+One method is to use data validation, which is the process of verifying that the data your site visitors enter into the form fields is correct. 
+There are two ways to tackle that process: 
+
+>> On the server, with server-side programming code 
+>> In the client browser, using HTML, CSS, and JavaScript
+
+In Book 4, Chapter 4, I cover all the bases on using server-side programming to validate form data. 
+However, waiting until the browser has uploaded the data to the server to validate it can be somewhat cumbersome. 
+By that time, the site visitor has already entered all the form data. 
+Returning a web page marking the site visitor re-enter all that data just because of one typo is not a good way to retain customers. 
+
+This is where client-side data validation comes in handy. 
+The more data you can validate in the browser as the site visitor enters it, the better the chance you have of receiving valid data in the first place. 
+
+Holding your place 
+HTML5 helps that process with a few additional features. 
+One such feature is the placeholder attribute for the input element. 
+The placeholder attribute appears as gray text inside the form field and can provide a suggested format for the data to enter:  
+
+<label>
+Enter your daytime phone number: 
+<input type="tel" name="num" placeholder=(nnn)nnn-nnnn">
+</label>
+
+The browser displays the placeholder value inside the input form field, but as gray text, as shown in Figure 3-9.
+
+As you start typing text in the input field, the placeholder text disappears. 
+
+Making certain data required 
+
+Another data validation attribute added by HTML5 is the required attribute:
+<input type="text" name="lastname" require="required">
+
+The required attribute marks the form field so that the browser won't upload the form if that field is empty. 
+Some browsers will display an error message indicating which require form field(s) are empty.
+
+Validation data types 
+Not only do the additional HTML5 input types produce different types of input fields, but you can also use them to validate data. 
+Browsers that support the new HTML5 data types will mark input form fields that contain data not in the proper format with the invalid state. 
+
+CSS provides pseudo-class rules to style elements based on their state (see Book 2, Chapter2).
+You use the invalid and valid pseudo-class states to style inptu fields with invalid data differently from input fields with valid data. 
+THis helps make the fields with invalid data stand out in the form. 
+
+Here's a quick example you can try to text this features: 
+
+1. Open your favorite text editor, program editor, or IDE package. 
+2. Type the following codel:
+
+<!DOCTYPE html>
+<html>
+<head> 
+<title>Testing for Invalid Data</title>
+</head>
+<style>
+
+input:invalid {
+   background-color: red;
+}
+
+input:valid {
+   background-color: lightgreen;
+      }
+</style>
+
+<body>
+<h1>Testing for invalid data</h1>
+<fieldset>
+<legend>You must be over 18 to participate</legend>
+<label>
+Age:
+<input type="number" name="age" min="18">
+</label>
+</fieldset>
+</body>
+</html>
+
+3. Save the file as invaliddatatext.html in the DocumentRoot folder for your web server( c:\xampp\htdocs for XAMPP on Windows or / Applications/XAMPP/htdocs for XAMPP on macOS).
+
+4. Start the Apache web server from XAMPP.
+
+5. Open a browser and enter the following URL:
+           http://localhost:8080/invaliddatatest.html
+6. Close the browser, and stop the XAMPP web server. 
+
+When the invalidatatest.html form first appears, the age data field will be empty and colored green. If you use the spinner icons on the right side of the text box, the numbers will start at 18, and the text box will stay green. 
+However, if you try to manually enter an age less than 18, the text box immediately turns red. 
