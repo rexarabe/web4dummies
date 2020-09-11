@@ -1,0 +1,36 @@
+In this chapter 
+>> Rounding corner 
+>> Working with border images 
+>> Exploring new colors 
+>> Using gradients 
+>> Lurking in the shadows 
+>> Working with fonts 
+>> Answering media queries 
+
+Chapter 4
+
+Advanced CSS3
+The previous two chapters show you how to use the combination of HTML5 and CSS to create content and style it for your web pages.
+CSS3 provides some more advanced features, allowing you to do even more styling for your web pages. 
+This chapter walks you through some of the more exciting features from CSS3 that you can use to liven up your site. 
+
+Rounding your Corners 
+In Book 2, Chapter 3, I explain how to build online forms using HTML5.
+However, by default, HTML forms are somewhat boring, even after adding some CSS styling. 
+
+The default styling used by browsers to display text boxes, buttons, and text areas in forms produces nothing but square boxes, which gets pretty boring. 
+The original CSS standard didn't do anything to solve the problem, other than possibly adding some color to the square boxes. 
+Cubism may be good for some styles of paintings, but that layout doesn't work in forms and can bore your website visitors. 
+
+One of the features that had been hotly sought after in the browser world has been the ability to use rounded corners for form elements. 
+The simple act of rounding the square boxes just a bit can liven up the form. 
+Many individual browsers added the rounded corners feature on their own, separate from the CSS standard. 
+Unfortunately, as you may guess, different browsers used different methods for implemneting rounded corners. 
+Trying to write a style that would work across all browsers became both difficult and confusing.
+But because using rounded corners became so popular, that feature was finally added to CSS3 as a standard.
+
+The new border-radius style property allows you to round off the sharp edges from elements on the web page. 
+It does that by allowing you to define the radius of an imaginary circle used to create the rounded corners. 
+You can just shave a little off the edge by using a small radius value, or you can create a full ellipse by completely rounding all four corners with a large radius value. 
+Figure 4-1 shows an example of applying the border-radius property to a few form elements.
+
