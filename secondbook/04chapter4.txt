@@ -68,3 +68,133 @@ Each one sets the corresponding border radius value in the element.
 The border-radius properties all use a size value to set the circle radius for the corner. 
 You can specify the size using any of the standard CSS size unit measurements, such as inches, pixels, or em units. 
 
+
+Using Border Images
+The default border line that HTML5 places around objects is pretty dull. How about adding some more elaborate borders around objects?
+You can, thanks to another interesting feature added to CSS3.
+Its provides the ability to use images for the border around elements instead of just a line. 
+This feature allows you to use any type of image to create a flourish around your elements.
+
+You apply a border image to an element by adding the border-image property:
+
+border-image: url(file) slice repeat
+
+The url() function defines the location of the image file used for the border. 
+The path can be either an absolute value pointing directly to the image file or a relative path (relative to the location of the CSS script).
+
+The slice value defines what parts of the border image to use fort the border.
+This part can get somewhat complicated. 
+By default, the browser slices the border image into nine sections, as shown in Figure 4-2.
+The mine border image sections are 
+
+(See figure 4-2 on page 160)
+
+>> The four corner pieces (top left, top right, bottom right, and bottom left)
+>> The four edge pieces (top, right bottom, and left) 
+>> The middle section 
+
+For the slice value, you specify the size of the image pieces to use for the individual border images. 
+You can specify that as either a percentage of the engire image size, or a pixel value to repressent how much of the image edges to use for the border edges. 
+you have the optino to specify the slice as one, two, or four separate values:
+
+>> One value: Cuts the same size of the image for the four corners and the four edges 
+>> Two values: One size for the top and bottom, and another size for the left and right sides 
+>> Four values: One size each for the top, right side, bottom, and left side. 
+
+The repeat parameter defines how the browser should make the image fit the space required to create the border edges. 
+There are four ways to do that:
+
+>> repeat: Repeats the image to fill the entire edge
+>> round: Repeats the image, but if the image doesn't fit the area as a whole number of repeats, rescales the image so it fits space required to create the border edges. 
+There are four ways to do that: 
+
+>> repeat: Repeats the image to fill the entire edge
+>> round: Repeats the image, but if the image doesn't fit the area as a whole number of repeats, rescales the image so it fits
+>> space: Repeats the image, but if the image doesn't fit the area as a whole number of repeats, adds spaces between the images so it fits. 
+>> stretch: Stretches the image to fill the edge.
+
+So, for example, to define a border image that uses 10-pixel slices from all the sides, and stretches them to fit the border area, you'd use the following:
+
+border-image: url("myimage.jpg") 10 stretch;
+
+Note that you don't use the units for the slice value. 
+If you specify the values as a percentage of the entire image, add the percent sign, but if it's in pixels, leave off the px. 
+
+Instead of using one property statement for all the features, if you prefer, you can define these values in seperate properties. 
+There are five separate properties used to define the border image, and how the browser should use it (see Table 4-1).
+
+
+Table 4-1             The CSS4 Border Image Properties
+
+Property              Description
+border-image-outset   Specifies the amount the image extends beyond the normal border box area 
+border-image-repeat   Specifies how the imaege should be extended to fit the entire border area 
+border-image-slice    Specifies what piece of the image to use as the border 
+border-image-source   Specifies the path to the image used for the border 
+border-image-width    Specifies the widths of the border image sides. 
+
+Figure 4-3 shows what the border image looks like around an element. 
+That's quite a bit better than the standard border line. 
+
+Tip
+The Mozilla Foundation developer's website includes a handy border image generator tool: 
+https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Background_and_Borders/Border-image_generator.
+With this tool, you can upload an image or use one of their standard images, and the tool will atuomatically generate the CSS3 code necessary to extract the border image properties. 
+
+Looking at the CSS3 Colors
+In Book2, chapter 2, I show you the three formats that the original CSS standard defines for setting colors in the web page: 
+
+>> Using a color name 
+>> Using an RGB hexadecimal value
+>> Using the rgb() function with decimal values 
+
+The CSS3 standard extends the options you have available for  defining colors by adding the hue, saturation, and lightness (HSL) Method. 
+The HSL method of defining colors uses three values:
+
+>> Hue: The degree of color on the color wheel. 
+The color wheel concept has been around in the art world since the early 1800s. 
+It places the colors around a circle with the primary colors -red, yellow and blue - positioned on the wheel at 0, 60, and 240 degrees, respectively. 
+The secondary colors - orange, green, and violet - are placed in between the primary colors, in locations based on their shades at 30 120, and 260 degrees, respectively.
+From there, the different shades of color combinations are arranged appropiately on the wheel. 
+To specify an individual color hue, you must know its location on the color wheel. 
+Fortunately there are plenty of charts online to help out with that . 
+
+>> Saturation: The percentage of the color used. 
+The saturation value is a percentage that specifies the grayness shade of the color, from 0 percent for no color (all gray) to 100 percent for full color saturation.  
+
+>> Lightness: The percentage of lightness added to the color. 
+The lightness value is a percentage that specifies how dark (0 percent) or light (100 percent) the color should be. 
+The 50 percentages create darker shades of the color, while smaller percentages create lighter shades of the color.
+
+To use the HSL method to specify a color, use the hsl() format. 
+For example, the following property specifies the red color at position 0 of the color wheel, shown at 100 percent saturation, with 50 percent lightness: 
+
+color: hsl(0, 100%, 50%);
+
+The CSS3 standard also adds the opacity feature to HSL, creating the HSLA color method.
+With HSLA, you add fourth parameter to specify the opaqueness of the color, from 0 to 1.
+The following example uses the red color, but at 50 percent transparency: 
+
+color: hsla(0, 100%, 50%, 0.5)
+
+TIP 
+The beauty of using the HSL values comes when you're choosing a color scheme for your website. 
+If you want to use a single color for the website scheme, you can modify the saturation and lightness levels to make different shades of the color. 
+If you want to create a two-color scheme, you may want to choose hues that are 180 degrees apart - those are considered complementray. 
+For a three-color scheme, hues that are 120 degrees apart create a triad. 
+In a four-color scheme, select hues that are 90 degrees apart to create a nice offset. 
+By stiking with the color wheel rules, just about anyone can create a tasteful color scheme for a website. 
+
+Playing with Color Gradients 
+While using individual colors are a great way to liven up the webisite, even colors can get somewhat boring when you use them all the time. 
+To help make things more interesting, the CSS3 standard adds color gradients to the mix.
+A color gradient slowly fades from one color into a second color, producing a warm transition effect. 
+These transition colors are often used for backgrounds, creating an efefct that helps the website visitor follow the content as the color gradient morphs into a different color. 
+
+There are two types of color gradients defined in the CSS3 standard: 
+
+>> Linear gradients: Fade using a side-to-side or top-to-bottom direction
+>> Radial gradients: Use a center point and face outward (radiate) from there, much like a tie-dyed T-shirt.
+
+This section discusses how to use each of these methods in your web pages. 
+
