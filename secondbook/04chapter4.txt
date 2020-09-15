@@ -34,3 +34,37 @@ It does that by allowing you to define the radius of an imaginary circle used to
 You can just shave a little off the edge by using a small radius value, or you can create a full ellipse by completely rounding all four corners with a large radius value. 
 Figure 4-1 shows an example of applying the border-radius property to a few form elements.
 
+Notice that the input text boxes, the text area, and even the Submit buttons are rounded instaed of the standard squares.
+That makes quite a difference in the appearance of the web form. 
+
+What can get confusing with the border-radius property, though, is that there are four different formats for using it - with one, two, three, or four parameters.
+The following single parameter sets the radius of all four corners to 10 pixels:
+
+border-radius: 10px;
+
+The following two parameters set the radius of the top-left and button-right corners to 10 pixels, but the top-right and bottom-left corners to 5 pixels:
+
+border-radius: 10px 5px;
+
+The following three parameters set the radius of the top-left corner to 10 pixels, the top-right and bottom-left corners to 5 pixels, and the bottom-right corner to 3 pixels: 
+
+border-radius: 10px 5px 3px;
+
+The following four parameters set the radius of the top-left corner to 10 pixels, the top-right corner to 5 pixels, the bottom-right corner to 3 pixels, and the bottom-left corner to 1 pixel:
+
+border-radius: 10px 5px 3px 1px;
+
+When you're able to set the radius of each individual corner or pairs of corners, you can create quite a few different special effects, such as dialog bubbles or ellipses. 
+
+You can also set the individual corner radius values independently from one another with a few additional properties: 
+
+>> border-top-left-radius 
+>> border-top-right-radius
+>> border-bottom-left-radius
+>> border-bottom-right-radius
+
+Each one sets the corresponding border radius value in the element.
+
+The border-radius properties all use a size value to set the circle radius for the corner. 
+You can specify the size using any of the standard CSS size unit measurements, such as inches, pixels, or em units. 
+
