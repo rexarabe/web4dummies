@@ -1,0 +1,53 @@
+In this chapter
+>>Defining JavaScript
+>>Adding JavaScript to your web pages
+>>Working with data 
+>>Looking at Javascript control structures
+>>creating Javascript functions
+
+Chapter 1
+Introducing JavaScript
+
+The previous minibook shows you how to use HTML5 and CSS3 to create some pretty fancy-looking web pages. 
+That's the first step to creating your dynamic web applications, but there are a few more parts to add. 
+This mini-book tackels the next pieces you'll need to add to your web programs:
+client-side programming. 
+
+This chapter focuses on the Javascript programming language, the most popular client-side programming language in use today. 
+First, I cover the basics of how to add JavaScript code to your web pages. 
+Then I explore some of the basics of the Javascript language. 
+
+Knowing Why you should use JavaScript
+
+HTML5 and CSS5 work together to create web pages. 
+The HTML5 code produces the content that appears on the web page, and the CSS3 code helps style it to change the format and location of the web page elements. 
+So, what exactly does JavaScript do to help augment those langugages? 
+
+JavaScript is program code that you embed into the HTML5 code. 
+The web server sends the JavaScript programing program code to your site visitors web browsers, which in turn detect and run the Javascript code.
+The JavaScript code can alter features of the web page that the HTML5 and CSS3 code produce. 
+This section explains what you can do with JavaScript code. 
+
+Changing web page content
+In your HTML5 code, you no doubt will have lots of text that appears in separte sections of your web page. 
+For example, you may have a sidebar element that lists the day's news events related to your website topic, or you may have a header element that displays the current time and temperature for your city. 
+
+All that is great, but you need a way for that information to change dynamically, each time your site visitors load the web page. 
+This is where JavaScript comes in. 
+
+JavaScript code allows you to alter the text that appears on your web page "on the fly", without requiring your site visitors to reload the web page.
+You can create JavaScript code that retrieves updated news articles even as your site visitors are viewing your web pages. 
+The information will change right before their eyes  -  like magic!
+
+Changing web page styles. 
+Book 2, Chapter 2, explains how you add CSS3 styles to your web pages to apply styles to text and elements, or to place elemetns in specific locations on the web page. 
+The CSS3 code you create is placed inline in the HTML5 elements, internally in the head element of the wbe page, or as an external style sheet .
+
+JavaScript code allows you to dynamically alter any style or position that you define for an HTML5 elemetn in your CSS4 code. 
+That's right - you can use JavaScript to turn blue backgrounds yellow, orange text green, or even move an entire section of tet from one side of the web page to another! 
+That's a lot of control to have at your fingertips. 
+
+One of the coolest features of JavaScript is the ability to dynamically make HTML5 elemtns appear out of nowhere! Each HTML5 element supports the display style property, which you use to determine how or if the elemetn appears on the web page. 
+
+With javaScript code you can dynamically alter the display style property for any element on the web page to make it appear as needed or disappear when not needed. That gives you the abillity to dramatically alter the layout of a web page at any time while you site visitor is interacting with the web page. 
+This helps hide sections that may be distracting to site visitor at times, then make them appear when the site visitor needs to interact with them. 
