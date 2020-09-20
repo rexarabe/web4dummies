@@ -198,3 +198,87 @@ There are two types of color gradients defined in the CSS3 standard:
 
 This section discusses how to use each of these methods in your web pages. 
 
+Linear gradients 
+A linear gradient fades between two colors in a linear manner - that is, from side to side, or from top to bottom. 
+Use the linear-gradient() function to define the direction of the fade and the transition colors: 
+
+linear-gradient(direction, color1, color2);
+
+The direction parameter defines which way the gradient should go. 
+If you omit the direction, the browser will create the gradient from top to bottom, a common effect for backgrounds. 
+If you want to change the direction, specify it by the direction that the gradient should fade from color1 to color2, like this: 
+
+linear-gradient(to right, black, white)
+
+You can use to top, to bottom, or to right to specify the direction of the gradient. 
+This example starts with the black color on the left side and fades to the white color on he right side, as shown in Figure 4-4.
+
+To use the linear gradient, just add it anywhere you'd use a color value: 
+
+background: linear-gradient(red, orange);
+
+Figure 4-4:
+
+Linear gradients can create quite the stunning effect for web page backgrounds.
+If you want to get fancy, you can specify more colors in the linear-gradient() list as intermediate points between the two endpoints:
+
+background: linear-gradient(red, orange, yellow);
+
+This takes the color transition from a red to an orange first and then finally to the yellow destination. 
+
+Radial gradient
+
+The radial-gradient() does the same thing as the linear gradient, but in a circular pattern radiating from a central point. 
+If you have fond memories of the days when tie-dyed T-shirts were popular, you may love the radial gradients!
+
+Here's the format for the radial-gradient() function:
+
+radial-gradient(shape size, color1, color2, ... )
+
+The keys to creating the radial gradient are the shape parameter, which defines the shape of the gradient, and the size parameter. 
+By default the radial gradient is drawn as an ellipse, but you can instead specify a circle.
+The size determines where the radial gradient stops. Usually this is a location, such as closest-corner, closest-side, farthest-corner, or farthest-side.
+
+You'll also want to define two or more colors to create the gradient effect in the image. 
+The simplest way to define a radial gradient is to just define the colors: 
+
+background: radial-gradient(red, orange, yellow);
+
+This creates an elliptical radial gradient, centered in the element, radiating outward toward the farthest corner. 
+
+
+Adding Shadows
+Yet another cool feature added in CSS3 is the ability to create shadows of elements on the web page.
+Shadows allow you to produce the effect of a light shining down on the web page. 
+You can place shadows behind both text and box elements.
+
+Text shadows 
+Placing shadows behind text on a web page can create a startling effect odraw attention to headings. 
+Figure 4-5 shows how the text shadow effect can make the heading stand out on the web page. 
+
+Figure 4-5: Adding the text shadow effect to a heading element. 
+
+The CSS3 text-shadow style property allows you to define just how the shadow should look. 
+Here's the format of the text-shadow style property:
+
+text-shadow: color offsetx offsety blur;
+
+The color parameter defines the color to use for the shadow. 
+The offsetx and offsety parameters define the distance of the shadow from the text. 
+You can use either positive or negative values to represent the offset values. 
+Positive values move the shadow down and to the right of the text.
+Negative values move the shadow up and to the left of the text. 
+The blur parameter defines the amount of space the shadow uses. 
+The larger the space, the more stretched looking the shadow appears. 
+
+h1 {
+   text-shadow: black, 10px, 5px, 15px;
+}
+
+This produces a black shadow to the right and below the text. 
+
+You can apply more than one shadow to a text element. 
+Just list the different shadow definitions on the same text-shadow line, separated commas:
+
+text-shadow: shadow1, shadow2, ...;
+
